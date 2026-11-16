@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RIZZUMÉ | A Creative Portfolio</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #180f1b;
+      color: #fff5ef;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: radial-gradient(circle, #513048, #180f1b 70%);
+    }
+    .eyebrow {
+      letter-spacing: 4px;
+      font-size: 12px;
+      color: #e8b5c3;
+    }
+    h1 {
+      font-size: clamp(50px, 11vw, 130px);
+      margin: 16px 0;
+      letter-spacing: -5px;
+    }
+    p { color: #dec8d4; }
+    .gift {
+      font-size: 100px;
+      cursor: pointer;
+      transition: transform .5s ease;
+      border: 0;
+      background: none;
+      margin: 30px;
+    }
+    .gift:hover { transform: scale(1.12) rotate(-5deg); }
+    .button {
+      padding: 14px 28px;
+      border-radius: 30px;
+      border: 1px solid #e8b5c3;
+      color: white;
+      background: transparent;
+      cursor: pointer;
+    }
+    .hidden { display: none; }
+    .campaigns {
+      padding: 80px 20px;
+      background: #fff5ef;
+      color: #241322;
+    }
+    .campaigns h2 { font-size: 42px; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 40px auto;
+    }
+    .card {
+      background: white;
+      border: 1px solid #eadde4;
+      padding: 35px 20px;
+      border-radius: 16px;
+      text-align: left;
+      transition: transform .3s;
+    }
+    .card:hover { transform: translateY(-8px); }
+    .card span { font-size: 12px; color: #9b6880; }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="eyebrow">NOT YOUR USUAL CV</div>
+    <h1>RIZZUMÉ.</h1>
+    <p>A little strategy. A little mischief. A lot of ideas.</p>
+
+    <button class="gift" onclick="unwrap()" aria-label="Unwrap portfolio">
+      🎁
+    </button>
+    <button class="button" onclick="unwrap()">Unwrap my work</button>
+  </section>
+
+  <section class="campaigns hidden" id="work">
+    <div class="eyebrow">WELCOME TO MY BRAIN</div>
+    <h2>Different briefs. Different feelings.</h2>
+    <p>Four creative experiments in making brands memorable.</p>
+
+    <div class="cards">
+      <div class="card">
+        <span>01 / B2B · TRUST</span>
+        <h3>Grant Thornton</h3>
+        <p>Trust Built Through Time.</p>
+      </div>
+      <div class="card">
+        <span>02 / B2C · ACCESS</span>
+        <h3>Nuvama</h3>
+        <p>Investing, Ab Sabke Liye.</p>
+      </div>
+      <div class="card">
+        <span>03 / B2C · CURIOSITY</span>
+        <h3>Kurkure × Matcha</h3>
+        <p>An unholy collaboration.</p>
+      </div>
+      <div class="card">
+        <span>04 / B2C · HUMOUR</span>
+        <h3>Butter Chicken Lip Gloss</h3>
+        <p>Glazed. Literally.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function unwrap() {
+      document.getElementById("work").classList.remove("hidden");
+      document.getElementById("work").scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  </script>
+</body>
+</html>
