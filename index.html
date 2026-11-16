@@ -5,84 +5,209 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#101b13">
-<title>(F)res(H)ume. — A fresh take</title>
+<title>(F)res(H)ume. | A Fresh Take</title>
 <style>
-:root{--lime:#dfff59;--dark:#101b13;--cream:#f6f2e6}
+:root{
+  --lime:#dfff59;
+  --dark:#101b13;
+  --cream:#f6f2e6;
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--dark);color:var(--cream);font-family:Arial,Helvetica,sans-serif}
-button,a{font:inherit}
+body{
+  margin:0;background:var(--dark);color:var(--cream);
+  font-family:Arial,Helvetica,sans-serif;
+}
+body.intro-active{overflow:hidden}
 a{color:inherit;text-decoration:none}
-button{cursor:pointer}
-.top{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:18px 6%;background:#101b13ef;backdrop-filter:blur(12px);border-bottom:1px solid #ffffff20}
-.brand{font-weight:900;font-size:22px;letter-spacing:-1px}
+button{font:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{
+  outline:3px solid var(--lime);outline-offset:4px;
+}
+.top{
+  position:sticky;top:0;z-index:20;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px 6%;background:#101b13ed;
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #ffffff25;
+}
+.brand{font-size:22px;font-weight:900;letter-spacing:-1px}
 .top nav{display:flex;gap:22px;font-size:13px}
-.top a:hover,.campaign a:hover{color:var(--lime)}
-.hero{min-height:90vh;display:grid;align-content:center;padding:12vh 7%;background:radial-gradient(ellipse at 78% 25%,#4d6a2d,transparent 52%),var(--dark)}
-.eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--lime);font-weight:700}
-.hero h1{font-size:clamp(64px,12vw,180px);line-height:.86;letter-spacing:-.085em;margin:24px 0;max-width:1200px}
+.top a:hover{color:var(--lime)}
+.hero{
+  min-height:90vh;display:grid;align-content:center;
+  padding:12vh 7%;
+  background:radial-gradient(ellipse at 78% 25%,#4d6a2d,transparent 52%),var(--dark);
+}
+.eyebrow{
+  font-size:12px;letter-spacing:.23em;text-transform:uppercase;
+  color:var(--lime);font-weight:700;
+}
+.hero h1{
+  font-size:clamp(64px,12vw,180px);line-height:.86;
+  letter-spacing:-.085em;margin:24px 0;max-width:1200px;
+}
 .hero h1 em{font-style:normal;color:var(--lime)}
-.hero p{font-size:clamp(17px,2vw,25px);max-width:650px;line-height:1.5}
+.hero p{
+  font-size:clamp(17px,2vw,25px);
+  max-width:650px;line-height:1.5;
+}
 .down{margin-top:50px;font-size:13px;letter-spacing:.12em}
 .section{padding:105px 7%}
-.section h2{font-size:clamp(42px,7vw,95px);line-height:1.03;letter-spacing:-.065em;margin:22px 0 40px}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.panel{min-height:430px;padding:36px;display:flex;flex-direction:column;justify-content:space-between}
-.panel h3{font-size:clamp(70px,9vw,145px);letter-spacing:-.08em;margin:0}
+.section h2{
+  font-size:clamp(42px,7vw,95px);
+  line-height:1.03;letter-spacing:-.065em;
+  margin:22px 0 40px;
+}
+.split{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
+}
+.panel{
+  min-height:430px;padding:36px;display:flex;
+  flex-direction:column;justify-content:space-between;
+  overflow:hidden;
+}
+.panel h3{
+  font-size:clamp(70px,9vw,145px);
+  letter-spacing:-.08em;margin:0;
+}
 .panel p{font-size:20px;line-height:1.45;max-width:380px}
 .b2b{background:#eeeae0;color:#1c261d}
 .b2c{background:var(--lime);color:#1c261d}
 .mood{font-size:12px;letter-spacing:.2em;font-weight:bold}
-.feeling{background:#e6ecd8;color:#1b271a;text-align:center}
+.feeling{
+  background:#e6ecd8;color:#1b271a;text-align:center;
+}
 .feeling h2{max-width:1100px;margin:30px auto}
-.feeling em{font-style:normal;text-decoration:underline;text-decoration-thickness:5px;text-decoration-color:#7aa339}
+.feeling em{
+  font-style:normal;text-decoration:underline;
+  text-decoration-thickness:5px;text-decoration-color:#7aa339;
+}
 .work{background:#f7f3e8;color:#172319}
 .work .eyebrow{color:#56792d}
-.campaign{border-top:1px solid #a9b39e;padding:34px 0;display:grid;grid-template-columns:100px 1fr;gap:24px}
-.campaign h3{font-size:clamp(32px,5vw,62px);letter-spacing:-.05em;margin:0 0 12px}
-.campaign p{line-height:1.6;max-width:750px;color:#485845}
+.campaign{
+  border-top:1px solid #a9b39e;padding:48px 0;
+  display:grid;grid-template-columns:100px 1fr;gap:24px;
+}
+.campaign h3{
+  font-size:clamp(32px,5vw,62px);
+  letter-spacing:-.05em;margin:0 0 12px;
+}
+.campaign p{
+  line-height:1.7;max-width:750px;color:#485845;
+}
 .tag{font-size:12px;letter-spacing:.12em}
-.pill{display:inline-block;border:1px solid #a4b49a;border-radius:30px;padding:9px 14px;font-size:12px;margin:4px 6px 4px 0}
-.campaign a{display:inline-block;margin-top:12px;border-bottom:1px solid currentColor;padding-bottom:5px}
+.pill{
+  display:inline-block;border:1px solid #a4b49a;
+  border-radius:30px;padding:9px 14px;
+  font-size:12px;margin:4px 6px 4px 0;
+}
+.film{
+  margin:28px 0 24px;
+  background:#142017;border-radius:12px;
+  overflow:hidden;max-width:960px;
+  box-shadow:0 18px 40px #1a241626;
+}
+.film video{
+  display:block;width:100%;height:auto;
+  max-height:580px;object-fit:contain;background:#111;
+}
+.film-caption{
+  display:flex;justify-content:space-between;
+  align-items:center;gap:12px;padding:13px 17px;
+  color:#e8eee0;font-size:12px;letter-spacing:.07em;
+}
+.brief-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:18px;margin-top:26px;max-width:960px;
+}
+.brief-grid div{
+  border-top:1px solid #a9b39e;padding-top:15px;
+}
+.brief-grid h4{
+  font-size:12px;letter-spacing:.15em;margin:0 0 10px;
+}
+.brief-grid p{font-size:14px;margin:0;line-height:1.6}
 .resume{background:#1d2a1e}
-.resume-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}
-.resume-grid article{border-top:1px solid #ffffff4d;padding-top:20px}
+.resume-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:35px;
+}
+.resume-grid article{
+  border-top:1px solid #ffffff4d;padding-top:20px;
+}
 .resume-grid h3{font-size:25px}
 .resume-grid p{line-height:1.7;color:#d5ddc9}
-.finale{min-height:60vh;display:grid;place-content:center;text-align:center;background:var(--lime);color:#19220d}
-.finale h2{font-size:clamp(60px,10vw,140px);line-height:.95;letter-spacing:-.07em;margin:20px 0}
+.finale{
+  min-height:60vh;display:grid;place-content:center;
+  text-align:center;background:var(--lime);color:#19220d;
+}
+.finale h2{
+  font-size:clamp(60px,10vw,140px);
+  line-height:.95;letter-spacing:-.07em;margin:20px 0;
+}
 .finale p{font-size:20px}
-footer{padding:35px 7%;display:flex;gap:20px;justify-content:space-between;font-size:12px}
-#video-intro{position:fixed;inset:0;z-index:9999;background:#070907;display:grid;place-items:center;transition:opacity .85s ease}
-#video-intro video{width:100%;height:100%;object-fit:cover}
+footer{
+  padding:35px 7%;display:flex;gap:20px;
+  justify-content:space-between;font-size:12px;
+}
+#video-intro{
+  position:fixed;inset:0;z-index:9999;
+  background:#070907;display:grid;place-items:center;
+  transition:opacity .85s ease;
+}
+#video-intro video{
+  width:100%;height:100%;object-fit:cover;
+}
 #video-intro.done{opacity:0;pointer-events:none}
-.sound-button{position:absolute;bottom:32px;right:32px;z-index:3;background:var(--lime);color:#19220d;border:0;border-radius:50px;padding:15px 22px;font-size:14px;font-weight:800;box-shadow:0 8px 35px #0008}
-.sound-button:focus-visible{outline:3px solid white;outline-offset:4px}
-.sound-hint{position:absolute;left:32px;bottom:37px;font-size:12px;letter-spacing:.12em;color:#fff;text-shadow:0 2px 5px #000}
-.error{position:absolute;bottom:100px;background:#111b14dd;padding:14px 20px;font-size:14px;max-width:90%;text-align:center}
-body.intro-active{overflow:hidden}
+.sound-button{
+  position:absolute;bottom:32px;right:32px;z-index:3;
+  background:var(--lime);color:#19220d;border:0;
+  border-radius:50px;padding:15px 22px;
+  font-size:14px;font-weight:800;
+  box-shadow:0 8px 35px #0008;
+}
+.sound-hint{
+  position:absolute;left:32px;bottom:37px;
+  font-size:12px;letter-spacing:.12em;
+  color:#fff;text-shadow:0 2px 5px #000;
+}
+.video-error{
+  position:absolute;bottom:100px;
+  background:#111b14dd;padding:14px 20px;
+  font-size:14px;text-align:center;
+}
 @media(max-width:700px){
-.split,.resume-grid{grid-template-columns:1fr}
-.campaign{grid-template-columns:1fr;gap:6px}
-.panel{min-height:310px}
-.section{padding:75px 6%}
-.top nav{gap:10px;font-size:11px}
-.sound-button{right:16px;bottom:20px}
-.sound-hint{left:16px;bottom:80px}
-.hero{min-height:75vh}
-footer{flex-direction:column}
+  .split,.resume-grid,.brief-grid{grid-template-columns:1fr}
+  .campaign{grid-template-columns:1fr;gap:6px}
+  .panel{min-height:310px}
+  .section{padding:75px 6%}
+  .top nav{gap:10px;font-size:11px}
+  .sound-button{right:16px;bottom:20px}
+  .sound-hint{left:16px;bottom:80px}
+  .hero{min-height:75vh}
+  footer{flex-direction:column}
+  .film-caption{flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
 }
 </style>
 </head>
+
 <body class="intro-active">
 
+<!-- CINEMATIC OPENING -->
 <div id="video-intro" aria-label="Opening film">
   <video id="opening-video" autoplay muted playsinline preload="auto">
     <source src="FresHume_Branded_Opening.mp4" type="video/mp4">
   </video>
-  <span class="sound-hint">A FRESH INTRODUCTION · 00:08</span>
-  <button class="sound-button" id="sound-button" type="button">🔊 Watch with sound</button>
-  <div class="error" id="video-error" hidden>Video unavailable. Continuing to the portfolio.</div>
+  <span class="sound-hint">A FRESH INTRODUCTION</span>
+  <button class="sound-button" id="sound-button" type="button">
+    🔊 Watch with sound
+  </button>
+  <div class="video-error" id="video-error" hidden>
+    Video unavailable. Continuing to the portfolio.
+  </div>
 </div>
 
 <header class="top">
@@ -95,13 +220,21 @@ footer{flex-direction:column}
 </header>
 
 <main>
+
+<!-- HERO -->
 <section class="hero" id="home">
   <span class="eyebrow">A résumé with a little more fizz</span>
   <h1>Not another<br><em>résumé.</em></h1>
-  <p>A fresh take on brand strategy, storytelling and creative work that makes people feel something.</p>
-  <div class="down">SCROLL TO MEET THE MIND BEHIND THE WORK ↓</div>
+  <p>
+    A fresh take on brand strategy, storytelling and
+    creative work that makes people feel something.
+  </p>
+  <div class="down">
+    SCROLL TO MEET THE MIND BEHIND THE WORK ↓
+  </div>
 </section>
 
+<!-- B2B AND B2C -->
 <section class="section" id="worlds">
   <span class="eyebrow">01 / Two worlds</span>
   <h2>Same brain.<br>Different volume.</h2>
@@ -109,92 +242,267 @@ footer{flex-direction:column}
     <article class="panel b2b">
       <span class="mood">THE QUIET CONFIDENCE · PIANO</span>
       <h3>B2B.</h3>
-      <p>Measured. Elegant. Built to earn trust, one considered note at a time.</p>
+      <p>
+        Measured. Elegant. Built to earn trust,
+        one considered note at a time.
+      </p>
     </article>
     <article class="panel b2c">
       <span class="mood">THE BEAUTIFUL NOISE · ROCK & ROLL</span>
       <h3>B2C.</h3>
-      <p>Loud. Fast. A little outrageous. Made to be impossible to ignore.</p>
+      <p>
+        Loud. Fast. A little outrageous.
+        Made to be impossible to ignore.
+      </p>
     </article>
   </div>
 </section>
 
+<!-- FEELING -->
 <section class="section feeling">
-  <span class="eyebrow" style="color:#52782d">02 / The common thread</span>
-  <h2>Different audiences.<br>Different emotions.<br>One job: make them <em>feel.</em></h2>
+  <span class="eyebrow" style="color:#52782d">
+    02 / The common thread
+  </span>
+  <h2>
+    Different audiences.<br>
+    Different emotions.<br>
+    One job: make them <em>feel.</em>
+  </h2>
 </section>
 
+<!-- CAMPAIGNS -->
 <section class="section work" id="campaigns">
   <span class="eyebrow">03 / The creative laboratory</span>
   <h2>Four briefs.<br>Four different feelings.</h2>
 
+  <!-- GRANT THORNTON -->
   <article class="campaign">
     <span class="tag">01 / B2B</span>
     <div>
       <h3>Grant Thornton</h3>
-      <p><strong>Trust built through time.</strong> An imagined corporate-branding brief about turning an intangible promise into something people can see and feel. Understated visuals, enduring relationships, a quiet confidence.</p>
+      <p>
+        <strong>Trust built through time.</strong>
+        An imagined corporate-branding brief about
+        turning an intangible promise into something
+        people can see and feel.
+      </p>
+
+      <div class="film">
+        <video controls playsinline preload="metadata"
+          aria-label="Grant Thornton concept campaign film">
+          <source src="grant_thornton.mp4" type="video/mp4">
+          Your browser does not support video.
+        </video>
+        <div class="film-caption">
+          <span>GRANT THORNTON · CONCEPT FILM</span>
+          <span>▶ PLAY WITH SOUND</span>
+        </div>
+      </div>
+
       <span class="pill">Brand trust</span>
       <span class="pill">Corporate film</span>
-      <span class="pill">Employer brand</span>
+      <span class="pill">Employer branding</span>
+
+      <div class="brief-grid">
+        <div>
+          <h4>THE BRIEF</h4>
+          <p>Make corporate trust feel human, credible and memorable.</p>
+        </div>
+        <div>
+          <h4>THE INSIGHT</h4>
+          <p>Trust is not declared. It is demonstrated through relationships and consistency.</p>
+        </div>
+        <div>
+          <h4>THE EXECUTION</h4>
+          <p>A restrained cinematic narrative built around time, people and confidence.</p>
+        </div>
+      </div>
     </div>
   </article>
 
+  <!-- NUVAMA -->
   <article class="campaign">
     <span class="tag">02 / B2C</span>
     <div>
       <h3>Nuvama Wealth</h3>
-      <p><strong>Investing, ab sabke liye.</strong> A speculative Hindi-speaking North India campaign: a woman making chutney checks her portfolio on a modest phone. Everyday familiarity meets financial agency.</p>
+      <p>
+        <strong>Investing, ab sabke liye.</strong>
+        A speculative campaign exploring how financial
+        communication could become more familiar and
+        approachable for women in Hindi-speaking North India.
+      </p>
+
+      <div class="film">
+        <video controls playsinline preload="metadata"
+          aria-label="Nuvama Wealth concept campaign film">
+          <source src="nuvama_wealth.mp4" type="video/mp4">
+          Your browser does not support video.
+        </video>
+        <div class="film-caption">
+          <span>NUVAMA WEALTH · CONCEPT FILM</span>
+          <span>▶ PLAY WITH SOUND</span>
+        </div>
+      </div>
+
       <span class="pill">Regional storytelling</span>
-      <span class="pill">Financial inclusion</span>
-      <span class="pill">Concept film</span>
+      <span class="pill">Financial access</span>
+      <span class="pill">Women investors</span>
+
+      <div class="brief-grid">
+        <div>
+          <h4>THE BRIEF</h4>
+          <p>Make investing feel relevant and accessible to an underserved regional audience.</p>
+        </div>
+        <div>
+          <h4>THE INSIGHT</h4>
+          <p>Financial conversations can feel less intimidating when they begin with familiar cultural references.</p>
+        </div>
+        <div>
+          <h4>THE EXECUTION</h4>
+          <p>Everyday North Indian imagery, regional language and an approachable investing narrative.</p>
+        </div>
+      </div>
     </div>
   </article>
 
+  <!-- KURKURE -->
   <article class="campaign">
     <span class="tag">03 / B2C</span>
     <div>
       <h3>Kurkure × Matcha</h3>
-      <p><strong>Crunch meets calm.</strong> A deliberately divisive fusion designed for the first three seconds of a social feed. An Indian snack in a Parisian matcha ritual. Weird enough to start a conversation.</p>
+      <p>
+        <strong>Crunch meets calm.</strong>
+        A deliberately divisive food-fusion concept.
+        Indian snack culture collides with the polished
+        ritual of a Parisian matcha latte.
+      </p>
+
+      <div class="film">
+        <video controls playsinline preload="metadata"
+          aria-label="Kurkure Matcha speculative campaign film">
+          <source src="kurkure_matcha.mp4" type="video/mp4">
+          Your browser does not support video.
+        </video>
+        <div class="film-caption">
+          <span>KURKURE × MATCHA · SPECULATIVE FILM</span>
+          <span>▶ PLAY WITH SOUND</span>
+        </div>
+      </div>
+
       <span class="pill">Rage bait</span>
       <span class="pill">Social-first</span>
       <span class="pill">Food culture</span>
+
+      <div class="brief-grid">
+        <div>
+          <h4>THE BRIEF</h4>
+          <p>Create a scroll-stopping food moment that sparks immediate conversation.</p>
+        </div>
+        <div>
+          <h4>THE INSIGHT</h4>
+          <p>Unexpected cultural combinations can generate curiosity, disagreement and sharing.</p>
+        </div>
+        <div>
+          <h4>THE EXECUTION</h4>
+          <p>Close-up food textures, harsh pouring sounds and a visually unexpected fusion.</p>
+        </div>
+      </div>
     </div>
   </article>
 
+  <!-- BUTTER CHICKEN LIP GLOSS -->
   <article class="campaign">
     <span class="tag">04 / B2C</span>
     <div>
       <h3>Butter Chicken Lip Gloss</h3>
-      <p><strong>What people think a Punjabi beauty brand would launch.</strong> A tongue-in-cheek speculative product parody, playing with cultural expectations before revealing a real beauty proposition.</p>
+      <p>
+        <strong>What people think a Punjabi beauty brand would launch.</strong>
+        A playful parody of cultural expectations,
+        using an absurd product concept to set up
+        a more surprising beauty-brand story.
+      </p>
+
+      <div class="film">
+        <video controls playsinline preload="metadata"
+          aria-label="Butter Chicken Lip Gloss speculative campaign film">
+          <source src="butter_chicken_lipgloss.mp4" type="video/mp4">
+          Your browser does not support video.
+        </video>
+        <div class="film-caption">
+          <span>BUTTER CHICKEN LIP GLOSS · SPECULATIVE FILM</span>
+          <span>▶ PLAY WITH SOUND</span>
+        </div>
+      </div>
+
       <span class="pill">Beauty</span>
       <span class="pill">Satire</span>
       <span class="pill">Product storytelling</span>
+
+      <div class="brief-grid">
+        <div>
+          <h4>THE BRIEF</h4>
+          <p>Challenge stereotypes around what a Punjabi-inspired beauty brand might sell.</p>
+        </div>
+        <div>
+          <h4>THE INSIGHT</h4>
+          <p>Humour can turn an audience's assumptions into an engaging brand conversation.</p>
+        </div>
+        <div>
+          <h4>THE EXECUTION</h4>
+          <p>A deliberately outrageous lip-gloss concept, followed by a playful brand reveal.</p>
+        </div>
+      </div>
     </div>
   </article>
 
-  <p style="margin-top:40px;font-size:13px">Independent creative explorations, not official commissions or affiliated brand campaigns. Individual films and supporting creative boards can be added below each brief.</p>
+  <p style="margin-top:40px;font-size:13px">
+    These are independent speculative creative concepts,
+    not official commissions or affiliated brand campaigns.
+  </p>
 </section>
 
+<!-- RESUME -->
 <section class="section resume" id="resume">
   <span class="eyebrow">04 / The person behind the ideas</span>
   <h2>Strategy has a CV.<br>Creativity has a pulse.</h2>
+
   <div class="resume-grid">
     <article>
       <h3>What I bring</h3>
-      <p>Marketing strategy, brand storytelling, research-led thinking, campaign ideation and the ability to move between boardroom clarity and consumer-culture chaos.</p>
+      <p>
+        Marketing strategy, brand storytelling,
+        research-led thinking, campaign ideation,
+        and the ability to move between boardroom
+        clarity and consumer-culture chaos.
+      </p>
     </article>
+
     <article>
-      <h3>Experience & education</h3>
-      <p>This section is ready for your approved professional history, qualifications and contact details. No employer names, dates or credentials have been invented.</p>
+      <h3>Experience & Education</h3>
+      <p>
+        MSc Marketing · University of Bath
+      </p>
+      <p>
+        Undergraduate studies · Lady Shri Ram College,
+        University of Delhi
+      </p>
+      <p>
+        Professional experience across consulting,
+        wealth management and a US-based small business.
+      </p>
     </article>
   </div>
 </section>
 
+<!-- FINALE -->
 <section class="section finale">
-  <span class="eyebrow" style="color:#39461d">05 / The point</span>
+  <span class="eyebrow" style="color:#39461d">
+    05 / The point
+  </span>
   <h2>Make them feel<br>something.</h2>
   <p>Strategy with substance. Creativity with a pulse.</p>
 </section>
+
 </main>
 
 <footer>
@@ -204,39 +512,40 @@ footer{flex-direction:column}
 
 <script>
 (()=>{
-  const wrap=document.getElementById('video-intro');
-  const video=document.getElementById('opening-video');
-  const button=document.getElementById('sound-button');
-  const error=document.getElementById('video-error');
+  const wrap=document.getElementById("video-intro");
+  const video=document.getElementById("opening-video");
+  const button=document.getElementById("sound-button");
+  const error=document.getElementById("video-error");
   let finished=false;
 
   function finish(){
     if(finished)return;
     finished=true;
-    document.body.classList.remove('intro-active');
-    wrap.classList.add('done');
+    document.body.classList.remove("intro-active");
+    wrap.classList.add("done");
     setTimeout(()=>wrap.remove(),950);
   }
 
-  video.addEventListener('ended',finish);
+  video.addEventListener("ended",finish);
 
-  video.addEventListener('error',()=>{
+  video.addEventListener("error",()=>{
     error.hidden=false;
     setTimeout(finish,1300);
   });
 
-  button.addEventListener('click',async()=>{
+  button.addEventListener("click",async()=>{
     video.muted=false;
     video.volume=1;
     video.currentTime=0;
+
     try{
       await video.play();
-      button.textContent='🔊 Sound on';
+      button.textContent="🔊 Sound on";
       button.disabled=true;
       setTimeout(()=>button.remove(),900);
     }catch(e){
       video.muted=true;
-      button.textContent='Sound unavailable · try again';
+      button.textContent="Sound unavailable · try again";
     }
   });
 
@@ -248,7 +557,19 @@ footer{flex-direction:column}
   setTimeout(()=>{
     if(!finished&&video.readyState===0)finish();
   },12000);
+
+  // Pause other campaign films when a new one plays.
+  const films=document.querySelectorAll(".film video");
+
+  films.forEach(current=>{
+    current.addEventListener("play",()=>{
+      films.forEach(other=>{
+        if(other!==current)other.pause();
+      });
+    });
+  });
 })();
 </script>
+
 </body>
 </html>
