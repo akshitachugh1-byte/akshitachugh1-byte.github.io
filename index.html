@@ -3,1432 +3,799 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101c13">
-<title>(F)res(H)ume. | Strategy with a pulse</title>
-<meta name="description" content="A fresh take on brand strategy, storytelling and creative communications. An independent concept portfolio.">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101b13">
+<title>(F)res(H)ume. | A fresh take</title>
 <style>
-:root {
-  --dark:#101c13;
-  --cream:#f7f4e9;
+:root{
+  --dark:#101b13;
+  --cream:#f7f4e8;
   --lime:#dcff58;
-  --green:#547e2b;
-  --muted:#65715d;
+  --green:#557d29;
 }
-* { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body {
-  margin:0;
-  background:var(--cream);
-  color:var(--dark);
-  font-family:Arial,Helvetica,sans-serif;
-}
-button,a { font:inherit; }
-a { color:inherit; text-decoration:none; }
-button { cursor:pointer; }
-img,video { max-width:100%; }
-::selection { background:var(--lime);color:var(--dark); }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--dark);font-family:Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+h1,h2,h3,p{margin-top:0}
+::selection{background:var(--lime);color:var(--dark)}
 
-/* NAVIGATION */
-.site-nav {
-  position:fixed;
-  top:0;left:0;right:0;
-  height:66px;
-  z-index:100;
-  background:#101c13ed;
-  color:var(--cream);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 5%;
-  border-bottom:1px solid #ffffff22;
+/* OPENING */
+.opening{
+ position:fixed;inset:0;z-index:9999;
+ background:#090909;color:white;
+ transition:opacity .8s ease,visibility .8s;
 }
-.logo {
-  font-size:23px;
-  font-weight:900;
-  letter-spacing:-1.5px;
+.opening.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.intro-scene{
+ position:absolute;inset:0;opacity:0;visibility:hidden;
+ transition:opacity .65s ease,visibility .65s;
+ overflow:hidden;
 }
-.nav-links { display:flex;gap:25px;font-size:13px; }
-.nav-links a:hover { color:var(--lime); }
+.intro-scene.active{opacity:1;visibility:visible}
+.intro-mosaic{
+ position:absolute;inset:0;display:grid;
+ grid-template-columns:repeat(3,minmax(0,1fr));
+ grid-template-rows:repeat(2,minmax(0,1fr));
+ gap:5px;background:#111;
+}
+.tile{
+ position:relative;overflow:hidden;display:flex;
+ flex-direction:column;align-items:center;justify-content:center;
+ min-width:0;background:#242424;
+}
+.tile img,.tile video{
+ width:100%;height:100%;object-fit:cover;
+ display:block;
+}
+.tile img{animation:zoom 7s ease-in-out infinite alternate}
+.b2b .tile img{filter:grayscale(1) brightness(.55)}
+.b2c .tile img{filter:saturate(1.35) brightness(.7)}
+.b2b .tile{background:#252525}
+.b2c .tile{background:#ef8a38}
+.tile small{
+ font-size:11px;font-weight:800;letter-spacing:.2em;
+ text-align:center;padding:8px;
+}
+.scene-title{
+ position:absolute;z-index:5;top:50%;left:6%;
+ transform:translateY(-50%);
+ font-size:clamp(105px,24vw,390px);
+ line-height:.8;letter-spacing:-.11em;
+ font-weight:900;margin:0;pointer-events:none;
+ text-shadow:0 8px 35px #0006;
+}
+.b2b .scene-title{color:var(--cream)}
+.b2c .scene-title{color:var(--lime)}
+.scene-caption{
+ position:absolute;z-index:5;left:7%;bottom:8%;
+ font-size:12px;font-weight:900;letter-spacing:.22em;
+}
+.keyboard{
+ font-size:clamp(65px,10vw,145px);
+ animation:tap .35s infinite alternate;
+}
+.market-label{font-size:11px;letter-spacing:.2em;margin-bottom:25px}
+.market-bars{height:135px;display:flex;align-items:end;gap:12px}
+.market-bars i{
+ width:22px;background:#e8e8e8;height:60%;
+ animation:bars 1.2s ease-in-out infinite alternate;
+}
+.market-bars i:nth-child(2){height:85%;animation-delay:.2s}
+.market-bars i:nth-child(3){height:35%;animation-delay:.4s}
+.market-bars i:nth-child(4){height:70%;animation-delay:.6s}
+.market-bars i:nth-child(5){height:95%;animation-delay:.8s}
+.notice{
+ position:absolute;background:#eee;color:#222;
+ padding:12px 17px;border-radius:7px;font-size:13px;
+ box-shadow:0 10px 30px #0006;
+ animation:float 2.5s ease-in-out infinite alternate;
+}
+.notice.one{top:18%;left:8%}
+.notice.two{top:45%;right:8%;animation-delay:.5s}
+.notice.three{bottom:15%;left:13%;animation-delay:1s}
+.clock{font:700 clamp(30px,5vw,70px) monospace}
+.music{
+ background:linear-gradient(135deg,#f44289,#7026c8)!important;
+}
+.music-note{
+ font-size:clamp(100px,15vw,210px);
+ animation:float 1s infinite alternate;
+}
+.candy{
+ background:#ffb7d6!important;color:#a31b65;
+ font-size:clamp(35px,6vw,90px);
+ font-weight:900;letter-spacing:-.08em;
+}
+.candy span{animation:float 1.4s infinite alternate}
+.candy span:nth-child(2){animation-delay:.3s}
+.candy span:nth-child(3){animation-delay:.6s}
+.chocolate video{
+ width:100%;height:100%;object-fit:cover;
+}
+.chocolate-shade{
+ position:absolute;inset:0;
+ background:linear-gradient(transparent 20%,#000b);
+}
+.chocolate-message{
+ position:absolute;bottom:15%;left:7%;right:7%;
+ font-size:clamp(38px,6.5vw,105px);
+ line-height:1.04;letter-spacing:-.07em;
+ font-weight:900;opacity:0;
+ transform:translateY(25px);
+ transition:opacity .8s,transform .8s;
+ text-shadow:0 5px 30px #0009;
+}
+.chocolate-message.visible{opacity:1;transform:translateY(0)}
+.chocolate-message u{
+ text-decoration-color:var(--lime);
+ text-decoration-thickness:5px;
+ text-underline-offset:10px;
+}
+.opening-actions{
+ position:absolute;z-index:20;bottom:22px;right:25px;
+ display:flex;gap:10px;
+}
+.pill{
+ border:1px solid #ffffff55;background:#101b13eb;
+ color:white;border-radius:50px;padding:13px 22px;
+ font-size:13px;font-weight:700;
+}
+.pill:hover{background:#31452a}
+@keyframes zoom{to{transform:scale(1.13) translate(2%,-2%)}}
+@keyframes tap{to{transform:translateY(8px)}}
+@keyframes bars{to{height:20%}}
+@keyframes float{to{transform:translateY(-22px)}}
 
-/* VIDEO OPENING */
-.opening {
-  position:fixed;
-  inset:0;
-  z-index:1000;
-  background:#080b08;
-  display:grid;
-  place-items:center;
-  overflow:hidden;
+/* NAV */
+.site-header{
+ position:sticky;top:0;z-index:100;
+ display:flex;justify-content:space-between;align-items:center;
+ padding:19px 5%;background:var(--dark);
+ color:var(--cream);border-bottom:1px solid #ffffff20;
 }
-.opening video {
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.opening .shade {
-  position:absolute;
-  inset:0;
-  background:linear-gradient(transparent 40%,#0008);
-  pointer-events:none;
-}
-.opening-copy {
-  position:absolute;
-  bottom:13%;
-  left:7%;
-  right:7%;
-  color:white;
-  font-size:clamp(32px,5vw,75px);
-  font-weight:900;
-  line-height:1.05;
-  letter-spacing:-.055em;
-  text-shadow:0 3px 20px #0009;
-  opacity:0;
-  transition:opacity .6s;
-  pointer-events:none;
-}
-.opening-copy.show { opacity:1; }
-.opening-copy u {
-  text-decoration-color:var(--lime);
-  text-underline-offset:9px;
-}
-.opening-actions {
-  position:absolute;
-  right:4%;
-  bottom:4%;
-  display:flex;
-  gap:10px;
-  z-index:3;
-}
-.pill {
-  border:1px solid #ffffff70;
-  background:#101c13dd;
-  color:white;
-  border-radius:40px;
-  padding:12px 18px;
-  font-size:13px;
-}
-.pill:hover { background:#33462d; }
-.opening.hidden {
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .8s;
-}
-
-/* SHARED TYPOGRAPHY */
-.kicker {
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.23em;
-  text-transform:uppercase;
-  color:var(--green);
-}
-.big-heading {
-  font-size:clamp(45px,8vw,120px);
-  line-height:.98;
-  letter-spacing:-.075em;
-  margin:25px 0;
-}
-.section-pad { padding:110px 7%; }
-.small-note {
-  font-size:12px;
-  line-height:1.6;
-  color:var(--muted);
-}
+.logo{font-size:25px;font-weight:900;letter-spacing:-.07em}
+.site-nav{display:flex;gap:30px;font-size:14px}
+.site-nav a:hover{color:var(--lime)}
 
 /* PHILOSOPHY */
-.philosophy {
-  min-height:100svh;
-  background:#e9efdc;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:110px 6%;
+.philosophy{
+ min-height:100svh;background:#e9eedb;
+ display:flex;flex-direction:column;
+ justify-content:center;align-items:center;
+ text-align:center;padding:100px 6%;
 }
-.philosophy h1 {
-  font-size:clamp(46px,7.5vw,120px);
-  line-height:1.04;
-  letter-spacing:-.075em;
-  max-width:1400px;
-  margin:35px auto;
+.kicker{
+ text-transform:uppercase;letter-spacing:.3em;
+ font-size:12px;font-weight:900;color:var(--green);
 }
-.philosophy em {
-  color:var(--green);
-  text-decoration:underline;
-  text-underline-offset:10px;
+.philosophy h1{
+ font-size:clamp(42px,7.5vw,125px);
+ line-height:1.02;letter-spacing:-.075em;
+ max-width:1500px;margin:25px auto;
 }
-.scroll-cue {
-  margin-top:45px;
-  font-size:12px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
+.philosophy em{
+ color:var(--green);
+ text-decoration:underline;
+ text-underline-offset:10px;
 }
 
-/* B2B AND B2C */
-.world {
-  position:relative;
-  height:100svh;
-  min-height:600px;
-  overflow:hidden;
-  background:#151515;
-  color:white;
-  display:flex;
-  align-items:center;
-  padding:7%;
+/* CAMPAIGNS */
+.campaign{
+ min-height:100svh;padding:110px 7%;
+ background:var(--cream);color:var(--dark);
+ border-bottom:1px solid #d4d8c8;
 }
-.world.b2c { background:#322315; }
-.world-title {
-  position:relative;
-  z-index:4;
-  font-size:clamp(100px,22vw,350px);
-  line-height:.8;
-  letter-spacing:-.11em;
-  font-weight:900;
-  pointer-events:none;
+.campaign:nth-of-type(even){background:#e9eedb}
+.campaign-head{max-width:1100px;margin-bottom:55px}
+.campaign h2{
+ font-size:clamp(45px,7.5vw,110px);
+ line-height:1.02;letter-spacing:-.075em;
+ margin:22px 0;
 }
-.world.b2c .world-title { color:var(--lime); }
-.world-caption {
-  position:absolute;
-  z-index:4;
-  bottom:8%;
-  left:7%;
-  font-size:13px;
-  letter-spacing:.2em;
-  font-weight:bold;
+.campaign-lead{
+ font-size:clamp(19px,2.2vw,30px);
+ line-height:1.4;max-width:900px;
 }
-.world-grid {
-  position:absolute;
-  inset:0;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  grid-template-rows:1fr 1fr;
-  gap:5px;
-  opacity:.65;
+.campaign-lead strong{color:var(--green)}
+.film-wrap{
+ background:#101b13;padding:12px;
+ border-radius:4px;margin-bottom:55px;
 }
-.world-tile {
-  overflow:hidden;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#253027;
+.film-wrap video{
+ display:block;width:100%;max-height:80vh;
+ aspect-ratio:16/9;object-fit:contain;background:#000;
 }
-.world-tile img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  filter:grayscale(1) brightness(.6);
-  animation:drift 12s ease-in-out infinite alternate;
+.film-caption{
+ display:flex;justify-content:space-between;gap:15px;
+ padding:15px 6px 5px;color:#cbd7c4;
+ font-size:12px;letter-spacing:.08em;
 }
-.b2c .world-tile img {
-  filter:saturate(1.2) brightness(.7);
+.mockup-heading{
+ font-size:clamp(28px,4vw,55px);
+ letter-spacing:-.06em;margin-bottom:25px;
 }
-.world-tile:nth-child(even) img {
-  animation-delay:-5s;
+.mockup-grid{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:16px;
 }
-.world-tile svg {
-  width:80%;
-  max-height:75%;
-  opacity:.8;
+.mockup{
+ background:white;border:1px solid #d5dacb;
+ overflow:hidden;min-width:0;
 }
-.animated-keyboard {
-  font-size:clamp(50px,8vw,130px);
-  animation:tap .3s infinite alternate;
+.mockup-top{
+ display:flex;justify-content:space-between;align-items:center;
+ padding:14px 17px;border-bottom:1px solid #ddd;
+ font-size:11px;font-weight:800;letter-spacing:.1em;
 }
-.call-screen {
-  display:grid;
-  gap:15px;
-  text-align:center;
-  font-size:20px;
+.mockup-visual{
+ aspect-ratio:4/3;position:relative;overflow:hidden;
+ display:flex;align-items:center;justify-content:center;
+ padding:25px;text-align:center;
 }
-.call-icon {
-  width:75px;height:75px;
-  border-radius:50%;
-  background:#3277c8;
-  display:grid;
-  place-items:center;
-  font-size:36px;
-  margin:auto;
-  animation:ring 1.3s infinite;
+.mockup-visual img{
+ position:absolute;inset:0;width:100%;height:100%;
+ object-fit:cover;
 }
-.chart-bars {
-  display:flex;
-  gap:12px;
-  height:180px;
-  align-items:end;
+.mockup-visual:after{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(transparent,#0009);
 }
-.chart-bars i {
-  display:block;
-  width:25px;
-  height:var(--h);
-  background:var(--lime);
-  animation:barPulse 2s ease-in-out infinite alternate;
+.mockup-visual strong{
+ position:relative;z-index:2;color:white;
+ font-size:clamp(23px,3vw,47px);
+ line-height:1;letter-spacing:-.06em;
 }
-.chart-bars i:nth-child(2) { animation-delay:.4s; }
-.chart-bars i:nth-child(3) { animation-delay:.8s; }
-.chart-bars i:nth-child(4) { animation-delay:1.2s; }
-.balloon {
-  width:100px;height:125px;
-  border-radius:55% 55% 50% 50%;
-  background:#fa7c92;
-  position:relative;
-  animation:float 3s ease-in-out infinite;
+.mockup-bottom{padding:20px}
+.mockup-bottom h3{font-size:20px;margin-bottom:8px}
+.mockup-bottom p{
+ color:#586456;font-size:14px;line-height:1.5;margin:0;
 }
-.balloon:after {
-  content:"";
-  position:absolute;
-  top:100%;left:50%;
-  width:2px;height:110px;
-  background:white;
+.strategy-strip{
+ margin-top:22px;padding:25px 30px;
+ background:var(--dark);color:var(--cream);
+ display:flex;gap:20px;align-items:center;
+ justify-content:space-between;
 }
-@keyframes drift {
-  from { transform:scale(1); }
-  to { transform:scale(1.12) translate(2%,-2%); }
-}
-@keyframes tap {
-  to { transform:translateY(5px); }
-}
-@keyframes ring {
-  50% { transform:rotate(12deg) scale(1.1); }
-}
-@keyframes barPulse {
-  to { height:calc(var(--h) * .65); }
-}
-@keyframes float {
-  50% { transform:translateY(-25px) rotate(7deg); }
+.strategy-strip p{margin:0;max-width:800px;line-height:1.5}
+.strategy-strip span{
+ color:var(--lime);font-size:11px;
+ font-weight:900;letter-spacing:.2em;
+ white-space:nowrap;
 }
 
-/* CAMPAIGN SECTIONS */
-.campaign {
-  padding:110px 6% 90px;
-  min-height:100svh;
-  border-bottom:1px solid #1a271a22;
-}
-.campaign.grant { background:#f3f1e8; }
-.campaign.nuvama { background:#f8f1ed; }
-.campaign.kurkure { background:#f1f5e6; }
-.campaign.nandos { background:#fff0e7; }
-
-.campaign-head {
-  display:grid;
-  grid-template-columns:1fr 1.4fr;
-  gap:6%;
-  align-items:end;
-  margin-bottom:50px;
-}
-.campaign h2 {
-  font-size:clamp(48px,6.5vw,100px);
-  letter-spacing:-.07em;
-  line-height:.98;
-  margin:20px 0;
-}
-.campaign-question {
-  font-size:clamp(21px,2.2vw,34px);
-  line-height:1.3;
-  letter-spacing:-.035em;
-  max-width:750px;
-}
-.campaign-question strong { color:var(--green); }
-.campaign-film {
-  position:relative;
-  background:#0c100d;
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:0 25px 60px #0002;
-}
-.campaign-film video {
-  width:100%;
-  display:block;
-  max-height:78vh;
-  background:black;
-  object-fit:contain;
-}
-.film-label {
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  margin:16px 0 50px;
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:.15em;
-  color:#53604e;
-}
-.mockup-heading {
-  font-size:clamp(28px,4vw,55px);
-  letter-spacing:-.06em;
-  margin:65px 0 25px;
-}
-.mockup-grid {
-  display:grid;
-  grid-template-columns:repeat(12,minmax(0,1fr));
-  gap:20px;
-}
-.mockup {
-  background:#fff;
-  border:1px solid #00000015;
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 10px 35px #0000000b;
-}
-.mockup.wide { grid-column:span 7; }
-.mockup.narrow { grid-column:span 5; }
-.mockup.half { grid-column:span 6; }
-.mockup.full { grid-column:span 12; }
-.mockup-label {
-  padding:17px 20px;
-  border-top:1px solid #00000013;
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  background:#fff;
-}
-.browser-bar {
-  height:36px;
-  background:#e8e9e6;
-  display:flex;
-  align-items:center;
-  gap:7px;
-  padding:0 15px;
-}
-.browser-bar i {
-  width:8px;height:8px;
-  background:#a5aaa1;
-  border-radius:50%;
-}
-.browser-url {
-  margin-left:12px;
-  color:#667064;
-  font-size:10px;
-}
-.site-preview {
-  min-height:330px;
-  padding:35px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-}
-.site-preview h4 {
-  font-size:clamp(30px,4vw,60px);
-  line-height:1;
-  letter-spacing:-.06em;
-  margin:30px 0 15px;
-  max-width:650px;
-}
-.site-preview p {
-  max-width:480px;
-  font-size:15px;
-  line-height:1.5;
-}
-.site-preview .cta {
-  display:inline-block;
-  width:max-content;
-  padding:12px 20px;
-  border-radius:30px;
-  font-size:12px;
-  font-weight:bold;
-}
-.brand-row {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  font-size:13px;
-  font-weight:900;
-}
-.social-preview {
-  min-height:330px;
-  padding:22px;
-  display:flex;
-  flex-direction:column;
-}
-.social-top {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:12px;
-  font-weight:bold;
-  padding-bottom:15px;
-}
-.avatar {
-  width:30px;height:30px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:#dde7d4;
-  font-size:12px;
-}
-.social-art {
-  flex:1;
-  min-height:215px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:28px;
-  overflow:hidden;
-}
-.social-art h4 {
-  font-size:clamp(25px,3.5vw,48px);
-  line-height:1.04;
-  letter-spacing:-.06em;
-  margin:0 0 15px;
-}
-.social-art p {
-  font-size:14px;
-  max-width:360px;
-}
-.social-actions {
-  padding:14px 0 0;
-  font-size:17px;
-  letter-spacing:.25em;
-}
-.youtube-preview {
-  padding:22px;
-  background:#fafafa;
-  min-height:330px;
-}
-.youtube-art {
-  position:relative;
-  min-height:235px;
-  aspect-ratio:16/9;
-  display:flex;
-  align-items:center;
-  padding:25px;
-  overflow:hidden;
-}
-.youtube-art h4 {
-  font-size:clamp(25px,3.5vw,48px);
-  line-height:1;
-  letter-spacing:-.06em;
-  margin:0;
-  max-width:80%;
-}
-.play-icon {
-  position:absolute;
-  bottom:16px;
-  right:16px;
-  background:#ff0033;
-  color:white;
-  padding:10px 15px;
-  border-radius:10px;
-}
-.youtube-meta {
-  font-size:13px;
-  font-weight:bold;
-  margin-top:15px;
-}
-.linkedin-preview {
-  padding:35px;
-  min-height:330px;
-  background:#fff;
-}
-.linkedin-preview h4 {
-  font-size:clamp(25px,3.5vw,48px);
-  letter-spacing:-.05em;
-  line-height:1.1;
-}
-.linkedin-preview p {
-  font-size:16px;
-  line-height:1.6;
-  max-width:650px;
-}
-.linkedin-tag {
-  color:#0a66c2;
-  font-size:13px;
-  font-weight:bold;
-}
-.strategy-strip {
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:45px;
-}
-.strategy-strip span {
-  padding:12px 17px;
-  border:1px solid #26382155;
-  border-radius:40px;
-  font-size:12px;
-  font-weight:bold;
-}
-
-/* CAMPAIGN BRAND STYLES */
-.grant-site {
-  background:linear-gradient(115deg,#142d22,#315b45);
-  color:white;
-}
-.grant-site .cta { background:#e1efbf;color:#19321f; }
-.grant-art {
-  background:linear-gradient(135deg,#f2c9b6,#f7e7d8);
-  color:#462c25;
-}
-.grant-youtube {
-  background:linear-gradient(120deg,#19372a,#6d9672);
-  color:white;
-}
-.nuvama-site {
-  background:linear-gradient(120deg,#181f44,#eb684e);
-  color:white;
-}
-.nuvama-site .cta { background:white;color:#18214c; }
-.nuvama-art {
-  background:linear-gradient(135deg,#f9c8bd,#ffebdc);
-  color:#842d4c;
-}
-.nuvama-youtube {
-  background:linear-gradient(120deg,#39245b,#e96d7b);
-  color:white;
-}
-.kurkure-site {
-  background:linear-gradient(120deg,#203c19,#91b93e);
-  color:white;
-}
-.kurkure-site .cta { background:#ffcc29;color:#243315; }
-.kurkure-art {
-  background:linear-gradient(135deg,#e7ff8c,#fbd83d);
-  color:#27401b;
-}
-.kurkure-youtube {
-  background:linear-gradient(120deg,#24411d,#d4ed70);
-  color:white;
-}
-.nandos-site {
-  background:linear-gradient(120deg,#ad302b,#f39b73);
-  color:white;
-}
-.nandos-site .cta { background:#fff1df;color:#8d2622; }
-.nandos-art {
-  background:linear-gradient(135deg,#ffb69e,#ffded0);
-  color:#8e1f28;
-}
-.nandos-youtube {
-  background:linear-gradient(120deg,#7c1520,#e96946);
-  color:white;
-}
-.product-line {
-  display:flex;
-  gap:20px;
-  align-items:end;
-  justify-content:center;
-  padding:35px;
-  min-height:270px;
-  background:#ffd3c3;
-}
-.product {
-  width:65px;
-  height:145px;
-  background:linear-gradient(90deg,#ae2926,#ee694c,#a82a26);
-  border-radius:12px 12px 8px 8px;
-  position:relative;
-  box-shadow:12px 15px 25px #7a2a2533;
-}
-.product:before {
-  content:"";
-  position:absolute;
-  top:-18px;left:12px;
-  width:41px;height:20px;
-  background:#8b2626;
-  border-radius:5px 5px 0 0;
-}
-.product:nth-child(2) {
-  height:115px;
-  background:linear-gradient(90deg,#efad72,#ffe2b3,#ed9d6a);
-}
-.product:nth-child(3) {
-  height:170px;
-  background:linear-gradient(90deg,#b84566,#fa9f9c,#b84566);
-}
-.product span {
-  display:block;
-  margin:45px 5px 0;
-  text-align:center;
-  color:white;
-  font-size:9px;
-  font-weight:900;
-}
-.x-preview {
-  padding:30px;
-  background:#111;
-  color:white;
-  min-height:300px;
-}
-.x-preview p {
-  font-size:clamp(19px,2.5vw,32px);
-  line-height:1.3;
-}
-.x-preview small { color:#aaa; }
+/* CAMPAIGN PALETTES */
+.gt .mockup-visual{background:#253b52}
+.nuvama .mockup-visual{background:#62448a}
+.kurkure .mockup-visual{background:#ff8c00}
+.lipgloss .mockup-visual{background:#c73446}
 
 /* END */
-.closing {
-  background:var(--lime);
-  min-height:65vh;
-  padding:100px 7%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+.end{
+ min-height:75vh;background:var(--dark);
+ color:var(--cream);padding:110px 7%;
+ display:flex;flex-direction:column;
+ align-items:center;justify-content:center;text-align:center;
 }
-.closing h2 {
-  font-size:clamp(48px,8vw,120px);
-  letter-spacing:-.075em;
-  line-height:.98;
-  max-width:1200px;
+.end h2{
+ font-size:clamp(55px,10vw,150px);
+ letter-spacing:-.09em;line-height:.95;
+ margin:25px 0;
 }
-.closing p { font-size:20px; }
-footer {
-  background:var(--dark);
-  color:var(--cream);
-  padding:30px 7%;
-  display:flex;
-  justify-content:space-between;
-  gap:25px;
-  font-size:12px;
+.end h2 em{color:var(--lime)}
+.end p{font-size:20px;max-width:600px;line-height:1.5}
+footer{
+ padding:30px 7%;background:var(--dark);
+ color:#b8c6b3;border-top:1px solid #ffffff25;
+ display:flex;justify-content:space-between;gap:20px;
+ font-size:12px;
 }
-
-/* RESPONSIVE */
-@media(max-width:800px) {
-  .nav-links { gap:12px;font-size:11px; }
-  .logo { font-size:18px; }
-  .campaign-head { grid-template-columns:1fr; }
-  .mockup.wide,.mockup.narrow,.mockup.half {
-    grid-column:span 12;
-  }
-  .world-grid { grid-template-columns:1fr 1fr; }
-  .world-tile:nth-child(n+5) { display:none; }
-  .world-title { font-size:28vw; }
-  .site-preview { min-height:300px; }
-  .campaign { padding:95px 5% 60px; }
-  .opening-copy { bottom:20%; }
-  footer { flex-direction:column; }
+@media(max-width:750px){
+ .intro-mosaic{grid-template-columns:repeat(2,1fr)}
+ .tile:nth-child(n+5){display:none}
+ .scene-title{font-size:29vw}
+ .scene-caption{font-size:10px}
+ .mockup-grid{grid-template-columns:1fr}
+ .site-nav{gap:13px;font-size:12px}
+ .logo{font-size:19px}
+ .campaign{padding:75px 5%}
+ .philosophy{padding:90px 5%}
+ .film-caption{flex-direction:column}
+ .strategy-strip{flex-direction:column;align-items:start}
+ footer{flex-direction:column}
 }
-@media(prefers-reduced-motion:reduce) {
-  *,*:before,*:after {
-    animation-duration:.01ms!important;
-    scroll-behavior:auto!important;
-  }
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{
+  animation-duration:.01ms!important;
+  scroll-behavior:auto!important;
+ }
 }
 </style>
 </head>
 
 <body>
 
-<!-- OPENING FILMS -->
+<!-- OPENING: B2B THEN B2C THEN CHOCOLATE -->
 <div class="opening" id="opening">
-  <video id="openingVideo" autoplay muted playsinline preload="auto">
-    <source src="FresHume_Branded_Opening.mp4" type="video/mp4">
-  </video>
-  <div class="shade"></div>
-  <div class="opening-copy" id="openingCopy">
-    B2B or B2C.<br>
-    What matters is the <u>feeling.</u>
+
+<section class="intro-scene b2b active" id="sceneB2B">
+ <div class="intro-mosaic">
+  <div class="tile">
+   <span class="keyboard">⌨</span>
+   <small>CLICK. CLICK. CLICK.</small>
   </div>
-  <div class="opening-actions">
-    <button class="pill" id="soundButton">Sound on</button>
-    <button class="pill" id="skipButton">Skip intro →</button>
+  <div class="tile">
+   <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1000" alt="Corporate workspace">
   </div>
+  <div class="tile">
+   <span class="market-label">MARKETS / LIVE</span>
+   <div class="market-bars"><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+  <div class="tile">
+   <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1000" alt="Team working together">
+  </div>
+  <div class="tile">
+   <div class="notice one">New message</div>
+   <div class="notice two">Meeting in 5 minutes</div>
+   <div class="notice three">3 unread emails</div>
+  </div>
+  <div class="tile">
+   <span class="clock" id="clock">09:41:08</span>
+   <small>TICK. TOCK. TICK.</small>
+  </div>
+ </div>
+ <h2 class="scene-title">B2B.</h2>
+ <p class="scene-caption">PRECISION. PRESSURE. PEOPLE.</p>
+</section>
+
+<section class="intro-scene b2c" id="sceneB2C">
+ <div class="intro-mosaic">
+  <div class="tile">
+   <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1000" alt="Pizza">
+  </div>
+  <div class="tile">
+   <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1000" alt="Flowers">
+  </div>
+  <div class="tile music">
+   <span class="music-note">♪</span>
+   <small>FEEL THE RHYTHM</small>
+  </div>
+  <div class="tile">
+   <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1000" alt="Live music">
+  </div>
+  <div class="tile">
+   <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1000" alt="Happy dogs">
+  </div>
+  <div class="tile candy">
+   <span>JOY!</span><span>WOW!</span><span>LOVE!</span>
+  </div>
+ </div>
+ <h2 class="scene-title">B2C.</h2>
+ <p class="scene-caption">CULTURE. CHAOS. CONNECTION.</p>
+</section>
+
+<section class="intro-scene chocolate" id="sceneChocolate">
+ <video id="chocolateVideo" playsinline preload="auto">
+  <source src="chocolate_opening.mp4.mp4" type="video/mp4">
+ </video>
+ <div class="chocolate-shade"></div>
+ <h2 class="chocolate-message" id="chocolateMessage">
+  B2B or B2C.<br>
+  What matters is the <u>feeling.</u>
+ </h2>
+</section>
+
+<div class="opening-actions">
+ <button class="pill" id="soundButton">🔊 Sound on</button>
+ <button class="pill" id="skipButton">Skip intro →</button>
 </div>
 
-<!-- NAV -->
-<nav class="site-nav">
-  <a href="#philosophy" class="logo">(F)res(H)ume.</a>
-  <div class="nav-links">
-    <a href="#worlds">The thinking</a>
-    <a href="#campaigns">Campaigns</a>
-    <a href="#resume">Résumé</a>
-  </div>
-</nav>
+</div>
+
+<!-- NAVIGATION -->
+<header class="site-header">
+ <a href="#philosophy" class="logo">(F)res(H)ume.</a>
+ <nav class="site-nav">
+  <a href="#philosophy">The thinking</a>
+  <a href="#campaigns">Campaigns</a>
+  <a href="#about">Résumé</a>
+ </nav>
+</header>
 
 <main>
 
 <!-- PHILOSOPHY -->
 <section class="philosophy" id="philosophy">
-  <div class="kicker">01 / The philosophy</div>
-  <h1>
-    Different audiences.<br>
-    Different emotions.<br>
-    One job: make them <em>feel.</em>
-  </h1>
-  <div class="scroll-cue">Scroll to see what I mean ↓</div>
+ <div class="kicker">01 / THE PHILOSOPHY</div>
+ <h1>
+  Different audiences.<br>
+  Different emotions.<br>
+  One job: make them <em>feel.</em>
+ </h1>
 </section>
 
-<!-- B2B -->
-<section class="world b2b" id="worlds">
-  <div class="world-grid">
+<!-- GRANT THORNTON -->
+<section class="campaign gt" id="campaigns">
+ <div class="campaign-head">
+  <div class="kicker">02 / B2B / TRUST</div>
+  <h2>Businesses have<br>feelings too.</h2>
+  <p class="campaign-lead">
+   What if Grant Thornton imagined an education consultancy
+   built around children with additional learning needs?
+   Not another deck about expertise.
+   A story about the one thing every family deserves:
+   <strong>the feeling that they're in safe hands.</strong>
+  </p>
+ </div>
 
-    <div class="world-tile">
-      <img alt="Corporate architecture"
-      src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900">
-    </div>
-
-    <div class="world-tile">
-      <div class="animated-keyboard">⌨</div>
-    </div>
-
-    <div class="world-tile">
-      <div class="call-screen">
-        <div class="call-icon">☎</div>
-        Incoming Teams call...
-      </div>
-    </div>
-
-    <div class="world-tile">
-      <div class="chart-bars">
-        <i style="--h:35%"></i>
-        <i style="--h:60%"></i>
-        <i style="--h:45%"></i>
-        <i style="--h:90%"></i>
-      </div>
-    </div>
-
-    <div class="world-tile">
-      <img alt="Business handshake"
-      src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=900">
-    </div>
-
-    <div class="world-tile">
-      <img alt="Business workspace"
-      src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=900">
-    </div>
+ <div class="film-wrap">
+  <video controls playsinline preload="metadata" poster="">
+   <source src="grant_thornton.mp4" type="video/mp4">
+  </video>
+  <div class="film-caption">
+   <span>GRANT THORNTON / CONCEPT CAMPAIGN</span>
+   <span>THE EMOTION: TRUST</span>
   </div>
+ </div>
 
-  <div class="world-title">B2B.</div>
-  <div class="world-caption">PRECISION. PRESSURE. PEOPLE.</div>
+ <h3 class="mockup-heading">One idea. Every touchpoint.</h3>
+ <div class="mockup-grid">
+  <article class="mockup">
+   <div class="mockup-top"><span>INSTAGRAM</span><span>01</span></div>
+   <div class="mockup-visual">
+    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1000" alt="Child smiling">
+    <strong>Every child deserves to be understood.</strong>
+   </div>
+   <div class="mockup-bottom">
+    <h3>Human-first storytelling</h3>
+    <p>Stories about confidence, progress and belonging.</p>
+   </div>
+  </article>
+  <article class="mockup">
+   <div class="mockup-top"><span>YOUTUBE</span><span>02</span></div>
+   <div class="mockup-visual">
+    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1000" alt="Classroom">
+    <strong>What does support really look like?</strong>
+   </div>
+   <div class="mockup-bottom">
+    <h3>Stories worth watching</h3>
+    <p>Thoughtful conversations with educators and families.</p>
+   </div>
+  </article>
+  <article class="mockup">
+   <div class="mockup-top"><span>WEBSITE / THOUGHT LEADERSHIP</span><span>03</span></div>
+   <div class="mockup-visual">
+    <strong>Building a future where every learner belongs.</strong>
+   </div>
+   <div class="mockup-bottom">
+    <h3>Expertise with empathy</h3>
+    <p>Research, practical guidance and human-centered insight.</p>
+   </div>
+  </article>
+ </div>
+ <div class="strategy-strip">
+  <span>THE STRATEGY</span>
+  <p>Turn institutional credibility into emotional reassurance through education, expert voices and authentic storytelling.</p>
+ </div>
 </section>
 
-<!-- B2C -->
-<section class="world b2c">
-  <div class="world-grid">
-
-    <div class="world-tile">
-      <img alt="Fresh food"
-      src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=900">
-    </div>
-
-    <div class="world-tile">
-      <img alt="City lights"
-      src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=900">
-    </div>
-
-    <div class="world-tile">
-      <div class="balloon"></div>
-    </div>
-
-    <div class="world-tile">
-      <img alt="Flowers"
-      src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=900">
-    </div>
-
-    <div class="world-tile">
-      <img alt="Celebration"
-      src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=900">
-    </div>
-
-    <div class="world-tile">
-      <img alt="Everyday moments"
-      src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=900">
-    </div>
-  </div>
-
-  <div class="world-title">B2C.</div>
-  <div class="world-caption">CULTURE. CHAOS. CONNECTION.</div>
-</section>
-
-<!-- CAMPAIGN 1 -->
-<section class="campaign grant" id="campaigns">
-  <div class="campaign-head">
-    <div>
-      <div class="kicker">02 / B2B / Grant Thornton</div>
-      <h2>Business can<br>have feelings too.</h2>
-    </div>
-    <div class="campaign-question">
-      What if Grant Thornton launched an EdTech
-      consulting practice focused on inclusive
-      education for children with disabilities?
-      <br><br>
-      What if the final slide of its research and
-      marketing presentation didn't just make
-      a business case?
-      <br><br>
-      <strong>What if it made you feel safe enough to trust?</strong>
-    </div>
-  </div>
-
-  <div class="campaign-film">
-    <video controls playsinline preload="metadata">
-      <source src="grant_thornton.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="film-label">
-    <span>Campaign film / Concept</span>
-    <span>Trust is a feeling before it's a decision.</span>
-  </div>
-
-  <h3 class="mockup-heading">One idea. Every touchpoint.</h3>
-
-  <div class="mockup-grid">
-
-    <!-- WEBSITE -->
-    <div class="mockup wide">
-      <div class="browser-bar">
-        <i></i><i></i><i></i>
-        <span class="browser-url">Concept website / Inclusive Education</span>
-      </div>
-      <div class="site-preview grant-site">
-        <div class="brand-row">
-          <span>Grant Thornton / Concept</span>
-          <span>Education Advisory ↗</span>
-        </div>
-        <div>
-          <h4>Every child deserves a future that fits.</h4>
-          <p>
-            Inclusive education advisory built around
-            access, understanding and opportunity.
-          </p>
-          <span class="cta">Explore the initiative →</span>
-        </div>
-      </div>
-      <div class="mockup-label">Website / Campaign landing page</div>
-    </div>
-
-    <!-- INSTAGRAM -->
-    <div class="mockup narrow">
-      <div class="social-preview">
-        <div class="social-top">
-          <span class="avatar">GT</span>
-          Grant Thornton / Concept
-        </div>
-        <div class="social-art grant-art">
-          <div class="kicker">A future for every learner</div>
-          <h4>Different ways to learn.<br>Equal reasons to dream.</h4>
-          <p>Because inclusion isn't an extra. It's essential.</p>
-        </div>
-        <div class="social-actions">♡ ◯ ↗</div>
-      </div>
-      <div class="mockup-label">Instagram / Human-first storytelling</div>
-    </div>
-
-    <!-- YOUTUBE -->
-    <div class="mockup half">
-      <div class="youtube-preview">
-        <div class="youtube-art grant-youtube">
-          <h4>What does inclusive education really mean?</h4>
-          <span class="play-icon">▶</span>
-        </div>
-        <div class="youtube-meta">
-          Making Education Truly Inclusive | Campaign Film
-        </div>
-      </div>
-      <div class="mockup-label">YouTube / Documentary-style storytelling</div>
-    </div>
-
-    <!-- LINKEDIN -->
-    <div class="mockup half">
-      <div class="linkedin-preview">
-        <div class="linkedin-tag">in / Thought Leadership</div>
-        <h4>The business case for belonging.</h4>
-        <p>
-          Inclusion is not simply a question of infrastructure.
-          It's about building systems that recognise different
-          learning needs, and designing opportunity around them.
-        </p>
-        <p>
-          What might education look like if accessibility
-          were the starting point?
-        </p>
-      </div>
-      <div class="mockup-label">LinkedIn / Executive perspective</div>
-    </div>
-
-  </div>
-
-  <div class="strategy-strip">
-    <span>Brand trust</span>
-    <span>Inclusive education</span>
-    <span>Emotional storytelling</span>
-    <span>Thought leadership</span>
-    <span>Integrated communications</span>
-  </div>
-</section>
-
-<!-- CAMPAIGN 2 -->
+<!-- NUVAMA -->
 <section class="campaign nuvama">
-  <div class="campaign-head">
-    <div>
-      <div class="kicker">03 / B2C / Nuvama Wealth</div>
-      <h2>What if investing<br>spoke your language?</h2>
-    </div>
-    <div class="campaign-question">
-      What if an advanced wealth management platform
-      reached women in North and Northwest India
-      with a new opportunity to explore international stocks?
-      <br><br>
-      Not through intimidating financial jargon,
-      but through education in their own regional languages.
-      <br><br>
-      <strong>Because confidence begins with understanding.</strong>
-    </div>
+ <div class="campaign-head">
+  <div class="kicker">03 / B2C / EMPOWERMENT</div>
+  <h2>Wealth speaks<br>every language.</h2>
+  <p class="campaign-lead">
+   What if an advanced wealth management platform wanted
+   to help women in northwestern India explore international
+   investing, in the language they call their own?
+   <strong>Because confidence shouldn't need translation.</strong>
+  </p>
+ </div>
+
+ <div class="film-wrap">
+  <video controls playsinline preload="metadata">
+   <source src="nuvama_wealth.mp4" type="video/mp4">
+  </video>
+  <div class="film-caption">
+   <span>NUVAMA / CONCEPT CAMPAIGN</span>
+   <span>THE EMOTION: EMPOWERMENT</span>
   </div>
+ </div>
 
-  <div class="campaign-film">
-    <video controls playsinline preload="metadata">
-      <source src="nuvama_wealth.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="film-label">
-    <span>Campaign film / Concept</span>
-    <span>Financial confidence, without the language barrier.</span>
-  </div>
-
-  <h3 class="mockup-heading">Global opportunity. Local conversation.</h3>
-
-  <div class="mockup-grid">
-
-    <div class="mockup wide">
-      <div class="browser-bar">
-        <i></i><i></i><i></i>
-        <span class="browser-url">Concept website / Global Investing</span>
-      </div>
-      <div class="site-preview nuvama-site">
-        <div class="brand-row">
-          <span>Nuvama Wealth / Concept</span>
-          <span>English | हिन्दी | ਪੰਜਾਬੀ</span>
-        </div>
-        <div>
-          <h4>Global investing.<br>अब आपकी भाषा में.</h4>
-          <p>
-            Learn about international markets
-            with clear explanations and familiar language.
-          </p>
-          <span class="cta">Start learning →</span>
-        </div>
-      </div>
-      <div class="mockup-label">Website / Multilingual education hub</div>
-    </div>
-
-    <div class="mockup narrow">
-      <div class="social-preview">
-        <div class="social-top">
-          <span class="avatar">NW</span>
-          Nuvama Wealth / Concept
-        </div>
-        <div class="social-art nuvama-art">
-          <div class="kicker">Investing, explained</div>
-          <h4>International stocks?<br>Let's talk.</h4>
-          <p>
-            Your questions deserve answers
-            in a language you understand.
-          </p>
-        </div>
-        <div class="social-actions">♡ ◯ ↗</div>
-      </div>
-      <div class="mockup-label">Instagram / Financial education carousel</div>
-    </div>
-
-    <div class="mockup half">
-      <div class="youtube-preview">
-        <div class="youtube-art nuvama-youtube">
-          <h4>विदेशी Stocks में Invest कैसे करें?</h4>
-          <span class="play-icon">▶</span>
-        </div>
-        <div class="youtube-meta">
-          Global Investing Explained in Hindi | Educational Series
-        </div>
-      </div>
-      <div class="mockup-label">YouTube / Regional-language explainers</div>
-    </div>
-
-    <div class="mockup half">
-      <div class="linkedin-preview">
-        <div class="linkedin-tag">in / Thought Leadership</div>
-        <h4>Financial inclusion needs a language strategy.</h4>
-        <p>
-          Access to financial information is only the first step.
-          Understanding it is what helps people make
-          informed decisions.
-        </p>
-        <p>
-          Regional-language education can make global
-          financial concepts more approachable.
-        </p>
-      </div>
-      <div class="mockup-label">LinkedIn / Women and global investing</div>
-    </div>
-
-  </div>
-
-  <div class="strategy-strip">
-    <span>Financial education</span>
-    <span>Regional-language marketing</span>
-    <span>Women investors</span>
-    <span>Audience accessibility</span>
-    <span>Content localisation</span>
-  </div>
+ <h3 class="mockup-heading">Finance, without the distance.</h3>
+ <div class="mockup-grid">
+  <article class="mockup">
+   <div class="mockup-top"><span>INSTAGRAM</span><span>01</span></div>
+   <div class="mockup-visual">
+    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1000" alt="Professional woman">
+    <strong>Your money. Your future. Your language.</strong>
+   </div>
+   <div class="mockup-bottom">
+    <h3>Relatable financial education</h3>
+    <p>Regional-language explainers and confidence-building content.</p>
+   </div>
+  </article>
+  <article class="mockup">
+   <div class="mockup-top"><span>YOUTUBE</span><span>02</span></div>
+   <div class="mockup-visual">
+    <strong>Global investing. Explained simply.</strong>
+   </div>
+   <div class="mockup-bottom">
+    <h3>Learn before you leap</h3>
+    <p>Accessible video lessons about global market opportunities and risks.</p>
+   </div>
+  </article>
+  <article class="mockup">
+   <div class="mockup-top"><span>WEBSITE / LINKEDIN</span><span>03</span></div>
+   <div class="mockup-visual">
+    <strong>Invest globally. Feel at home.</strong>
+   </div>
+   <div class="mockup-bottom">
+    <h3>A more welcoming journey</h3>
+    <p>Language-first learning, transparent information and educational resources.</p>
+   </div>
+  </article>
+ </div>
+ <div class="strategy-strip">
+  <span>THE STRATEGY</span>
+  <p>Make international investing feel approachable through regional relevance, accessible education and trusted guidance.</p>
+ </div>
 </section>
 
-<!-- CAMPAIGN 3 -->
+<!-- KURKURE MATCHA -->
 <section class="campaign kurkure">
-  <div class="campaign-head">
-    <div>
-      <div class="kicker">04 / B2C / Kurkure × Matcha</div>
-      <h2>What if Kurkure<br>landed in Paris?</h2>
-    </div>
-    <div class="campaign-question">
-      What if Kurkure wanted to grab global eyeballs
-      all over again?
-      <br><br>
-      Enter Paris. Enter matcha.
-      Enter a very unexpected cultural collision.
-      <br><br>
-      <strong>Crunch meets calm. And neither behaves.</strong>
-    </div>
+ <div class="campaign-head">
+  <div class="kicker">04 / B2C / CULTURE</div>
+  <h2>Paris, meet<br>the crunch.</h2>
+  <p class="campaign-lead">
+   What if Kurkure landed in Paris and needed to turn
+   a familiar Indian snack into the city's next obsession?
+   Enter matcha culture, street-style energy and a collision
+   nobody saw coming.
+   <strong>Some cultures are better when they crunch together.</strong>
+  </p>
+ </div>
+
+ <div class="film-wrap">
+  <video controls playsinline preload="metadata">
+   <source src="kurkure_matcha.mp4" type="video/mp4">
+  </video>
+  <div class="film-caption">
+   <span>KURKURE × MATCHA / SPECULATIVE CONCEPT</span>
+   <span>THE EMOTION: CURIOSITY</span>
   </div>
+ </div>
 
-  <div class="campaign-film">
-    <video controls playsinline preload="metadata">
-      <source src="kurkure_matcha.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="film-label">
-    <span>Campaign film / Speculative concept</span>
-    <span>A little chaos. A lot of crunch.</span>
-  </div>
-
-  <h3 class="mockup-heading">A culture clash worth sharing.</h3>
-
-  <div class="mockup-grid">
-
-    <div class="mockup wide">
-      <div class="browser-bar">
-        <i></i><i></i><i></i>
-        <span class="browser-url">Concept website / Paris launch</span>
-      </div>
-      <div class="site-preview kurkure-site">
-        <div class="brand-row">
-          <span>Kurkure × Matcha / Concept</span>
-          <span>Paris Edition</span>
-        </div>
-        <div>
-          <h4>Crunch meets calm.<br>Paris meets chaos.</h4>
-          <p>
-            One unexpected flavour.
-            Two very different worlds.
-            Zero interest in playing it safe.
-          </p>
-          <span class="cta">Meet the mashup →</span>
-        </div>
-      </div>
-      <div class="mockup-label">Website / Limited-edition launch</div>
-    </div>
-
-    <div class="mockup narrow">
-      <div class="social-preview">
-        <div class="social-top">
-          <span class="avatar">K</span>
-          Kurkure × Matcha / Concept
-        </div>
-        <div class="social-art kurkure-art">
-          <div class="kicker">Paris, meet your matcha.</div>
-          <h4>Too crunchy<br>to be zen.</h4>
-          <p>Oui, we actually did that.</p>
-        </div>
-        <div class="social-actions">♡ ◯ ↗</div>
-      </div>
-      <div class="mockup-label">Instagram / Meme-ready launch creative</div>
-    </div>
-
-    <div class="mockup half">
-      <div class="youtube-preview">
-        <div class="youtube-art kurkure-youtube">
-          <h4>We made Paris try Kurkure Matcha.</h4>
-          <span class="play-icon">▶</span>
-        </div>
-        <div class="youtube-meta">
-          Paris Tries Kurkure Matcha | First Reactions
-        </div>
-      </div>
-      <div class="mockup-label">YouTube / Street reactions and creators</div>
-    </div>
-
-    <div class="mockup half">
-      <div class="linkedin-preview">
-        <div class="linkedin-tag">Campaign Activation / Concept</div>
-        <h4>From curiosity to conversation.</h4>
-        <p>
-          A Paris pop-up built around the unlikely pairing
-          of spicy crunch and matcha culture.
-        </p>
-        <p>
-          Sampling, creator collaborations,
-          street interviews and shareable reactions
-          turn an unexpected product idea into a social moment.
-        </p>
-      </div>
-      <div class="mockup-label">Activation / Creator and experiential strategy</div>
-    </div>
-
-  </div>
-
-  <div class="strategy-strip">
-    <span>Cultural marketing</span>
-    <span>Product innovation</span>
-    <span>Creator collaborations</span>
-    <span>Experiential activation</span>
-    <span>Social buzz</span>
-  </div>
+ <h3 class="mockup-heading">A little chaos. A lot of culture.</h3>
+ <div class="mockup-grid">
+  <article class="mockup">
+   <div class="mockup-top"><span>INSTAGRAM</span><span>01</span></div>
+   <div class="mockup-visual">
+    <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=1000" alt="Matcha drink">
+    <strong>Matcha made in chaos.</strong>
+   </div>
+   <div class="mockup-bottom">
+    <h3>Unexpected pairings</h3>
+    <p>Playful snack combinations and bold creator-led content.</p>
+   </div>
+  </article>
+  <article class="mockup">
+   <div class="mockup-top"><span>YOUTUBE</span><span>02</span></div>
+   <div class="mockup-visual">
+    <strong>PARIS TRIES THE CRUNCH.</strong>
+   </div>
+   <div class="mockup-bottom">
+    <h3>First-bite reactions</h3>
+    <p>Fast, entertaining taste tests and culture-clash moments.</p>
+   </div>
+  </article>
+  <article class="mockup">
+   <div class="mockup-top"><span>WEBSITE / SOCIAL</span><span>03</span></div>
+   <div class="mockup-visual">
+    <strong>Crunch outside the lines.</strong>
+   </div>
+   <div class="mockup-bottom">
+    <h3>A digital playground</h3>
+    <p>Interactive drops, creator collaborations and playful challenges.</p>
+   </div>
+  </article>
+ </div>
+ <div class="strategy-strip">
+  <span>THE STRATEGY</span>
+  <p>Build cultural relevance through unexpected collaborations, sensory storytelling and shareable moments.</p>
+ </div>
 </section>
 
-<!-- CAMPAIGN 4 -->
-<section class="campaign nandos">
-  <div class="campaign-head">
-    <div>
-      <div class="kicker">05 / B2C / Nando's Beauty</div>
-      <h2>What if Nando's<br>entered its beauty era?</h2>
-    </div>
-    <div class="campaign-question">
-      What if Nando's launched a beauty range?
-      <br><br>
-      Butter Chicken Lip Gloss.
-      Tandoori Tint.
-      Lassi Foundation.
-      <br><br>
-      A deliberately ridiculous launch that everyone
-      would have an opinion about.
-      <br><br>
-      <strong>We're not kidding. We're just very well seasoned.</strong>
-    </div>
+<!-- BUTTER CHICKEN LIP GLOSS -->
+<section class="campaign lipgloss">
+ <div class="campaign-head">
+  <div class="kicker">05 / B2C / PROVOCATION</div>
+  <h2>Beauty with<br>extra sauce.</h2>
+  <p class="campaign-lead">
+   What if Nando's launched a beauty collection?
+   Butter chicken lip gloss. Tandoori blush.
+   Mango lassi-inspired glow.
+   <strong>Finally, a beauty routine with actual taste.</strong>
+   Metaphorically, of course.
+  </p>
+ </div>
+
+ <div class="film-wrap">
+  <video controls playsinline preload="metadata">
+   <source src="butter_chicken_lipgloss.mp4" type="video/mp4">
+  </video>
+  <div class="film-caption">
+   <span>NANDO'S-INSPIRED BEAUTY / SPECULATIVE CONCEPT</span>
+   <span>THE EMOTION: DELIGHT</span>
   </div>
+ </div>
 
-  <div class="campaign-film">
-    <video controls playsinline preload="metadata">
-      <source src="butter_chicken_lipgloss.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="film-label">
-    <span>Campaign film / Speculative concept</span>
-    <span>Beauty, with a side of chaos.</span>
-  </div>
-
-  <h3 class="mockup-heading">The beauty menu nobody ordered.</h3>
-
-  <div class="mockup-grid">
-
-    <div class="mockup wide">
-      <div class="browser-bar">
-        <i></i><i></i><i></i>
-        <span class="browser-url">Concept website / Beauty menu</span>
-      </div>
-      <div class="site-preview nandos-site">
-        <div class="brand-row">
-          <span>Nando's Beauty / Fictional Concept</span>
-          <span>The Beauty Menu</span>
-        </div>
-        <div>
-          <h4>Serving looks.<br>Extra spicy.</h4>
-          <p>
-            Food-inspired beauty products.
-            Questionable flavours.
-            Unreasonably good marketing.
-          </p>
-          <span class="cta">Explore the menu →</span>
-        </div>
-      </div>
-      <div class="mockup-label">Website / Fictional beauty collection</div>
-    </div>
-
-    <div class="mockup narrow">
-      <div class="social-preview">
-        <div class="social-top">
-          <span class="avatar">N</span>
-          Nando's Beauty / Concept
-        </div>
-        <div class="social-art nandos-art">
-          <div class="kicker">New beauty drop</div>
-          <h4>Butter Chicken<br>Lip Gloss.</h4>
-          <p>Glossy. Saucy. Completely unnecessary.</p>
-        </div>
-        <div class="social-actions">♡ ◯ ↗</div>
-      </div>
-      <div class="mockup-label">Instagram / Product reveal</div>
-    </div>
-
-    <div class="mockup full">
-      <div class="product-line">
-        <div class="product"><span>Butter<br>Chicken</span></div>
-        <div class="product"><span>Lassi<br>Glow</span></div>
-        <div class="product"><span>Tandoori<br>Tint</span></div>
-      </div>
-      <div class="mockup-label">
-        Product lineup / Illustrative packaging concepts
-      </div>
-    </div>
-
-    <div class="mockup half">
-      <div class="youtube-preview">
-        <div class="youtube-art nandos-youtube">
-          <h4>Butter Chicken Lip Gloss?!</h4>
-          <span class="play-icon">▶</span>
-        </div>
-        <div class="youtube-meta">
-          We Tried Nando's Beauty | Creator Reaction Concept
-        </div>
-      </div>
-      <div class="mockup-label">YouTube / Influencer reactions</div>
-    </div>
-
-    <div class="mockup half">
-      <div class="x-preview">
-        <div style="font-size:24px;font-weight:900">𝕏</div>
-        <p>
-          Butter Chicken Lip Gloss is real in this fictional universe.
-          <br><br>
-          And yes, we're serving it with extra confidence. 🍗
-        </p>
-        <small>Concept post / Not an actual brand account</small>
-      </div>
-      <div class="mockup-label">X / Social conversation concept</div>
-    </div>
-
-  </div>
-
-  <div class="strategy-strip">
-    <span>Brand provocation</span>
-    <span>Social-first storytelling</span>
-    <span>Influencer marketing</span>
-    <span>Product mockups</span>
-    <span>Earned media potential</span>
-  </div>
+ <h3 class="mockup-heading">The internet would have opinions.</h3>
+ <div class="mockup-grid">
+  <article class="mockup">
+   <div class="mockup-top"><span>INSTAGRAM / PRODUCT DROP</span><span>01</span></div>
+   <div class="mockup-visual">
+    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1000" alt="Cosmetics">
+    <strong>Serving face. With sauce.</strong>
+   </div>
+   <div class="mockup-bottom">
+    <h3>The beauty menu</h3>
+    <p>Butter Chicken Gloss, Tandoori Blush and Mango Lassi Glow.</p>
+   </div>
+  </article>
+  <article class="mockup">
+   <div class="mockup-top"><span>YOUTUBE / CREATORS</span><span>02</span></div>
+   <div class="mockup-visual">
+    <strong>I tried the butter chicken lip gloss.</strong>
+   </div>
+   <div class="mockup-bottom">
+    <h3>Reaction-worthy content</h3>
+    <p>Beauty creators test a collection nobody asked for but everyone wants to discuss.</p>
+   </div>
+  </article>
+  <article class="mockup">
+   <div class="mockup-top"><span>WEBSITE / SOCIAL CONVERSATION</span><span>03</span></div>
+   <div class="mockup-visual">
+    <strong>Too hot to handle. Too glossy to ignore.</strong>
+   </div>
+   <div class="mockup-bottom">
+    <h3>Designed to start conversations</h3>
+    <p>Playful product pages, memes and shareable social reactions.</p>
+   </div>
+  </article>
+ </div>
+ <div class="strategy-strip">
+  <span>THE STRATEGY</span>
+  <p>Use category disruption, humor and creator culture to transform a ridiculous idea into a memorable brand conversation.</p>
+ </div>
 </section>
 
-<!-- FINAL PROFILE -->
-<section class="closing" id="resume">
-  <div class="kicker">06 / Behind the work</div>
-  <h2>Strategic communications professional.<br>
-  Who covers it all.</h2>
-  <p>
-    Brand strategy / Campaign thinking /
-    Storytelling / Execution
-  </p>
-  <p style="font-size:14px;margin-top:35px">
-    Full professional profile and résumé coming next.
-  </p>
+<!-- END / PROFILE TO BE EXPANDED -->
+<section class="end" id="about">
+ <div class="kicker">06 / THE MIND BEHIND THE WORK</div>
+ <h2>Strategy with substance.<br><em>Creativity with a pulse.</em></h2>
+ <p>
+  Strategic communications, brand thinking and creative storytelling.
+  Different industries. Different audiences. One obsession:
+  making people feel something.
+ </p>
+ <p style="font-size:14px;color:#b8c6b3">
+  Full professional résumé and experience coming next.
+ </p>
 </section>
 
 </main>
 
 <footer>
-  <span>(F)res(H)ume. © 2026</span>
-  <span>Independent portfolio concepts. Not official brand campaigns.</span>
+ <span>(F)res(H)ume. © 2026</span>
+ <span>Independent portfolio concepts. Not official brand campaigns.</span>
 </footer>
 
 <script>
-(function () {
-  const opening = document.getElementById("opening");
-  const video = document.getElementById("openingVideo");
-  const copy = document.getElementById("openingCopy");
-  const soundButton = document.getElementById("soundButton");
-  const skipButton = document.getElementById("skipButton");
+(function(){
+ const opening=document.getElementById("opening");
+ const b2b=document.getElementById("sceneB2B");
+ const b2c=document.getElementById("sceneB2C");
+ const chocolate=document.getElementById("sceneChocolate");
+ const video=document.getElementById("chocolateVideo");
+ const message=document.getElementById("chocolateMessage");
+ const soundButton=document.getElementById("soundButton");
+ const skipButton=document.getElementById("skipButton");
+ const clock=document.getElementById("clock");
 
-  const films = [
-    "FresHume_Branded_Opening.mp4",
-    "chocolate_opening.mp4.mp4"
-  ];
+ let finished=false;
+ let soundEnabled=false;
+ let timer=null;
+ let fallbackTimer=null;
+ let clockTimer=null;
 
-  let currentFilm = 0;
-  let finished = false;
-  let audioEnabled = false;
+ function show(scene){
+  [b2b,b2c,chocolate].forEach(s=>s.classList.remove("active"));
+  scene.classList.add("active");
+ }
 
-  function finishOpening() {
-    if (finished) return;
-    finished = true;
-    video.pause();
-    opening.classList.add("hidden");
-    setTimeout(() => opening.remove(), 850);
+ function finish(){
+  if(finished)return;
+  finished=true;
+  clearTimeout(timer);
+  clearTimeout(fallbackTimer);
+  clearInterval(clockTimer);
+  video.pause();
+  opening.classList.add("hidden");
+  setTimeout(()=>opening.remove(),850);
+ }
+
+ function startChocolate(){
+  if(finished)return;
+  show(chocolate);
+  video.muted=!soundEnabled;
+  video.currentTime=0;
+
+  const attempt=video.play();
+  if(attempt){
+   attempt.catch(()=>{
+    video.muted=true;
+    video.play().catch(finish);
+   });
   }
 
-  function playFilm(index) {
-    if (finished) return;
+  // Prevent a broken video from trapping the visitor.
+  fallbackTimer=setTimeout(finish,30000);
+ }
 
-    if (index >= films.length) {
-      finishOpening();
-      return;
-    }
+ function start(){
+  show(b2b);
 
-    currentFilm = index;
-    copy.classList.remove("show");
+  timer=setTimeout(()=>{
+   if(finished)return;
+   show(b2c);
 
-    video.src = films[index];
-    video.muted = !audioEnabled;
-    video.load();
+   timer=setTimeout(startChocolate,5000);
+  },5000);
+ }
 
-    const playAttempt = video.play();
-
-    if (playAttempt && typeof playAttempt.catch === "function") {
-      playAttempt.catch(() => {
-        if (audioEnabled) {
-          audioEnabled = false;
-          video.muted = true;
-          soundButton.textContent = "Sound on";
-          video.play().catch(() => {
-            playFilm(currentFilm + 1);
-          });
-        } else {
-          playFilm(currentFilm + 1);
-        }
-      });
-    }
+ video.addEventListener("timeupdate",()=>{
+  if(video.duration && video.currentTime>=video.duration*.55){
+   message.classList.add("visible");
   }
+ });
 
-  video.addEventListener("timeupdate", () => {
-    if (currentFilm === 1 && video.duration) {
-      if (video.currentTime > video.duration * .48) {
-        copy.classList.add("show");
-      }
-    }
+ video.addEventListener("ended",finish);
+ video.addEventListener("error",finish);
+
+ soundButton.addEventListener("click",()=>{
+  soundEnabled=!soundEnabled;
+  video.muted=!soundEnabled;
+  soundButton.textContent=soundEnabled?"🔇 Sound off":"🔊 Sound on";
+ });
+
+ skipButton.addEventListener("click",finish);
+
+ let seconds=8;
+ clockTimer=setInterval(()=>{
+  seconds++;
+  const s=String(seconds%60).padStart(2,"0");
+  clock.textContent="09:41:"+s;
+ },1000);
+
+ // Keep campaign films from playing over one another.
+ const films=document.querySelectorAll(".film-wrap video");
+ films.forEach(film=>{
+  film.addEventListener("play",()=>{
+   films.forEach(other=>{
+    if(other!==film)other.pause();
+   });
   });
+ });
 
-  video.addEventListener("ended", () => {
-    playFilm(currentFilm + 1);
-  });
-
-  video.addEventListener("error", () => {
-    playFilm(currentFilm + 1);
-  });
-
-  soundButton.addEventListener("click", () => {
-    audioEnabled = !audioEnabled;
-    video.muted = !audioEnabled;
-    soundButton.textContent = audioEnabled ? "Sound off" : "Sound on";
-    if (video.paused) video.play().catch(() => {});
-  });
-
-  skipButton.addEventListener("click", finishOpening);
-
-  // Pause campaign videos when they leave the screen.
-  const campaignVideos = document.querySelectorAll(
-    ".campaign-film video"
-  );
-
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          entry.target.pause();
-        }
-      });
-    }, { threshold:.1 });
-
-    campaignVideos.forEach(v => observer.observe(v));
-  }
-
-  // Ensure only one campaign film plays at a time.
-  campaignVideos.forEach(v => {
-    v.addEventListener("play", () => {
-      campaignVideos.forEach(other => {
-        if (other !== v) other.pause();
-      });
-    });
-  });
+ // Allow visitors with reduced-motion preferences
+ // to proceed directly to the main content.
+ if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+  finish();
+ }else{
+  start();
+ }
 })();
 </script>
 
