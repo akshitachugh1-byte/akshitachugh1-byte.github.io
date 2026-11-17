@@ -1,1156 +1,665 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101d14">
-<title>FresHume | Akshita Chugh</title>
-<meta name="description" content="Strategic communications and creative campaigns by Akshita Chugh.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- =====================================================
+     FRESHUME — FINAL SIX DESIGN UPDATES
+     Paste immediately BEFORE </body> in index.html
+     ===================================================== -->
 
 <style>
-:root{
-  --dark:#101d14;
-  --cream:#f7f3e8;
-  --lime:#dfff58;
-  --sage:#e9efdc;
-  --green:#507b29;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  background:var(--dark);
-  color:var(--cream);
-  font-family:"DM Sans",Arial,sans-serif;
-}
-body.intro-active{overflow:hidden}
-a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer}
-img,video{display:block;max-width:100%}
-button:focus-visible,a:focus-visible{
-  outline:3px solid var(--lime);
-  outline-offset:4px;
-}
-::selection{background:var(--lime);color:var(--dark)}
-
-/* OPENING SEQUENCE */
-#intro-overlay{
-  position:fixed;inset:0;z-index:1000;
-  background:#050705;overflow:hidden;
-}
-#intro-overlay.finished{
-  opacity:0;pointer-events:none;
-  transition:opacity .8s;
-}
-.intro-scene{
-  position:absolute;inset:0;opacity:0;
-  visibility:hidden;
-  transition:opacity .6s,visibility .6s;
-}
-.intro-scene.active{opacity:1;visibility:visible}
-.full-video{width:100%;height:100%;object-fit:cover}
-.motion-triptych{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  height:100%;gap:5px;background:#151515;
-}
-.motion-panel{position:relative;overflow:hidden;min-width:0}
-.motion-panel video{width:100%;height:100%;object-fit:cover}
-.b2b .motion-panel video{filter:grayscale(1) contrast(1.08)}
-.motion-panel:after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.7));
-  pointer-events:none;
-}
-.motion-label{
-  position:absolute;bottom:5%;left:6%;z-index:2;
-  color:white;font-size:clamp(10px,1.2vw,18px);
-  font-weight:900;letter-spacing:.13em;
-}
-.scene-title{
-  position:absolute;z-index:4;top:50%;left:6%;
-  transform:translateY(-50%);margin:0;
-  font-size:clamp(130px,25vw,440px);
-  line-height:.8;font-weight:900;
-  letter-spacing:-.095em;pointer-events:none;
-}
-.b2b .scene-title{color:#f5f0e6}
-.b2c .scene-title{color:#fff0d8}
-.chocolate:after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(0deg,rgba(0,0,0,.75),transparent 70%);
-  pointer-events:none;
-}
-.chocolate-copy{
-  position:absolute;z-index:3;bottom:12%;left:6%;right:6%;
-  font-size:clamp(35px,6.5vw,105px);
-  font-weight:900;line-height:1.05;
-  letter-spacing:-.065em;opacity:0;
-  transform:translateY(20px);
-  transition:opacity .7s,transform .7s;
-}
-.chocolate-copy.visible{opacity:1;transform:translateY(0)}
-.chocolate-copy em{
-  font-style:normal;color:var(--lime);
-  text-decoration:underline;text-underline-offset:.12em;
-}
-.sound-control{
-  position:absolute;bottom:25px;right:25px;z-index:20;
-  border:1px solid #ffffff55;background:#101d14e8;
-  color:white;border-radius:100px;padding:13px 22px;
-  font-size:14px;
+/* 01 — LAYER PEEL PHILOSOPHY */
+.philosophy {
+  background: #e9e9d5 !important;
+  color: #17291c !important;
+  padding: clamp(80px, 9vw, 150px) 6% !important;
+  min-height: 100vh;
+  overflow: visible;
 }
 
-/* NAVIGATION — CAMPAIGNS AND ABOUT ONLY */
-.site-header{
-  position:sticky;top:0;z-index:100;
-  display:flex;align-items:center;
-  justify-content:space-between;gap:20px;
-  padding:17px 5%;
-  background:rgba(16,29,20,.96);
-  border-bottom:1px solid #ffffff1b;
-  backdrop-filter:blur(15px);
-}
-.logo{
-  font-size:clamp(19px,2vw,29px);
-  font-weight:900;letter-spacing:-.07em;
-  white-space:nowrap;
-}
-.logo .small-letter{
-  font-size:.65em;font-weight:600;
-  text-transform:lowercase;
-}
-.logo .main-letter{
-  font-weight:900;text-transform:uppercase;
-}
-.site-nav{display:flex;gap:30px}
-.site-nav a{font-size:14px}
-.site-nav a:hover{color:var(--lime)}
-#grant-video{scroll-margin-top:90px}
-#about{scroll-margin-top:70px}
-
-/* PHILOSOPHY */
-.philosophy{
-  background:var(--sage);color:var(--dark);
-  min-height:90vh;display:flex;flex-direction:column;
-  justify-content:center;padding:110px 7%;
-}
-.kicker{
-  color:var(--green);font-size:12px;font-weight:900;
-  letter-spacing:.3em;text-transform:uppercase;
-}
-.philosophy h1{
-  margin:40px 0 0;
-  font-size:clamp(45px,7.5vw,130px);
-  line-height:1.04;letter-spacing:-.075em;
-  font-weight:900;
-}
-.philosophy em{
-  color:var(--green);font-style:italic;
-  text-decoration:underline;text-underline-offset:.06em;
+.philosophy .kicker {
+  color: #45643c;
+  margin-bottom: 35px;
 }
 
-/* CAMPAIGNS */
-.campaign{
-  padding:100px 7% 110px;
-  overflow:hidden;color:var(--dark);
-}
-.campaign-head{max-width:1100px}
-.campaign h2{
-  margin:30px 0;
-  font-size:clamp(53px,8vw,130px);
-  line-height:.99;font-weight:900;
-  letter-spacing:-.075em;
-}
-.campaign-lead{
-  max-width:1000px;margin:0 0 55px;
-  font-size:clamp(20px,2.5vw,34px);
-  line-height:1.4;letter-spacing:-.025em;
-}
-.campaign-lead strong{color:var(--green)}
-.film-wrap{
-  overflow:hidden;border-radius:4px;
-  background:#111;
-}
-.campaign-film{
-  width:100%;max-height:82vh;
-  aspect-ratio:16/9;object-fit:contain;
-  background:#080808;
-}
-.film-caption{
-  display:flex;justify-content:space-between;
-  flex-wrap:wrap;gap:12px;
-  background:var(--dark);color:var(--cream);
-  padding:18px 22px;font-size:11px;
-  font-weight:800;letter-spacing:.15em;
-}
-.concept-note{
-  margin:20px 0;font-size:12px;
-  line-height:1.6;opacity:.65;
-}
-.mockup-heading{
-  font-size:clamp(34px,5vw,75px);
-  font-weight:900;letter-spacing:-.065em;
-  margin:75px 0 30px;line-height:1.05;
-}
-.approved-board{
-  position:relative;margin-top:35px;overflow:hidden;
-}
-.approved-board img{
-  width:100%;height:auto;display:block;
-}
-.board-placeholder{
-  padding:50px 25px;
-  border:1px dashed currentColor;
-  text-align:center;opacity:.65;
-}
-.board-placeholder strong{
-  display:block;font-size:20px;margin-bottom:8px;
-}
-.board-placeholder span{font-size:13px}
-.approved-board:has(img:not([hidden])) .board-placeholder{
-  display:none;
+.philosophy > h1 {
+  display: none !important;
 }
 
-/* CAMPAIGN COLOURS */
-.gt{background:#e9efdc}
-.nuvama{background:#f6e6d4}
-.nuvama .kicker,
-.nuvama .campaign-lead strong{color:#8134a2}
-.kurkure{background:#d9ff64}
-.kurkure .kicker,
-.kurkure .campaign-lead strong{color:#a53818}
-.nandos{background:#350c10;color:#fff3e5}
-.nandos .kicker{color:#ff9c7b}
-
-/* GRANT THORNTON EDITORIAL INTRO */
-.gt .campaign-head{
-  max-width:none;margin-bottom:60px;
-}
-.gt-editorial{
-  display:grid;grid-template-columns:1.1fr .9fr;
-  gap:7%;align-items:center;margin-top:35px;
-}
-.gt .gt-title{
-  margin:0;font-size:clamp(64px,8.5vw,145px);
-  line-height:.94;
-}
-.gt-title span{display:block}
-.gt-title .human{color:#507b29}
-.gt-copy{
-  border-left:3px solid #507b29;
-  padding-left:30px;
-}
-.gt-copy p{
-  margin:0;font-size:clamp(20px,2.1vw,31px);
-  line-height:1.45;letter-spacing:-.025em;
-}
-.gt-copy strong{color:#507b29}
-
-/* NUVAMA EDITORIAL INTRO */
-.nuvama .campaign-head{
-  max-width:none;margin-bottom:60px;
-}
-.nuvama-editorial{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:7%;align-items:center;margin-top:40px;
-}
-.nuvama .nuvama-title{
-  margin:0;font-size:clamp(50px,6vw,100px);
-  line-height:1.15;letter-spacing:-.06em;
-  overflow-wrap:anywhere;
-}
-.nuvama-title span{display:block}
-.nuvama-copy{
-  border-left:3px solid #8134a2;
-  padding-left:30px;
-}
-.nuvama-copy p{
-  margin:0;font-size:clamp(19px,2vw,29px);
-  line-height:1.45;
-}
-.nuvama-copy strong{color:#8134a2}
-.nuvama-tagline{
-  display:block;margin-top:30px;
-  color:#8134a2;font-size:clamp(22px,2.5vw,37px);
-  font-weight:900;line-height:1.35;
+.peel-stage {
+  position: relative;
+  max-width: 1250px;
+  margin: 0 auto;
+  perspective: 1400px;
 }
 
-/* KURKURE INTRO — RAGEBAIT */
-.kurkure .campaign-head{
-  max-width:none;min-height:62vh;
-  display:flex;flex-direction:column;
-  justify-content:center;margin-bottom:50px;
-}
-.kurkure .rage-title{
-  margin:50px 0 0;max-width:1350px;
-  font-size:clamp(64px,10vw,165px);
-  line-height:.96;letter-spacing:-.085em;
-}
-.rage-brand{
-  display:block;font-size:.55em;
-  letter-spacing:-.055em;margin-bottom:25px;
-}
-.rage-highlight{color:#a53818;display:block}
-.rage-last{display:block}
-
-/* NANDO'S INTRO */
-.nandos .campaign-head{
-  max-width:none;min-height:70vh;
-  display:flex;flex-direction:column;
-  justify-content:center;margin-bottom:40px;
-}
-.nandos .nandos-title{
-  margin:45px 0 0;
-  font-size:clamp(65px,10vw,165px);
-  line-height:.96;letter-spacing:-.085em;
-}
-.nandos-title span{display:block}
-.nandos-punchline{
-  display:inline-block;width:fit-content;
-  max-width:100%;margin-top:45px;
-  padding:17px 25px;background:#ff9c7b;
-  color:#350c10;
-  font-size:clamp(22px,3.2vw,48px);
-  font-weight:900;letter-spacing:-.045em;
-  transform:rotate(-1deg);
+.peel-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: clamp(28px, 5vw, 75px);
+  margin-bottom: -20px;
+  min-height: clamp(140px, 20vw, 260px);
+  border-radius: 8px 32px 12px 28px;
+  box-shadow:
+    0 18px 30px rgba(24, 40, 25, .13),
+    0 3px 5px rgba(24, 40, 25, .08),
+    inset 0 2px 1px rgba(255,255,255,.45);
+  transform-origin: top left;
+  transform-style: preserve-3d;
+  transition: transform .65s cubic-bezier(.2,.8,.2,1),
+              box-shadow .65s ease;
+  will-change: transform;
 }
 
-/* STRATEGY SECTIONS — SHARED FOUNDATIONS */
-.strategy-strip{
-  display:block;margin-top:35px;
-  color:inherit;
-}
-.strategy-eyebrow{
-  display:block;font-size:12px;font-weight:900;
-  letter-spacing:.23em;text-transform:uppercase;
-}
-.strategy-detail{
-  font-size:clamp(16px,1.4vw,21px);
-  font-weight:400;line-height:1.55;
-  letter-spacing:normal;max-width:900px;
+.peel-card:nth-child(1) {
+  background: #f8e9db;
+  z-index: 3;
+  transform: rotate(-2deg);
 }
 
-/* CHANGE 5 — GRANT THORNTON */
-/* INSTITUTIONAL CREDIBILITY → EMOTIONAL REASSURANCE */
-.gt .strategy-strip{
-  background:#101d14;color:#f7f3e8;
-  padding:clamp(35px,5vw,80px);
-  border-left:9px solid #dfff58;
-}
-.gt .strategy-eyebrow{
-  color:#dfff58;margin-bottom:35px;
-}
-.gt-strategy-grid{
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  gap:24px;align-items:center;
-}
-.gt-strategy-grid .strategy-big{
-  font-size:clamp(35px,5.2vw,88px);
-  font-weight:900;line-height:1;
-  letter-spacing:-.07em;margin:0;
-}
-.gt-strategy-grid .gt-result{color:#dfff58}
-.gt-bridge{
-  display:flex;flex-direction:column;
-  gap:12px;align-items:center;
-  color:#dfff58;font-size:11px;
-  font-weight:900;letter-spacing:.18em;
-  text-align:center;
-}
-.gt-bridge b{
-  font-size:clamp(35px,5vw,70px);
-  line-height:1;
-}
-.gt .strategy-detail{
-  margin:35px 0 0;
-  border-top:1px solid #ffffff35;
-  padding-top:25px;
+.peel-card:nth-child(2) {
+  background: #c8d7a5;
+  z-index: 2;
+  transform: rotate(1.5deg);
 }
 
-/* CHANGE 7 — NUVAMA */
-/* FROM GLOBAL INVESTING → TO LOCAL CONFIDENCE */
-.nuvama .strategy-strip{
-  background:#38204d;color:#fff5eb;
-  padding:clamp(35px,5vw,80px);
-  text-align:center;
-}
-.nuvama .strategy-eyebrow{
-  color:#dfff58;margin-bottom:45px;
-}
-.nuvama-strategy-flow{
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  align-items:center;gap:25px;
-  text-align:left;
-}
-.flow-label{
-  display:block;color:#dfff58;
-  font-size:12px;font-weight:900;
-  letter-spacing:.24em;margin-bottom:18px;
-}
-.flow-big{
-  font-size:clamp(37px,5.3vw,88px);
-  line-height:1.05;letter-spacing:-.065em;
-  font-weight:900;margin:0;
-}
-.flow-arrow{
-  font-size:clamp(45px,5vw,80px);
-  color:#dfff58;
-}
-.nuvama .strategy-detail{
-  margin:45px auto 0;
-  padding-top:28px;
-  border-top:1px solid #ffffff40;
-  text-align:center;
+.peel-card:nth-child(3) {
+  background: #233f2d;
+  z-index: 1;
+  min-height: clamp(210px, 28vw, 360px);
+  margin-bottom: 0;
+  transform: rotate(-1deg);
 }
 
-/* CHANGE 10 — KURKURE × MATCHA */
-/* VISUAL EQUATION */
-.kurkure .strategy-strip{
-  background:#301a1d;color:#fff7ec;
-  padding:clamp(35px,5vw,80px);
-}
-.kurkure .strategy-eyebrow{
-  color:#d9ff64;margin-bottom:45px;
-}
-.kurkure-strategy-equation{
-  display:grid;
-  grid-template-columns:1fr auto 1fr auto 1.2fr;
-  gap:18px;align-items:center;
-}
-.equation-word{
-  font-size:clamp(24px,3.2vw,55px);
-  font-weight:900;line-height:1.1;
-  letter-spacing:-.06em;margin:0;
-}
-.equation-sign{
-  font-size:clamp(30px,4vw,65px);
-  font-weight:900;color:#ff7444;
-}
-.equation-result{color:#d9ff64}
-.kurkure .strategy-detail{
-  margin:40px 0 0;padding-top:25px;
-  border-top:1px solid #ffffff40;
+.peel-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(35px, 7vw, 85px);
+  height: clamp(35px, 7vw, 85px);
+  background: linear-gradient(
+    225deg,
+    rgba(255,255,255,.72) 0%,
+    rgba(255,255,255,.22) 47%,
+    transparent 50%
+  );
+  border-radius: 0 25px 0 15px;
+  pointer-events: none;
 }
 
-/* CHANGE 11 — NANDO'S */
-/* MAKE ABSURDITY LOOK EXPENSIVE */
-.nandos .strategy-strip{
-  background:#18070a;color:#fff3e5;
-  padding:clamp(40px,6vw,90px);
-  border:1px solid #ffffff20;
-}
-.nandos .strategy-eyebrow{
-  color:#ff9c7b;margin-bottom:35px;
-}
-.nandos-strategy-hero{
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
-  gap:40px;align-items:end;
-}
-.beauty-stack{
-  font-size:clamp(55px,7vw,118px);
-  font-weight:900;line-height:.9;
-  letter-spacing:-.08em;margin:0;
-}
-.beauty-stack span{display:block}
-.beauty-stack span:last-child{color:#ff9c7b}
-.beauty-statement{
-  font-size:clamp(32px,4vw,68px);
-  font-weight:900;line-height:1.05;
-  letter-spacing:-.065em;margin:0;
-}
-.nandos .strategy-detail{
-  margin:42px 0 0;padding-top:25px;
-  border-top:1px solid #ff9c7b65;
+.peel-card h2 {
+  font-size: clamp(38px, 7.2vw, 112px);
+  line-height: 1.03;
+  letter-spacing: -.065em;
+  font-weight: 850;
+  margin: 0;
+  color: #17291c;
 }
 
-/* FINAL APPROVED QUILTBOARD */
-.final-signature{
-  min-height:100vh;background:#f2e8da;
-  color:#101d14;display:flex;
-  flex-direction:column;justify-content:center;
-  align-items:center;padding:75px 5%;
+.peel-card.final-peel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
 }
-.final-inner{
-  width:100%;max-width:1600px;margin:auto;
+
+.final-peel .peel-label {
+  font-size: clamp(11px, 1.1vw, 15px);
+  font-weight: 800;
+  letter-spacing: .2em;
+  color: #d6fc64;
 }
-.final-signature h2{
-  margin:0 0 35px;
-  font-size:clamp(34px,6vw,90px);
-  font-weight:900;letter-spacing:-.075em;
-  line-height:1.05;
+
+.final-peel h2 {
+  color: #fff4e5;
+  font-size: clamp(40px, 7.5vw, 115px);
 }
-.final-artwork{
-  width:100%;height:auto;display:block;
-  object-fit:contain;border-radius:3px;
+
+.final-peel em {
+  color: #d6fc64;
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-thickness: .055em;
+  text-underline-offset: .12em;
 }
-.final-artwork-error{
-  padding:50px 20px;text-align:center;
-  border:2px dashed #101d1440;
-  font-size:18px;
+
+.peel-card.is-visible:nth-child(1) {
+  transform: rotate(-2deg) translateY(0);
 }
-.final-artwork-error[hidden]{display:none}
+
+.peel-card.is-visible:nth-child(2) {
+  transform: rotate(1.5deg) translateY(0);
+}
+
+.peel-card.is-visible:nth-child(3) {
+  transform: rotate(-1deg) translateY(0);
+}
+
+@media (hover:hover) {
+  .peel-card:nth-child(1):hover {
+    transform: rotate(-5deg) rotateY(-7deg) translateY(-12px);
+  }
+
+  .peel-card:nth-child(2):hover {
+    transform: rotate(4deg) rotateY(6deg) translateY(-12px);
+  }
+
+  .peel-card:nth-child(3):hover {
+    transform: rotate(0deg) translateY(-10px);
+  }
+}
+
+/* 02 — GRANT THORNTON WATERCOLOUR WASH */
+.gt {
+  position: relative;
+  isolation: isolate;
+  background: #eaf0df !important;
+}
+
+.gt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 43% 27% at 85% 12%,
+      rgba(151,197,197,.36),
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse 42% 30% at 8% 32%,
+      rgba(173,195,139,.28),
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse 48% 22% at 60% 48%,
+      rgba(247,222,207,.34),
+      transparent 85%
+    ),
+    radial-gradient(
+      ellipse 35% 35% at 20% 80%,
+      rgba(182,211,202,.30),
+      transparent 80%
+    );
+}
+
+.gt .campaign-head {
+  position: relative;
+  z-index: 1;
+}
+
+/* 03 + 05 — VERTICAL STRATEGY REVEALS */
+.gt .strategy-strip,
+.nuvama .strategy-strip {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0;
+  padding: clamp(38px, 6vw, 85px) !important;
+  overflow: hidden;
+}
+
+.gt .strategy-strip {
+  background: #102319 !important;
+  border-left: 9px solid #d6fc64;
+}
+
+.nuvama .strategy-strip {
+  background: #382049 !important;
+  border-left: 0;
+}
+
+.gt .strategy-eyebrow,
+.nuvama .strategy-eyebrow {
+  display: block;
+  color: #d6fc64 !important;
+  font-size: 12px !important;
+  font-weight: 800;
+  letter-spacing: .2em !important;
+  margin-bottom: 32px;
+}
+
+.vertical-strategy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1050px;
+}
+
+.vertical-strategy .strategy-source {
+  font-size: clamp(38px, 6vw, 88px);
+  line-height: 1.03;
+  letter-spacing: -.065em;
+  font-weight: 850;
+  color: #fff4e8;
+  margin: 0;
+}
+
+.vertical-strategy .strategy-arrow {
+  font-size: clamp(42px, 5vw, 70px);
+  line-height: 1;
+  font-weight: 400;
+  color: #d6fc64;
+  transition: transform .7s ease;
+}
+
+.vertical-strategy .strategy-destination {
+  width: 100%;
+  padding: clamp(25px, 4vw, 55px);
+  border-radius: 5px;
+  font-size: clamp(38px, 6vw, 88px);
+  line-height: 1.05;
+  letter-spacing: -.065em;
+  font-weight: 850;
+  margin: 0;
+  background: #d6fc64;
+  color: #102319;
+  box-sizing: border-box;
+  box-shadow: 0 18px 35px rgba(0,0,0,.12);
+}
+
+.nuvama .strategy-destination {
+  background: #e8d3f1;
+  color: #382049;
+}
+
+.gt .strategy-detail,
+.nuvama .strategy-detail {
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto 0 !important;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.25);
+  color: #fff4e8;
+  text-align: center;
+  font-size: clamp(15px, 1.5vw, 20px) !important;
+  line-height: 1.6;
+}
+
+.gt-strategy-grid,
+.nuvama-strategy-flow {
+  display: none !important;
+}
+
+/* 04 — NUVAMA EMBOSSED HERITAGE */
+.nuvama {
+  position: relative;
+  isolation: isolate;
+  background: #f5e7d5 !important;
+}
+
+.nuvama::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .42;
+  background-image:
+    radial-gradient(
+      circle at center,
+      rgba(145,104,157,.16) 1.6px,
+      transparent 2.6px
+    ),
+    radial-gradient(
+      circle at center,
+      rgba(255,255,255,.6) 1.6px,
+      transparent 2.6px
+    );
+  background-size: 46px 46px;
+  background-position: 0 0, 2px 2px;
+  mask-image: linear-gradient(
+    90deg,
+    black,
+    transparent 35%,
+    transparent 65%,
+    black
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    black,
+    transparent 35%,
+    transparent 65%,
+    black
+  );
+}
+
+.nuvama .campaign-head {
+  position: relative;
+  z-index: 1;
+}
+
+/* 06 — KURKURE ACID EDITORIAL */
+.kurkure {
+  background: #d8ff68 !important;
+}
+
+.kurkure .campaign-head {
+  max-width: 1200px;
+}
+
+.kurkure .campaign-head > h2,
+.kurkure .campaign-head > .campaign-lead {
+  display: none !important;
+}
+
+.acid-editorial {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(20px, 3vw, 45px);
+  padding: clamp(25px, 4vw, 50px) 0;
+}
+
+.acid-editorial .acid-title {
+  font-size: clamp(45px, 7vw, 105px);
+  font-weight: 850;
+  line-height: 1.05;
+  letter-spacing: -.065em;
+  color: #142317;
+  margin: 0;
+}
+
+.acid-editorial .acid-impact {
+  display: inline-block;
+  max-width: 100%;
+  background: #a62e1d;
+  color: #fff1d5;
+  padding: clamp(24px, 4vw, 60px);
+  border-radius: 3px;
+  box-shadow: 14px 14px 0 rgba(20,35,23,.12);
+  transform: rotate(-1deg);
+  transition: transform .45s ease;
+}
+
+.acid-editorial .acid-impact h2 {
+  margin: 0;
+  font-size: clamp(45px, 8vw, 125px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -.07em;
+  color: inherit;
+}
+
+@media (hover:hover) {
+  .acid-impact:hover {
+    transform: rotate(0deg) translateY(-7px);
+  }
+}
+
+/* SCROLL REVEALS */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity .75s ease,
+    transform .75s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vertical-strategy.revealed .strategy-arrow {
+  animation: arrow-drop 1.2s ease both;
+}
+
+@keyframes arrow-drop {
+  from {transform: translateY(-18px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
 
 /* RESPONSIVE */
-@media(max-width:800px){
-  .site-nav{gap:12px}
-  .site-nav a{font-size:11px}
-  .campaign{padding:75px 6%}
-  .motion-triptych{gap:2px}
-  .motion-label{font-size:9px;letter-spacing:.02em}
-  .scene-title{font-size:25vw;left:4%}
-  .chocolate-copy{left:6%;right:6%;bottom:18%}
-  .final-signature{padding:65px 4%}
-  .gt-editorial,
-  .nuvama-editorial{
-    grid-template-columns:1fr;gap:40px;
+@media(max-width: 700px) {
+  .philosophy {
+    padding: 75px 6% !important;
+    min-height: auto;
   }
-  .gt-copy,.nuvama-copy{
-    padding-left:20px;
+
+  .peel-card {
+    margin-bottom: -10px;
+    min-height: 150px;
+    padding: 25px;
   }
-  .gt-strategy-grid,
-  .nuvama-strategy-flow{
-    grid-template-columns:1fr;gap:16px;
+
+  .peel-card h2 {
+    font-size: clamp(32px, 8vw, 55px);
   }
-  .gt-bridge{
-    flex-direction:row;
-    justify-content:flex-start;
+
+  .final-peel h2 {
+    font-size: clamp(34px, 8vw, 58px);
   }
-  .gt-bridge b{font-size:40px}
-  .flow-arrow{font-size:45px}
-  .kurkure-strategy-equation{
-    grid-template-columns:1fr;gap:12px;
+
+  .gt .strategy-strip,
+  .nuvama .strategy-strip {
+    padding: 40px 22px !important;
   }
-  .equation-sign{font-size:30px}
-  .nandos-strategy-hero{
-    grid-template-columns:1fr;gap:28px;
+
+  .vertical-strategy .strategy-source,
+  .vertical-strategy .strategy-destination {
+    font-size: clamp(34px, 9vw, 55px);
   }
-  .kurkure .campaign-head,
-  .nandos .campaign-head{min-height:55vh}
-  .nandos-punchline{transform:none}
+
+  .acid-editorial .acid-title {
+    font-size: clamp(39px, 9vw, 65px);
+  }
+
+  .acid-editorial .acid-impact h2 {
+    font-size: clamp(40px, 10vw, 72px);
+  }
 }
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .intro-scene{transition:none}
+
+@media(prefers-reduced-motion: reduce) {
+  .peel-card,
+  .acid-impact,
+  .reveal-on-scroll,
+  .vertical-strategy .strategy-arrow {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+  }
 }
 </style>
-</head>
-
-<body class="intro-active">
-
-<!-- OPENING SEQUENCE -->
-<div id="intro-overlay">
-
-<section class="intro-scene active" id="sceneCola">
-  <video class="full-video" id="colaVideo" muted playsinline preload="auto">
-    <source src="FresHume_Branded_Opening.mp4" type="video/mp4">
-  </video>
-</section>
-
-<section class="intro-scene b2b" id="sceneB2B">
-  <div class="motion-triptych">
-    <div class="motion-panel">
-      <video muted loop playsinline preload="auto">
-        <source src="b2b_keyboard.mp4" type="video/mp4">
-      </video>
-      <span class="motion-label">PRECISION.</span>
-    </div>
-    <div class="motion-panel">
-      <video muted loop playsinline preload="auto">
-        <source src="b2b_violin.mp4" type="video/mp4">
-      </video>
-      <span class="motion-label">STRATEGY.</span>
-    </div>
-    <div class="motion-panel">
-      <video muted loop playsinline preload="auto">
-        <source src="b2b_handshake.mp4" type="video/mp4">
-      </video>
-      <span class="motion-label">TRUST.</span>
-    </div>
-  </div>
-  <h2 class="scene-title">B2B.</h2>
-</section>
-
-<section class="intro-scene b2c" id="sceneB2C">
-  <div class="motion-triptych">
-    <div class="motion-panel">
-      <video muted loop playsinline preload="auto">
-        <source src="b2c_saxophone.mp4" type="video/mp4">
-      </video>
-      <span class="motion-label">CULTURE.</span>
-    </div>
-    <div class="motion-panel">
-      <video muted loop playsinline preload="auto">
-        <source src="b2c_pizza.mp4" type="video/mp4">
-      </video>
-      <span class="motion-label">CRAVINGS.</span>
-    </div>
-    <div class="motion-panel">
-      <video muted loop playsinline preload="auto">
-        <source src="b2b_shopping.mp4" type="video/mp4">
-      </video>
-      <span class="motion-label">CHAOS.</span>
-    </div>
-  </div>
-  <h2 class="scene-title">B2C.</h2>
-</section>
-
-<section class="intro-scene chocolate" id="sceneChocolate">
-  <video class="full-video" id="chocolateVideo" muted playsinline preload="auto">
-    <source src="chocolate_opening.mp4.mp4" type="video/mp4">
-  </video>
-  <div class="chocolate-copy" id="chocolateCopy">
-    B2B or B2C.<br>
-    What matters is the <em>feeling.</em>
-  </div>
-</section>
-
-<button class="sound-control" id="soundButton" type="button">
-  🔇 Enable sound
-</button>
-</div>
-
-<!-- NAVIGATION: ONLY TWO LINKS -->
-<header class="site-header">
-  <a href="#thinking" class="logo">
-    <span class="small-letter">(f)</span><span class="main-letter">RES</span><span class="small-letter">(h)</span><span class="main-letter">UME.</span>
-  </a>
-  <nav class="site-nav">
-    <a href="#grant-video">Campaigns</a>
-    <a href="#about">About</a>
-  </nav>
-</header>
-
-<main>
-
-<!-- PHILOSOPHY -->
-<section class="philosophy" id="thinking">
-  <div class="kicker">01 / THE PHILOSOPHY</div>
-  <h1>
-    Different audiences.<br>
-    Different results.<br>
-    The job remains the same:<br>
-    make them <em>feel something.</em>
-  </h1>
-</section>
-
-<!-- GRANT THORNTON -->
-<section class="campaign gt" id="campaigns">
-
-  <div class="campaign-head">
-    <div class="kicker">02 / B2B / TRUST</div>
-
-    <div class="gt-editorial">
-      <h2 class="gt-title">
-        <span>Serious</span>
-        <span>business.</span>
-        <span class="human">Human</span>
-        <span class="human">feelings.</span>
-      </h2>
-
-      <div class="gt-copy">
-        <p>
-          What if <strong>Grant Thornton Bharat</strong>
-          launched an education consulting initiative
-          for children with additional learning needs?
-          What if the final message wasn't about expertise,
-          but about making families feel
-          <strong>safe, seen, heard and understood?</strong>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="film-wrap" id="grant-video">
-    <video class="campaign-film" controls playsinline preload="metadata">
-      <source src="grant_thornton.mp4" type="video/mp4">
-    </video>
-    <div class="film-caption">
-      <span>GRANT THORNTON BHARAT / TRUST</span>
-      <span>THE EMOTION: REASSURANCE</span>
-    </div>
-  </div>
-
-  <p class="concept-note">
-    An independent creative interpretation, not an official brand campaign.
-  </p>
-
-  <h3 class="mockup-heading">One idea. Every touchpoint.</h3>
-
-  <div class="approved-board">
-    <img src="grant_thornton_board.png" alt="Grant Thornton campaign artwork" hidden>
-    <div class="board-placeholder">
-      <strong>Grant Thornton Artwork</strong>
-      <span>grant_thornton_board.png</span>
-    </div>
-  </div>
-
-  <!-- APPROVED STRATEGY: TRANSFORMATION -->
-  <div class="strategy-strip">
-    <span class="strategy-eyebrow">THE STRATEGY</span>
-
-    <div class="gt-strategy-grid">
-      <p class="strategy-big">
-        Institutional<br>credibility.
-      </p>
-
-      <div class="gt-bridge">
-        <span>TRANSFORMED INTO</span>
-        <b>→</b>
-      </div>
-
-      <p class="strategy-big gt-result">
-        Emotional<br>reassurance.
-      </p>
-    </div>
-
-    <p class="strategy-detail">
-      Through inclusive storytelling, expert voices and empathy.
-    </p>
-  </div>
-
-</section>
-
-<!-- NUVAMA -->
-<section class="campaign nuvama">
-
-  <div class="campaign-head">
-    <div class="kicker">03 / B2C / FINANCIAL EMPOWERMENT</div>
-
-    <div class="nuvama-editorial">
-      <h2 class="nuvama-title">
-        <span>सोच नई।</span>
-        <span>Investing की</span>
-        <span>दुनिया बड़ी।</span>
-      </h2>
-
-      <div class="nuvama-copy">
-        <p>
-          What if <strong>Nuvama Wealth</strong>
-          made international investing more approachable
-          for women through familiar languages,
-          everyday conversations and financial education?
-        </p>
-
-        <strong class="nuvama-tagline">
-          अपनी भाषा में, अपने सपनों के लिए Investing.
-        </strong>
-      </div>
-    </div>
-  </div>
-
-  <div class="film-wrap">
-    <video class="campaign-film" controls playsinline preload="metadata">
-      <source src="nuvama_wealth.mp4" type="video/mp4">
-    </video>
-    <div class="film-caption">
-      <span>NUVAMA WEALTH / EMPOWERMENT</span>
-      <span>THE EMOTION: CONFIDENCE</span>
-    </div>
-  </div>
-
-  <p class="concept-note">
-    Independent creative campaign concept. Not an official Nuvama campaign.
-  </p>
-
-  <h3 class="mockup-heading">Investing, in your language.</h3>
-
-  <div class="approved-board">
-    <img src="nuvama_board.png" alt="Nuvama campaign artwork" hidden>
-    <div class="board-placeholder">
-      <strong>Nuvama Artwork</strong>
-      <span>nuvama_board.png</span>
-    </div>
-  </div>
-
-  <!-- APPROVED STRATEGY: FROM / TO -->
-  <div class="strategy-strip">
-    <span class="strategy-eyebrow">THE STRATEGY</span>
-
-    <div class="nuvama-strategy-flow">
-      <div>
-        <span class="flow-label">FROM</span>
-        <p class="flow-big">Global<br>investing.</p>
-      </div>
-
-      <span class="flow-arrow" aria-hidden="true">→</span>
-
-      <div>
-        <span class="flow-label">TO</span>
-        <p class="flow-big">Local<br>confidence.</p>
-      </div>
-    </div>
-
-    <p class="strategy-detail">
-      Make global investing feel local, approachable and empowering
-      through cultural relevance and financial education.
-    </p>
-  </div>
-
-</section>
-
-<!-- KURKURE × MATCHA -->
-<section class="campaign kurkure">
-
-  <div class="campaign-head">
-    <div class="kicker">04 / B2C / CULTURE &amp; CHAOS</div>
-
-    <h2 class="rage-title">
-      <span class="rage-brand">Matcha × Kurkure.</span>
-      <span class="rage-highlight">The ultimate</span>
-      <span class="rage-last">ragebait.</span>
-    </h2>
-  </div>
-
-  <div class="film-wrap">
-    <video class="campaign-film" controls playsinline preload="metadata">
-      <source src="kurkure_matcha.mp4" type="video/mp4">
-    </video>
-    <div class="film-caption">
-      <span>KURKURE × MATCHA / THE COLLISION</span>
-      <span>THE EMOTION: SURPRISE</span>
-    </div>
-  </div>
-
-  <p class="concept-note">
-    Independent speculative collaboration concept.
-  </p>
-
-  <h3 class="mockup-heading">The crunch that broke the calm.</h3>
-
-  <div class="approved-board">
-    <img src="kurkure_board.png" alt="Kurkure Matcha campaign artwork" hidden>
-    <div class="board-placeholder">
-      <strong>Kurkure Artwork</strong>
-      <span>kurkure_board.png</span>
-    </div>
-  </div>
-
-  <!-- APPROVED STRATEGY: VISUAL EQUATION -->
-  <div class="strategy-strip">
-    <span class="strategy-eyebrow">THE STRATEGY</span>
-
-    <div class="kurkure-strategy-equation">
-      <p class="equation-word">
-        Unexpected<br>flavour.
-      </p>
-
-      <span class="equation-sign" aria-hidden="true">+</span>
-
-      <p class="equation-word">
-        Strong<br>reactions.
-      </p>
-
-      <span class="equation-sign" aria-hidden="true">=</span>
-
-      <p class="equation-word equation-result">
-        Cultural<br>conversation.
-      </p>
-    </div>
-
-    <p class="strategy-detail">
-      Turn an unexpected flavour collision into a shareable
-      cultural moment through sensory storytelling,
-      curiosity and playful provocation.
-    </p>
-  </div>
-
-</section>
-
-<!-- NANDO'S -->
-<section class="campaign nandos">
-
-  <div class="campaign-head">
-    <div class="kicker">05 / B2C / BEAUTY &amp; ABSURDITY</div>
-
-    <h2 class="nandos-title">
-      <span>Is it makeup?</span>
-      <span>Is it dinner?</span>
-    </h2>
-
-    <div class="nandos-punchline">
-      Guess you'll never know.
-    </div>
-  </div>
-
-  <div class="film-wrap">
-    <video class="campaign-film" controls playsinline preload="metadata">
-      <source src="butter_chicken_lipgloss.mp4" type="video/mp4">
-    </video>
-    <div class="film-caption">
-      <span>NANDO'S / THE BEAUTY MENU</span>
-      <span>THE EMOTION: DELIGHT</span>
-    </div>
-  </div>
-
-  <p class="concept-note">
-    Independent speculative beauty collaboration.
-    Not an official Nando's product launch.
-  </p>
-
-  <h3 class="mockup-heading">The Nando's Beauty Menu.</h3>
-
-  <div class="approved-board">
-    <img src="nandos_board.png" alt="Nando's beauty campaign artwork" hidden>
-    <div class="board-placeholder">
-      <strong>Nando's Artwork</strong>
-      <span>nandos_board.png</span>
-    </div>
-  </div>
-
-  <!-- APPROVED STRATEGY: LUXURY EDITORIAL -->
-  <div class="strategy-strip">
-    <span class="strategy-eyebrow">THE STRATEGY</span>
-
-    <div class="nandos-strategy-hero">
-      <h3 class="beauty-stack">
-        <span>NANDO'S</span>
-        <span>BEAUTY.</span>
-      </h3>
-
-      <p class="beauty-statement">
-        Make absurdity<br>
-        look expensive.
-      </p>
-    </div>
-
-    <p class="strategy-detail">
-      Borrow the codes of luxury beauty advertising,
-      then subvert them with deliciously absurd
-      food-inspired products to spark conversation
-      and social sharing.
-    </p>
-  </div>
-
-</section>
-
-<!-- FINAL STRATEGIC COMMUNICATIONS SLIDE -->
-<section class="final-signature" id="about">
-  <div class="final-inner">
-
-    <h2>Hi, I'm Akshita.</h2>
-
-    <img
-      class="final-artwork"
-      id="strategicArtwork"
-      src="strategic_communications.png.png"
-      alt="Strategic Communications quiltboard featuring Akshita Chugh's education, communication principles and professional brands"
-      loading="lazy"
-      decoding="async"
-    >
-
-    <div class="final-artwork-error" id="artworkError" hidden>
-      Strategic Communications artwork could not be loaded.
-      Please check the filename in GitHub.
-    </div>
-
-  </div>
-</section>
-
-</main>
 
 <script>
-(function(){
-  const overlay=document.getElementById("intro-overlay");
-  const cola=document.getElementById("sceneCola");
-  const b2b=document.getElementById("sceneB2B");
-  const b2c=document.getElementById("sceneB2C");
-  const chocolate=document.getElementById("sceneChocolate");
-  const colaVideo=document.getElementById("colaVideo");
-  const chocolateVideo=document.getElementById("chocolateVideo");
-  const chocolateCopy=document.getElementById("chocolateCopy");
-  const soundButton=document.getElementById("soundButton");
-  const scenes=[cola,b2b,b2c,chocolate];
+(function () {
+  "use strict";
 
-  let finished=false;
-  let soundEnabled=false;
-  let sceneTimer=null;
-  let messageTimer=null;
-  let activeCleanup=null;
+  function initializeDesignUpdates() {
 
-  function clearSceneTimers(){
-    clearTimeout(sceneTimer);
-    clearTimeout(messageTimer);
-    if(activeCleanup){
-      activeCleanup();
-      activeCleanup=null;
+    /* CHANGE 1 — LAYER PEEL */
+    const philosophy = document.querySelector(".philosophy");
+
+    if (philosophy && !philosophy.querySelector(".peel-stage")) {
+      const stage = document.createElement("div");
+      stage.className = "peel-stage";
+
+      stage.innerHTML = `
+        <div class="peel-card">
+          <h2>Different audiences.</h2>
+        </div>
+
+        <div class="peel-card">
+          <h2>Different results.</h2>
+        </div>
+
+        <div class="peel-card final-peel">
+          <span class="peel-label">
+            THE JOB REMAINS THE SAME
+          </span>
+          <h2>
+            Make them <em>feel</em> something.
+          </h2>
+        </div>
+      `;
+
+      philosophy.appendChild(stage);
     }
-  }
 
-  function stopOtherVideos(active){
-    overlay.querySelectorAll("video").forEach(video=>{
-      if(video!==active)video.pause();
-    });
-  }
+    /* CHANGE 3 — GRANT THORNTON STRATEGY */
+    const gtStrategy =
+      document.querySelector(".gt .strategy-strip");
 
-  function activate(scene){
-    if(finished)return;
+    if (gtStrategy) {
+      gtStrategy.innerHTML = `
+        <span class="strategy-eyebrow">
+          THE STRATEGY
+        </span>
 
-    clearSceneTimers();
+        <div class="vertical-strategy reveal-on-scroll">
+          <h3 class="strategy-source">
+            Institutional<br>credibility.
+          </h3>
 
-    scenes.forEach(item=>{
-      item.classList.toggle("active",item===scene);
-    });
+          <div class="strategy-arrow" aria-hidden="true">
+            ↓
+          </div>
 
-    if(scene===b2b||scene===b2c){
-      stopOtherVideos(null);
+          <h3 class="strategy-destination">
+            Emotional<br>reassurance.
+          </h3>
+        </div>
 
-      scene.querySelectorAll("video").forEach(video=>{
-        video.muted=true;
-        video.volume=0;
-        video.currentTime=0;
-        video.play().catch(()=>{});
-      });
+        <p class="strategy-detail">
+          Through inclusive storytelling,
+          expert voices and empathy.
+        </p>
+      `;
     }
+
+    /* CHANGE 5 — NUVAMA STRATEGY */
+    const nuvamaStrategy =
+      document.querySelector(".nuvama .strategy-strip");
+
+    if (nuvamaStrategy) {
+      nuvamaStrategy.innerHTML = `
+        <span class="strategy-eyebrow">
+          THE STRATEGY
+        </span>
+
+        <div class="vertical-strategy reveal-on-scroll">
+          <h3 class="strategy-source">
+            Global investing.
+          </h3>
+
+          <div class="strategy-arrow" aria-hidden="true">
+            ↓
+          </div>
+
+          <h3 class="strategy-destination">
+            Local confidence.
+          </h3>
+        </div>
+
+        <p class="strategy-detail">
+          Make global investing feel local,
+          approachable and empowering
+          through cultural relevance
+          and financial education.
+        </p>
+      `;
+    }
+
+    /* CHANGE 6 — KURKURE ACID EDITORIAL */
+    const kurkureHead =
+      document.querySelector(".kurkure .campaign-head");
+
+    if (kurkureHead && !kurkureHead.querySelector(".acid-editorial")) {
+      const editorial = document.createElement("div");
+      editorial.className = "acid-editorial";
+
+      editorial.innerHTML = `
+        <h2 class="acid-title">
+          Matcha × Kurkure.
+        </h2>
+
+        <div class="acid-impact">
+          <h2>
+            The ultimate<br>ragebait.
+          </h2>
+        </div>
+      `;
+
+      kurkureHead.appendChild(editorial);
+    }
+
+    /* INTERSECTION-BASED REVEAL ANIMATION */
+    const revealElements =
+      document.querySelectorAll(".reveal-on-scroll");
+
+    const reduceMotion =
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      revealElements.forEach(el => el.classList.add("revealed"));
+    } else {
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("revealed");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {threshold: 0.15}
+      );
+
+      revealElements.forEach(el => observer.observe(el));
+    }
+
+    /* PRESERVE NAVIGATION */
+    const nav = document.querySelector(".site-nav");
+
+    if (nav) {
+      nav.innerHTML = `
+        <a href="#grant-video">Campaigns</a>
+        <a href="#about">About</a>
+      `;
+    }
+
+    /* ENSURE ARTWORK IS DISPLAYED */
+    document.querySelectorAll(".approved-board").forEach(board => {
+      const img = board.querySelector("img");
+      const placeholder = board.querySelector(".board-placeholder");
+
+      if (img) {
+        img.hidden = false;
+        img.style.display = "block";
+        img.style.width = "100%";
+        img.style.height = "auto";
+
+        img.addEventListener("load", () => {
+          if (placeholder) placeholder.style.display = "none";
+        });
+
+        img.addEventListener("error", () => {
+          img.style.display = "none";
+          if (placeholder) placeholder.style.display = "";
+        });
+
+        if (img.complete && img.naturalWidth > 0 && placeholder) {
+          placeholder.style.display = "none";
+        }
+      }
+    });
+
   }
 
-  function playFilm(video,next,fallback){
-    if(finished)return;
-
-    stopOtherVideos(video);
-    video.muted=!soundEnabled;
-    video.currentTime=0;
-
-    let advanced=false;
-
-    const advance=()=>{
-      if(advanced||finished)return;
-      advanced=true;
-      clearTimeout(sceneTimer);
-      video.removeEventListener("ended",advance);
-      next();
-    };
-
-    video.addEventListener("ended",advance);
-
-    activeCleanup=()=>{
-      video.removeEventListener("ended",advance);
-    };
-
-    const startFallback=()=>{
-      const duration=
-        Number.isFinite(video.duration)&&video.duration>0
-        ?video.duration*1000+1500
-        :fallback;
-
-      clearTimeout(sceneTimer);
-      sceneTimer=setTimeout(advance,duration);
-    };
-
-    video.addEventListener(
-      "loadedmetadata",
-      startFallback,
-      {once:true}
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initializeDesignUpdates
     );
-
-    startFallback();
-
-    video.play().catch(()=>{
-      clearTimeout(sceneTimer);
-      sceneTimer=setTimeout(advance,2500);
-    });
+  } else {
+    initializeDesignUpdates();
   }
-
-  function showB2B(){
-    activate(b2b);
-    sceneTimer=setTimeout(showB2C,6000);
-  }
-
-  function showB2C(){
-    activate(b2c);
-    sceneTimer=setTimeout(showChocolate,6000);
-  }
-
-  function showChocolate(){
-    activate(chocolate);
-    chocolateCopy.classList.remove("visible");
-
-    playFilm(chocolateVideo,finish,12000);
-
-    messageTimer=setTimeout(()=>{
-      chocolateCopy.classList.add("visible");
-    },1200);
-  }
-
-  function finish(){
-    if(finished)return;
-    finished=true;
-
-    clearSceneTimers();
-    stopOtherVideos(null);
-
-    overlay.classList.add("finished");
-    document.body.classList.remove("intro-active");
-
-    setTimeout(()=>overlay.remove(),850);
-  }
-
-  function start(){
-    activate(cola);
-    playFilm(colaVideo,showB2B,12000);
-  }
-
-  soundButton.addEventListener("click",()=>{
-    soundEnabled=!soundEnabled;
-
-    soundButton.textContent=soundEnabled
-      ?"🔊 Sound on"
-      :"🔇 Enable sound";
-
-    colaVideo.muted=!soundEnabled;
-    chocolateVideo.muted=!soundEnabled;
-
-    document.querySelectorAll(
-      "#sceneB2B video,#sceneB2C video"
-    ).forEach(video=>{
-      video.muted=true;
-      video.volume=0;
-    });
-  });
-
-  // Load the approved campaign boards.
-  document.querySelectorAll(".approved-board img").forEach(img=>{
-    img.onload=()=>{img.hidden=false};
-    img.onerror=()=>{img.hidden=true};
-
-    const source=img.getAttribute("src");
-    img.removeAttribute("src");
-    img.setAttribute("src",source);
-  });
-
-  // Display the final quiltboard artwork.
-  const artwork=document.getElementById("strategicArtwork");
-  const artworkError=document.getElementById("artworkError");
-
-  artwork.addEventListener("error",()=>{
-    artwork.hidden=true;
-    artworkError.hidden=false;
-  });
-
-  artwork.addEventListener("load",()=>{
-    artwork.hidden=false;
-    artworkError.hidden=true;
-  });
-
-  if(artwork.complete){
-    if(artwork.naturalWidth>0){
-      artwork.hidden=false;
-      artworkError.hidden=true;
-    }else{
-      artwork.hidden=true;
-      artworkError.hidden=false;
-    }
-  }
-
-  // Start the opening sequence.
-  start();
 })();
 </script>
-
-</body>
-</html>
