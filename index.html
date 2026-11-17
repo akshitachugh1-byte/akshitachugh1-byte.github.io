@@ -124,7 +124,7 @@ button:focus-visible,a:focus-visible{
 .site-nav{display:flex;gap:30px}
 .site-nav a{font-size:14px}
 .site-nav a:hover{color:var(--lime)}
-#grant-video{scroll-margin-top:90px}
+#grant-video,#campaigns{scroll-margin-top:90px}
 #about{scroll-margin-top:70px}
 
 /* CHANGE 1 — REFINED LAYER PEEL */
@@ -218,6 +218,8 @@ button:focus-visible,a:focus-visible{
 .peel-card.two:hover{
   transform:rotate(5deg) translate(12px,-10px) translateZ(45px);
 }
+
+  
 .peel-card.three:hover{
   transform:rotate(-4deg) translate(-8px,-10px) translateZ(30px);
 }
@@ -438,6 +440,7 @@ button:focus-visible,a:focus-visible{
   margin-bottom:48px;
   color:rgba(79,54,48,.32);
   font-family:Georgia,serif;
+
   font-size:clamp(11px,1.15vw,16px);
   font-weight:700;
   letter-spacing:.1em;
@@ -653,6 +656,7 @@ button:focus-visible,a:focus-visible{
   text-align:left;
   position:relative;
   overflow:hidden;
+
   isolation:isolate;
 }
 .nuvama .strategy-strip:before{
@@ -868,68 +872,130 @@ button:focus-visible,a:focus-visible{
     gap:8px;
     flex-wrap:wrap;
     margin-bottom:30px;
+
   }
-  .newspaper-masthead span:nth-child(2){
-    order:-1;
-    width:100%;
-  }
-  .gt-strategy-grid,
-  .nuvama-strategy-flow{
-    grid-template-columns:1fr;gap:16px;
-  }
-  .gt-strategy-grid .strategy-big,
-  .flow-big{font-size:clamp(38px,8vw,65px)}
-  .gt-bridge{
-    flex-direction:row;justify-content:flex-start;
-  }
-  .gt-bridge b{font-size:40px}
-  .flow-arrow{
-    font-size:45px;
-    text-align:left;
-    transform:rotate(90deg);
-    transform-origin:left center;
-    margin:5px 0 25px 20px;
-  }
-  .kurkure-strategy-equation{
-    grid-template-columns:1fr;gap:12px;
-  }
-  .equation-sign{font-size:30px}
-  .nandos-strategy-hero{
-    grid-template-columns:1fr;gap:28px;
+  .nuvama .nuvama-title{
+    font-size:clamp(48px,9vw,85px);
   }
   .kurkure .campaign-head{
-    grid-template-columns:1fr;gap:30px;
+    grid-template-columns:1fr;
+    min-height:auto;
+    gap:25px;
   }
-  .kurkure .campaign-head .kicker{grid-column:1}
-  .rage-art{min-height:310px}
-  .rage-sticker{width:240px}
-  .rage-sticker span{font-size:35px}
-  .nandos .campaign-head{min-height:55vh}
-  .nandos-punchline{transform:none}
+  .kurkure .campaign-head .kicker{
+    grid-column:1;
+  }
+  .kurkure .rage-title{
+    font-size:clamp(55px,10vw,95px);
+  }
+  .rage-art{
+    min-height:340px;
+    margin:10px auto 0;
+    width:100%;
+  }
+  .rage-sticker{
+    width:clamp(220px,55vw,350px);
+  }
+  .rage-sticker span{
+    font-size:clamp(31px,7vw,48px);
+  }
+  .rage-tiny{right:8%}
+  .kurkure-strategy-equation{
+    grid-template-columns:1fr;
+    gap:12px;
+    text-align:center;
+  }
+  .equation-sign{
+    transform:rotate(90deg);
+    font-size:40px;
+  }
+  .nandos-strategy-hero{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+  .nandos .nandos-title{
+    font-size:clamp(62px,11vw,115px);
+  }
 }
-@media(max-width:480px){
-  .peel-stack{min-height:480px}
+@media(max-width:600px){
+  .site-header{
+    padding:15px 5%;
+  }
+  .logo{font-size:19px}
+  .site-nav{gap:15px}
+  .site-nav a{font-size:12px}
+  .campaign h2{
+    font-size:clamp(49px,11vw,75px);
+  }
+  .campaign-lead{
+    font-size:19px;
+  }
+  .film-caption{
+    font-size:9px;
+    letter-spacing:.08em;
+  }
+  .peel-stack{
+    min-height:460px;
+  }
   .peel-card{
-    width:92%;
-    height:112px;
-    padding:18px 22px;
-    border-radius:18px;
+    height:108px;
+    padding:18px 20px;
+    border-radius:17px;
   }
   .peel-card span{
-    font-size:clamp(25px,6.5vw,35px);
+    font-size:clamp(24px,6vw,36px);
   }
-  .peel-card.one{top:0;left:2%}
-  .peel-card.two{top:120px;left:6%}
-  .peel-card.three{top:240px;left:1%}
-  .peel-card.four{top:360px;left:5%}
-  .gt .gt-title{font-size:clamp(56px,12vw,85px)}
-  .nuvama .nuvama-title{font-size:clamp(44px,10vw,75px)}
-  .kurkure .rage-title{font-size:clamp(54px,11vw,85px)}
+  .peel-card.one{top:0}
+  .peel-card.two{top:115px}
+  .peel-card.three{top:230px}
+  .peel-card.four{top:345px}
+  .gt-strategy-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+  .gt-bridge{
+    flex-direction:row;
+    justify-content:center;
+  }
+  .gt-bridge b{
+    transform:rotate(90deg);
+  }
+  .nuvama-strategy-flow{
+    grid-template-columns:1fr;
+    gap:25px;
+  }
+  .flow-arrow{
+    transform:rotate(90deg);
+    font-size:50px;
+  }
+  .flow-big{
+    font-size:clamp(38px,9vw,65px);
+  }
+  .nuvama .strategy-detail{
+    margin-top:35px;
+  }
+  .nuvama .campaign-head:after{
+    font-size:17px;
+  }
+  .newspaper-masthead span:nth-child(2){
+    font-size:16px;
+  }
+  .nandos-punchline{
+    font-size:clamp(19px,5vw,30px);
+  }
+  .strategy-strip{
+    margin-top:25px;
+  }
+  .strategy-detail{
+    font-size:16px;
+  }
 }
 @media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .intro-scene{transition:none}
-  .peel-card{transition:none}
+  *,*::before,*::after{
+    scroll-behavior:auto!important;
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
+  }
 }
 </style>
 </head>
@@ -938,96 +1004,84 @@ button:focus-visible,a:focus-visible{
 
 <!-- OPENING SEQUENCE -->
 <div id="intro-overlay">
-
-  <section class="intro-scene active" id="sceneCola">
-    <video class="full-video" id="colaVideo" muted playsinline preload="auto">
+  <section class="intro-scene active" id="scene-opening">
+    <video class="full-video" autoplay muted playsinline preload="auto">
       <source src="FresHume_Branded_Opening.mp4" type="video/mp4">
     </video>
   </section>
 
-  <section class="intro-scene b2b" id="sceneB2B">
+  <section class="intro-scene b2b" id="scene-b2b">
     <div class="motion-triptych">
       <div class="motion-panel">
-        <video muted loop playsinline preload="auto">
-          <source src="b2b_keyboard.mp4" type="video/mp4">
-        </video>
-        <span class="motion-label">PRECISION.</span>
+        <video muted playsinline loop preload="auto" src="b2b_handshake.mp4"></video>
+        <span class="motion-label">TRUST</span>
       </div>
       <div class="motion-panel">
-        <video muted loop playsinline preload="auto">
-          <source src="b2b_violin.mp4" type="video/mp4">
-        </video>
-        <span class="motion-label">STRATEGY.</span>
+        <video muted playsinline loop preload="auto" src="b2b_keyboard.mp4"></video>
+        <span class="motion-label">STRATEGY</span>
       </div>
       <div class="motion-panel">
-        <video muted loop playsinline preload="auto">
-          <source src="b2b_handshake.mp4" type="video/mp4">
-        </video>
-        <span class="motion-label">TRUST.</span>
+        <video muted playsinline loop preload="auto" src="b2b_violin.mp4"></video>
+        <span class="motion-label">PRECISION</span>
       </div>
     </div>
     <h2 class="scene-title">B2B.</h2>
   </section>
 
-  <section class="intro-scene b2c" id="sceneB2C">
+  <section class="intro-scene b2c" id="scene-b2c">
     <div class="motion-triptych">
       <div class="motion-panel">
-        <video muted loop playsinline preload="auto">
-          <source src="b2c_saxophone.mp4" type="video/mp4">
-        </video>
-        <span class="motion-label">CULTURE.</span>
+        <video muted playsinline loop preload="auto" src="b2c_pizza.mp4"></video>
+        <span class="motion-label">CULTURE</span>
       </div>
       <div class="motion-panel">
-        <video muted loop playsinline preload="auto">
-          <source src="b2c_pizza.mp4" type="video/mp4">
-        </video>
-        <span class="motion-label">CRAVINGS.</span>
+        <video muted playsinline loop preload="auto" src="b2c_saxophone.mp4"></video>
+        <span class="motion-label">ENERGY</span>
       </div>
       <div class="motion-panel">
-        <video muted loop playsinline preload="auto">
-          <source src="b2b_shopping.mp4" type="video/mp4">
-        </video>
-        <span class="motion-label">CHAOS.</span>
+        <video muted playsinline loop preload="auto" src="b2c_shopping.mp4"></video>
+        <span class="motion-label">DESIRE</span>
       </div>
     </div>
     <h2 class="scene-title">B2C.</h2>
   </section>
 
-  <section class="intro-scene chocolate" id="sceneChocolate">
-    <video class="full-video" id="chocolateVideo" muted playsinline preload="auto">
-      <source src="chocolate_opening.mp4.mp4" type="video/mp4">
-    </video>
-    <div class="chocolate-copy" id="chocolateCopy">
-      B2B or B2C.<br>
-      What matters is the <em>feeling.</em>
+  <section class="intro-scene chocolate" id="scene-chocolate">
+    <video class="full-video" muted playsinline preload="auto"
+      src="chocolate_opening.mp4.mp4"></video>
+    <div class="chocolate-copy" id="chocolate-copy">
+      Different audiences.<br>
+      Different results.<br>
+      <em>Make them feel something.</em>
     </div>
   </section>
 
-  <button class="sound-control" id="soundButton" type="button">
-    🔇 Enable sound
+  <button class="sound-control" id="sound-control"
+    type="button" aria-label="Toggle sound">
+    Sound off
   </button>
 </div>
 
 <!-- NAVIGATION -->
 <header class="site-header">
-  <a href="#thinking" class="logo">
-    <span class="small-letter">(f)</span><span class="main-letter">RES</span><span class="small-letter">(h)</span><span class="main-letter">UME.</span>
+  <a href="#top" class="logo" aria-label="FresHume home">
+    <span class="main-letter">Fres</span><span class="small-letter">hume</span>
   </a>
-  <nav class="site-nav">
-    <a href="#grant-video">Campaigns</a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="#campaigns">Campaigns</a>
     <a href="#about">About</a>
   </nav>
 </header>
 
-<main>
+<main id="top">
 
-<!-- CHANGE 1 — REFINED LAYER PEEL -->
-<section class="philosophy" id="thinking">
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="philosophy">
   <div class="kicker">01 / THE PHILOSOPHY</div>
 
   <div class="peel-stage">
     <p class="peel-intro">
-      Different briefs. Different worlds. One thing that matters.
+      Different briefs. Different people. Different things that matter.
     </p>
 
     <div class="peel-stack">
@@ -1045,12 +1099,142 @@ button:focus-visible,a:focus-visible{
       </div>
     </div>
 
-    <p class="peel-note">SCROLL TO PEEL BACK THE THINKING ↓</p>
+    <p class="peel-note">
+      SCROLL TO PEEL BACK THE THINKING ↓
+    </p>
   </div>
 </section>
 
+<!-- CAMPAIGNS -->
+<div id="campaigns">
+
+<!-- LEDGERLINE — FICTIONAL B2B CASE STUDY -->
+<section class="campaign" id="ledgerline"
+  style="background:#0B1220;color:#f7f3e8;">
+
+  <div class="campaign-head">
+    <div class="kicker" style="color:#C6F432;">
+      06 / B2B / DEMAND GENERATION
+    </div>
+
+    <h2 style="color:#f7f3e8;">
+      Invisible losses.<br>
+      <span style="color:#C6F432;">Visible control.</span>
+    </h2>
+
+    <p class="campaign-lead" style="color:#f7f3e8;">
+      What if a CFO could see the margin quietly leaking
+      through every export invoice? Ledgerline, a fictional
+      FX platform for Indian exporters, turns currency
+      conversion from an invisible cost into a clear problem
+      with a clear fix, through a campaign built to find,
+      educate and convert finance leaders.
+    </p>
+
+    <div class="kicker" style="color:#C6F432;">
+      CONTROL
+    </div>
+  </div>
+
+  <!-- LEDGERLINE FILM -->
+  <div class="film-wrap">
+    <video class="campaign-film" controls playsinline preload="metadata">
+      <source src="Ledgerline_Cinematic_Final.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
+
+  <div class="film-caption">
+    <span>LEDGERLINE / BRAND FILM</span>
+    <span>KEEP WHAT YOU EARN.</span>
+  </div>
+
+  <p class="concept-note" style="color:#f7f3e8;">
+    A fictional brand and independent concept created
+    to demonstrate B2B campaign strategy.
+  </p>
+
+  <!-- LEDGERLINE STRATEGY -->
+  <div class="strategy-strip" style="
+    background:#111e31;
+    color:#f7f3e8;
+    padding:clamp(35px,5vw,80px);
+    border-left:8px solid #C6F432;
+  ">
+    <span class="strategy-eyebrow" style="color:#C6F432;">
+      THE STRATEGY
+    </span>
+
+    <div style="
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      gap:clamp(12px,3vw,45px);
+      align-items:center;
+      margin-top:40px;
+    ">
+      <h3 style="
+        font-size:clamp(28px,4.5vw,75px);
+        line-height:1.05;
+        letter-spacing:-.065em;
+        margin:0;
+      ">Invisible loss</h3>
+
+      <span style="
+        color:#C6F432;
+        font-size:clamp(30px,5vw,70px);
+      ">→</span>
+
+      <h3 style="
+        color:#C6F432;
+        font-size:clamp(28px,4.5vw,75px);
+        line-height:1.05;
+        letter-spacing:-.065em;
+        margin:0;
+      ">Visible control.</h3>
+    </div>
+
+    <p class="strategy-detail" style="
+      margin:35px 0 0;
+      padding-top:25px;
+      border-top:1px solid #ffffff30;
+    ">
+      Make a hidden cost visible. Then make Ledgerline the fix.
+    </p>
+  </div>
+
+  <!-- LEDGERLINE CAMPAIGN ECOSYSTEM -->
+  <h3 class="mockup-heading" style="color:#f7f3e8;">
+    One leak. Every touchpoint.
+  </h3>
+
+  <div class="approved-board">
+    <img
+      src="One Leak, Every Touchpoint-2.png"
+      alt="Ledgerline campaign ecosystem showing LinkedIn, landing page, report and email mockups."
+      loading="lazy">
+  </div>
+
+  <!-- LEDGERLINE MEASUREMENT FUNNEL -->
+  <h3 class="mockup-heading" style="color:#f7f3e8;">
+    What I'd measure.
+  </h3>
+
+  <div class="approved-board">
+    <img
+      src="What I’d Measure_Funnel Targets-3.png"
+      alt="Illustrative campaign targets from reach to sales opportunities."
+      loading="lazy">
+  </div>
+
+  <p class="concept-note" style="color:#f7f3e8;">
+    Illustrative targets. Fictional brand concept.
+  </p>
+
+</section>
+
+
 <!-- GRANT THORNTON -->
-<section class="campaign gt" id="campaigns">
+<section class="campaign gt" id="grant-thornton">
 
   <div class="campaign-head">
     <div class="kicker">02 / B2B / TRUST</div>
@@ -1076,76 +1260,87 @@ button:focus-visible,a:focus-visible{
     </div>
   </div>
 
+  <!-- GRANT THORNTON CAMPAIGN FILM -->
   <div class="film-wrap" id="grant-video">
     <video class="campaign-film" controls playsinline preload="metadata">
       <source src="grant_thornton.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
     </video>
-    <div class="film-caption">
-      <span>GRANT THORNTON BHARAT / TRUST</span>
-      <span>THE EMOTION: REASSURANCE</span>
-    </div>
   </div>
 
-  <p class="concept-note">
-    An independent creative interpretation, not an official brand campaign.
-  </p>
-
-  <h3 class="mockup-heading">One idea. Every touchpoint.</h3>
-
-  <div class="approved-board">
-    <img src="grant_thornton_board.png" alt="Grant Thornton campaign artwork" hidden>
-    <div class="board-placeholder">
-      <strong>Grant Thornton Artwork</strong>
-      <span>grant_thornton_board.png</span>
-    </div>
+  <div class="film-caption">
+    <span>GRANT THORNTON / CAMPAIGN FILM</span>
+    <span>TRUST / EMPATHY / INCLUSION</span>
   </div>
 
+  <!-- GRANT THORNTON STRATEGY -->
   <div class="strategy-strip">
     <span class="strategy-eyebrow">THE STRATEGY</span>
 
     <div class="gt-strategy-grid">
-      <p class="strategy-big">
-        Institutional<br>credibility.
-      </p>
+      <h3 class="strategy-big">
+        Institutional<br>
+        credibility.
+      </h3>
 
       <div class="gt-bridge">
         <span>TRANSFORMED INTO</span>
         <b>→</b>
       </div>
 
-      <p class="strategy-big gt-result">
-        Emotional<br>reassurance.
-      </p>
+      <h3 class="strategy-big gt-result">
+        Emotional<br>
+        reassurance.
+      </h3>
     </div>
 
     <p class="strategy-detail">
       Through inclusive storytelling, expert voices and empathy.
     </p>
   </div>
+
+  <!-- GRANT THORNTON CAMPAIGN BOARD -->
+  <h3 class="mockup-heading">
+    The campaign ecosystem.
+  </h3>
+
+  <div class="approved-board">
+    <img
+      src="grant_thornton_board.png"
+      alt="Grant Thornton campaign ecosystem and creative mockups."
+      loading="lazy">
+  </div>
+
 </section>
 
-<!-- NUVAMA -->
-<section class="campaign nuvama">
+
+<!-- NUVAMA WEALTH -->
+<section class="campaign nuvama" id="nuvama">
 
   <div class="campaign-head">
 
+    <div class="newspaper-masthead">
+      <span>THE FINANCIAL EDITION</span>
+      <span>THE WORLD OF INVESTING</span>
+      <span>GLOBAL MARKETS</span>
+    </div>
+
     <div class="newspaper-columns" aria-hidden="true">
-      <div></div><div></div><div></div><div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
 
-    <div class="newspaper-masthead" aria-hidden="true">
-      <span>Global Markets</span>
-      <span>The Financial Edition</span>
-      <span>Investing &amp; Independence</span>
+    <div class="kicker">
+      03 / B2C / FINANCIAL EMPOWERMENT
     </div>
-
-    <div class="kicker">03 / B2C / FINANCIAL EMPOWERMENT</div>
 
     <div class="nuvama-editorial">
       <h2 class="nuvama-title">
-        <span>सोच नई।</span>
-        <span>Investing की</span>
-        <span>दुनिया बड़ी।</span>
+        <span lang="hi">सोच नई।</span>
+        <span>Investing <span lang="hi">की</span></span>
+        <span lang="hi">दुनिया बड़ी।</span>
       </h2>
 
       <div class="nuvama-copy">
@@ -1157,66 +1352,88 @@ button:focus-visible,a:focus-visible{
         </p>
 
         <strong class="nuvama-tagline">
-          अपनी भाषा में, अपने सपनों के लिए Investing.
+          <span lang="hi">अपनी भाषा में, अपने सपनों के लिए</span>
+          Investing.
         </strong>
       </div>
     </div>
   </div>
 
+  <!-- NUVAMA CAMPAIGN FILM -->
   <div class="film-wrap">
     <video class="campaign-film" controls playsinline preload="metadata">
-      <source src="nuvama_wealth.mp4" type="video/mp4">
+      <source src="nuvama.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
     </video>
-    <div class="film-caption">
-      <span>NUVAMA WEALTH / EMPOWERMENT</span>
-      <span>THE EMOTION: CONFIDENCE</span>
-    </div>
   </div>
 
-  <p class="concept-note">
-    Independent creative campaign concept. Not an official Nuvama campaign.
-  </p>
-
-  <h3 class="mockup-heading">Investing, in your language.</h3>
-
-  <div class="approved-board">
-    <img src="nuvama_board.png" alt="Nuvama campaign artwork" hidden>
-    <div class="board-placeholder">
-      <strong>Nuvama Artwork</strong>
-      <span>nuvama_board.png</span>
-    </div>
+  <div class="film-caption">
+    <span>NUVAMA WEALTH / CAMPAIGN FILM</span>
+    <span>FINANCIAL EMPOWERMENT</span>
   </div>
 
-  <!-- REDESIGNED NUVAMA STRATEGY -->
+  <!-- NUVAMA STRATEGY -->
   <div class="strategy-strip">
-    <span class="strategy-eyebrow">THE STRATEGY</span>
+
+    <span class="strategy-eyebrow">
+      THE STRATEGY
+    </span>
 
     <div class="nuvama-strategy-flow">
+
       <div>
         <span class="flow-label">FROM</span>
-        <p class="flow-big">Global<br>investing.</p>
+        <h3 class="flow-big">
+          Global<br>
+          investing.
+        </h3>
       </div>
 
-      <span class="flow-arrow" aria-hidden="true">→</span>
+      <div class="flow-arrow" aria-hidden="true">
+        →
+      </div>
 
       <div class="flow-destination">
         <span class="flow-label">TO</span>
-        <p class="flow-big">Local<br>confidence.</p>
+        <h3 class="flow-big">
+          Local<br>
+          confidence.
+        </h3>
       </div>
+
     </div>
 
     <p class="strategy-detail">
-      Make global investing feel local, approachable and empowering
-      through cultural relevance and financial education.
+      Make global investing feel local, approachable
+      and empowering through cultural relevance
+      and financial education.
     </p>
+
   </div>
+
+  <!-- NUVAMA CAMPAIGN BOARD -->
+  <h3 class="mockup-heading">
+    The campaign ecosystem.
+  </h3>
+
+  <div class="approved-board">
+    <img
+      src="nuvama_board.png"
+      alt="Nuvama Wealth campaign ecosystem and creative mockups."
+      loading="lazy">
+  </div>
+
 </section>
 
+
 <!-- KURKURE × MATCHA -->
-<section class="campaign kurkure">
+<section class="campaign kurkure" id="kurkure">
 
   <div class="campaign-head">
-    <div class="kicker">04 / B2C / CULTURE &amp; CHAOS</div>
+
+    <div class="kicker">
+      04 / B2C / CULTURE & CHAOS
+    </div>
 
     <h2 class="rage-title">
       <span class="rage-brand">Matcha × Kurkure.</span>
@@ -1227,375 +1444,406 @@ button:focus-visible,a:focus-visible{
     <div class="rage-art" aria-hidden="true">
       <div class="rage-orbit"></div>
       <div class="rage-sticker">
-        <span>WHO<br>ASKED<br>FOR THIS?</span>
+        <span>
+          TOO<br>
+          WRONG<br>
+          TO IGNORE.
+        </span>
       </div>
-      <div class="rage-tiny">EXACTLY.</div>
+      <span class="rage-tiny">CULTURE COLLISION</span>
     </div>
+
   </div>
 
+  <!-- KURKURE CAMPAIGN FILM -->
   <div class="film-wrap">
     <video class="campaign-film" controls playsinline preload="metadata">
       <source src="kurkure_matcha.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
     </video>
-    <div class="film-caption">
-      <span>KURKURE × MATCHA / THE COLLISION</span>
-      <span>THE EMOTION: SURPRISE</span>
-    </div>
   </div>
 
-  <p class="concept-note">
-    Independent speculative collaboration concept.
-  </p>
-
-  <h3 class="mockup-heading">The crunch that broke the calm.</h3>
-
-  <div class="approved-board">
-    <img src="kurkure_board.png" alt="Kurkure Matcha campaign artwork" hidden>
-    <div class="board-placeholder">
-      <strong>Kurkure Artwork</strong>
-      <span>kurkure_board.png</span>
-    </div>
+  <div class="film-caption">
+    <span>KURKURE × MATCHA / CAMPAIGN FILM</span>
+    <span>CULTURE / CONVERSATION / CHAOS</span>
   </div>
 
+  <!-- KURKURE STRATEGY -->
   <div class="strategy-strip">
-    <span class="strategy-eyebrow">THE STRATEGY</span>
+
+    <span class="strategy-eyebrow">
+      THE STRATEGY
+    </span>
 
     <div class="kurkure-strategy-equation">
-      <p class="equation-word">
-        Unexpected<br>flavour.
-      </p>
 
-      <span class="equation-sign" aria-hidden="true">+</span>
+      <h3 class="equation-word">
+        Cultural<br>
+        collision
+      </h3>
 
-      <p class="equation-word">
-        Strong<br>reactions.
-      </p>
+      <span class="equation-sign">+</span>
 
-      <span class="equation-sign" aria-hidden="true">=</span>
+      <h3 class="equation-word">
+        Deliberate<br>
+        absurdity
+      </h3>
 
-      <p class="equation-word equation-result">
-        Cultural<br>conversation.
-      </p>
+      <span class="equation-sign">=</span>
+
+      <h3 class="equation-word equation-result">
+        Unmissable<br>
+        conversation.
+      </h3>
+
     </div>
 
     <p class="strategy-detail">
-      Turn an unexpected flavour collision into a shareable
-      cultural moment through sensory storytelling,
-      curiosity and playful provocation.
+      Turn an unlikely flavour pairing into a
+      conversation people cannot resist joining.
+      Make the reaction part of the campaign.
     </p>
+
   </div>
+
+  <!-- KURKURE CAMPAIGN BOARD -->
+  <h3 class="mockup-heading">
+    The campaign ecosystem.
+  </h3>
+
+  <div class="approved-board">
+    <img
+      src="kurkure_board.png"
+      alt="Kurkure and Matcha creative campaign ecosystem and mockups."
+      loading="lazy">
+  </div>
+
 </section>
 
-<!-- NANDO'S — UNCHANGED -->
-<section class="campaign nandos">
+
+<!-- NANDO'S -->
+<section class="campaign nandos" id="nandos">
 
   <div class="campaign-head">
-    <div class="kicker">05 / B2C / BEAUTY &amp; ABSURDITY</div>
+
+    <div class="kicker">
+      05 / B2C / BEAUTY & CULTURE
+    </div>
 
     <h2 class="nandos-title">
-      <span>Is it makeup?</span>
-      <span>Is it dinner?</span>
+      <span>Beauty.</span>
+      <span>With a</span>
+      <span>side of</span>
+      <span style="color:#ff9c7b;">PERi-PERi.</span>
     </h2>
 
     <div class="nandos-punchline">
-      Guess you'll never know.
+      Too hot to stay in the kitchen.
     </div>
+
   </div>
 
+  <!-- NANDO'S CAMPAIGN FILM -->
   <div class="film-wrap">
     <video class="campaign-film" controls playsinline preload="metadata">
       <source src="butter_chicken_lipgloss.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
     </video>
-    <div class="film-caption">
-      <span>NANDO'S / THE BEAUTY MENU</span>
-      <span>THE EMOTION: DELIGHT</span>
-    </div>
   </div>
 
-  <p class="concept-note">
-    Independent speculative beauty collaboration.
-    Not an official Nando's product launch.
-  </p>
-
-  <h3 class="mockup-heading">The Nando's Beauty Menu.</h3>
-
-  <div class="approved-board">
-    <img src="nandos_board.png" alt="Nando's beauty campaign artwork" hidden>
-    <div class="board-placeholder">
-      <strong>Nando's Artwork</strong>
-      <span>nandos_board.png</span>
-    </div>
+  <div class="film-caption">
+    <span>NANDO'S / CAMPAIGN FILM</span>
+    <span>BEAUTY / FOOD / CULTURE</span>
   </div>
 
+  <!-- NANDO'S STRATEGY -->
   <div class="strategy-strip">
-    <span class="strategy-eyebrow">THE STRATEGY</span>
+
+    <span class="strategy-eyebrow">
+      THE STRATEGY
+    </span>
 
     <div class="nandos-strategy-hero">
+
       <h3 class="beauty-stack">
-        <span>NANDO'S</span>
-        <span>BEAUTY.</span>
+        <span>BEAUTY</span>
+        <span>MEETS</span>
+        <span>HEAT.</span>
       </h3>
 
       <p class="beauty-statement">
-        Make absurdity<br>
-        look expensive.
+        Make the product look
+        like luxury beauty.<br>
+        Make the reveal
+        unmistakably Nando's.
       </p>
+
     </div>
 
     <p class="strategy-detail">
-      Borrow the codes of luxury beauty advertising,
-      then subvert them with deliciously absurd
-      food-inspired products to spark conversation
-      and social sharing.
+      Borrow the visual codes of premium beauty
+      advertising, then subvert expectations with
+      food-inspired products designed to provoke
+      curiosity, conversation and social sharing.
     </p>
+
   </div>
+
+  <!-- NANDO'S CAMPAIGN BOARD -->
+  <h3 class="mockup-heading">
+    The campaign ecosystem.
+  </h3>
+
+  <div class="approved-board">
+    <img
+      src="nandos_board.png"
+      alt="Nando's beauty-inspired campaign ecosystem and mockups."
+      loading="lazy">
+  </div>
+
 </section>
 
-<!-- FINAL ABOUT SLIDE — UNCHANGED -->
+<!-- END OF CAMPAIGN COLLECTION -->
+</div>
+
+
+<!-- FINAL SLIDE / ABOUT -->
 <section class="final-signature" id="about">
+
   <div class="final-inner">
 
-    <h2>Hi, I'm Akshita.</h2>
+    <h2>
+      Different audiences.<br>
+      Different results.<br>
+      One thing in common:
+      <span style="color:#507b29;">
+        making people feel something.
+      </span>
+    </h2>
 
     <img
       class="final-artwork"
-      id="strategicArtwork"
-      src="strategic_communications.png.png"
-      alt="Strategic Communications quiltboard featuring Akshita Chugh's education, communication principles and professional brands"
+      src="final_slide.png"
+      alt="Final portfolio artwork by Akshita Chugh."
       loading="lazy"
-      decoding="async"
-    >
+      onerror="this.hidden=true;document.getElementById('final-artwork-error').hidden=false;">
 
-    <div class="final-artwork-error" id="artworkError" hidden>
-      Strategic Communications artwork could not be loaded.
-      Please check the filename in GitHub.
+    <div
+      class="final-artwork-error"
+      id="final-artwork-error"
+      hidden>
+      Final artwork could not be loaded.
     </div>
 
   </div>
+
 </section>
 
 </main>
 
+<!-- WEBSITE INTERACTIONS -->
 <script>
-(function(){
-  const overlay=document.getElementById("intro-overlay");
-  const cola=document.getElementById("sceneCola");
-  const b2b=document.getElementById("sceneB2B");
-  const b2c=document.getElementById("sceneB2C");
-  const chocolate=document.getElementById("sceneChocolate");
-  const colaVideo=document.getElementById("colaVideo");
-  const chocolateVideo=document.getElementById("chocolateVideo");
-  const chocolateCopy=document.getElementById("chocolateCopy");
-  const soundButton=document.getElementById("soundButton");
-  const scenes=[cola,b2b,b2c,chocolate];
+(function () {
+  "use strict";
 
-  let finished=false;
-  let soundEnabled=false;
-  let sceneTimer=null;
-  let messageTimer=null;
-  let activeCleanup=null;
+  /* OPENING SEQUENCE */
 
-  function clearSceneTimers(){
-    clearTimeout(sceneTimer);
-    clearTimeout(messageTimer);
-    if(activeCleanup){
-      activeCleanup();
-      activeCleanup=null;
-    }
-  }
+  const overlay = document.getElementById("intro-overlay");
+  const opening = document.getElementById("scene-opening");
+  const b2b = document.getElementById("scene-b2b");
+  const b2c = document.getElementById("scene-b2c");
+  const chocolate = document.getElementById("scene-chocolate");
 
-  function stopOtherVideos(active){
-    overlay.querySelectorAll("video").forEach(video=>{
-      if(video!==active)video.pause();
-    });
-  }
+  const chocolateCopy = document.getElementById("chocolate-copy");
+  const soundButton = document.getElementById("sound-control");
 
-  function activate(scene){
-    if(finished)return;
-    clearSceneTimers();
+  const scenes = [opening, b2b, b2c, chocolate];
 
-    scenes.forEach(item=>{
-      item.classList.toggle("active",item===scene);
+  let soundEnabled = false;
+  let introFinished = false;
+  let introTimer = null;
+
+  function showScene(scene) {
+    scenes.forEach(function (item) {
+      if (item) item.classList.remove("active");
     });
 
-    if(scene===b2b||scene===b2c){
-      stopOtherVideos(null);
-      scene.querySelectorAll("video").forEach(video=>{
-        video.muted=true;
-        video.volume=0;
-        video.currentTime=0;
-        video.play().catch(()=>{});
+    if (scene) {
+      scene.classList.add("active");
+
+      scene.querySelectorAll("video").forEach(function (video) {
+        video.muted = !soundEnabled;
+        video.play().catch(function () {});
       });
     }
   }
 
-  function playFilm(video,next,fallback){
-    if(finished)return;
+  function finishIntro() {
+    if (introFinished) return;
 
-    stopOtherVideos(video);
-    video.muted=!soundEnabled;
-    video.currentTime=0;
+    introFinished = true;
 
-    let advanced=false;
-
-    const advance=()=>{
-      if(advanced||finished)return;
-      advanced=true;
-      clearTimeout(sceneTimer);
-      video.removeEventListener("ended",advance);
-      next();
-    };
-
-    video.addEventListener("ended",advance);
-
-    activeCleanup=()=>{
-      video.removeEventListener("ended",advance);
-    };
-
-    const startFallback=()=>{
-      const duration=
-        Number.isFinite(video.duration)&&video.duration>0
-        ?video.duration*1000+1500
-        :fallback;
-
-      clearTimeout(sceneTimer);
-      sceneTimer=setTimeout(advance,duration);
-    };
-
-    video.addEventListener(
-      "loadedmetadata",
-      startFallback,
-      {once:true}
-    );
-
-    startFallback();
-
-    video.play().catch(()=>{
-      clearTimeout(sceneTimer);
-      sceneTimer=setTimeout(advance,2500);
-    });
-  }
-
-  function showB2B(){
-    activate(b2b);
-    sceneTimer=setTimeout(showB2C,6000);
-  }
-
-  function showB2C(){
-    activate(b2c);
-    sceneTimer=setTimeout(showChocolate,6000);
-  }
-
-  function showChocolate(){
-    activate(chocolate);
-    chocolateCopy.classList.remove("visible");
-
-    playFilm(chocolateVideo,finish,12000);
-
-    messageTimer=setTimeout(()=>{
-      chocolateCopy.classList.add("visible");
-    },1200);
-  }
-
-  function finish(){
-    if(finished)return;
-    finished=true;
-
-    clearSceneTimers();
-    stopOtherVideos(null);
+    if (introTimer) {
+      clearTimeout(introTimer);
+    }
 
     overlay.classList.add("finished");
     document.body.classList.remove("intro-active");
 
-    setTimeout(()=>overlay.remove(),850);
+    setTimeout(function () {
+      overlay.style.display = "none";
+
+      overlay.querySelectorAll("video").forEach(function (video) {
+        video.pause();
+      });
+    }, 850);
   }
 
-  function start(){
-    activate(cola);
-    playFilm(colaVideo,showB2B,12000);
+  function scheduleScene(scene, delay) {
+    return setTimeout(function () {
+      if (!introFinished) showScene(scene);
+    }, delay);
   }
 
-  soundButton.addEventListener("click",()=>{
-    soundEnabled=!soundEnabled;
+  function startIntro() {
+    if (!overlay) return;
 
-    soundButton.textContent=soundEnabled
-      ?"🔊 Sound on"
-      :"🔇 Enable sound";
+    const openingVideo = opening.querySelector("video");
 
-    colaVideo.muted=!soundEnabled;
-    chocolateVideo.muted=!soundEnabled;
+    showScene(opening);
 
-    document.querySelectorAll(
-      "#sceneB2B video,#sceneB2C video"
-    ).forEach(video=>{
-      video.muted=true;
-      video.volume=0;
+    if (openingVideo) {
+      openingVideo.play().catch(function () {});
+    }
+
+    scheduleScene(b2b, 5000);
+    scheduleScene(b2c, 8500);
+    scheduleScene(chocolate, 12000);
+
+    setTimeout(function () {
+      if (!introFinished && chocolateCopy) {
+        chocolateCopy.classList.add("visible");
+      }
+    }, 13300);
+
+    introTimer = setTimeout(finishIntro, 17500);
+  }
+
+  if (soundButton) {
+    soundButton.addEventListener("click", function () {
+      soundEnabled = !soundEnabled;
+
+      soundButton.textContent = soundEnabled
+        ? "Sound on"
+        : "Sound off";
+
+      overlay.querySelectorAll("video").forEach(function (video) {
+        video.muted = !soundEnabled;
+      });
+    });
+  }
+
+  if (overlay) {
+    overlay.addEventListener("click", function (event) {
+      if (event.target === soundButton) return;
+      finishIntro();
+    });
+  }
+
+  startIntro();
+
+  /* LAYER PEEL SCROLL INTERACTION */
+
+  const philosophy = document.querySelector(".philosophy");
+
+  if (philosophy && "IntersectionObserver" in window) {
+    const peelObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            philosophy.classList.add("peel-revealed");
+          } else {
+            philosophy.classList.remove("peel-revealed");
+          }
+        });
+      },
+      {
+        threshold: 0.3
+      }
+    );
+
+    peelObserver.observe(philosophy);
+  }
+
+  /* SMOOTH NAVIGATION */
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener("click", function (event) {
+      const targetId = link.getAttribute("href");
+
+      if (!targetId || targetId === "#") return;
+
+      const target = document.querySelector(targetId);
+
+      if (!target) return;
+
+      event.preventDefault();
+
+      if (!introFinished) {
+        finishIntro();
+      }
+
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+      if (history.replaceState) {
+        history.replaceState(null, "", targetId);
+      }
     });
   });
 
-  // Load the approved campaign boards.
-  document.querySelectorAll(".approved-board img").forEach(img=>{
-    img.onload=()=>{img.hidden=false};
-    img.onerror=()=>{img.hidden=true};
+  /* VIDEO PLAYBACK MANAGEMENT */
 
-    const source=img.getAttribute("src");
-    img.removeAttribute("src");
-    img.setAttribute("src",source);
+  const campaignVideos = document.querySelectorAll(".campaign-film");
+
+  campaignVideos.forEach(function (video) {
+    video.addEventListener("play", function () {
+      campaignVideos.forEach(function (otherVideo) {
+        if (otherVideo !== video) {
+          otherVideo.pause();
+        }
+      });
+    });
   });
 
-  // Display the final quiltboard artwork.
-  const artwork=document.getElementById("strategicArtwork");
-  const artworkError=document.getElementById("artworkError");
+  /* IMAGE LOADING FALLBACK */
 
-  artwork.addEventListener("error",()=>{
-    artwork.hidden=true;
-    artworkError.hidden=false;
+  document.querySelectorAll(".approved-board img").forEach(function (image) {
+    image.addEventListener("error", function () {
+      if (image.dataset.fallbackAdded === "true") return;
+
+      image.dataset.fallbackAdded = "true";
+
+      const placeholder = document.createElement("div");
+      placeholder.className = "board-placeholder";
+
+      const heading = document.createElement("strong");
+      heading.textContent = "Campaign artwork";
+
+      const description = document.createElement("span");
+      description.textContent =
+        "Check that the image filename matches the uploaded GitHub file.";
+
+      placeholder.appendChild(heading);
+      placeholder.appendChild(description);
+
+      image.parentElement.appendChild(placeholder);
+      image.hidden = true;
+    });
   });
 
-  artwork.addEventListener("load",()=>{
-    artwork.hidden=false;
-    artworkError.hidden=true;
-  });
-
-  if(artwork.complete){
-    if(artwork.naturalWidth>0){
-      artwork.hidden=false;
-      artworkError.hidden=true;
-    }else{
-      artwork.hidden=true;
-      artworkError.hidden=false;
-    }
-  }
-
-  // Scroll-responsive layer peel.
-  const philosophy=document.querySelector(".philosophy");
-  let scrollScheduled=false;
-
-  function updatePeel(){
-    scrollScheduled=false;
-    if(!philosophy)return;
-
-    const rect=philosophy.getBoundingClientRect();
-    const viewport=window.innerHeight;
-    const progress=(viewport-rect.top)/(viewport+rect.height);
-
-    philosophy.classList.toggle(
-      "peel-revealed",
-      progress>0.4
-    );
-  }
-
-  window.addEventListener("scroll",()=>{
-    if(!scrollScheduled){
-      scrollScheduled=true;
-      requestAnimationFrame(updatePeel);
-    }
-  },{passive:true});
-
-  updatePeel();
-
-  // Start the opening sequence.
-  start();
 })();
 </script>
 
