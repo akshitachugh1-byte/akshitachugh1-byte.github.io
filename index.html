@@ -62,7 +62,6 @@ nav a:hover { color:var(--lime); }
   overflow:hidden;
 }
 .intro-scene.active { display:block; }
-
 .full-video {
   position:absolute;
   width:100%;
@@ -74,14 +73,12 @@ nav a:hover { color:var(--lime); }
   position:absolute;
   inset:0;
   background:linear-gradient(
-    180deg,
-    transparent 45%,
-    #00000060 100%
+    180deg,transparent 45%,#00000060 100%
   );
   pointer-events:none;
 }
 
-/* B2B / B2C */
+/* B2B AND B2C */
 .motion-triptych {
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
@@ -108,10 +105,7 @@ nav a:hover { color:var(--lime); }
   position:absolute;
   inset:0;
   background:linear-gradient(
-    to bottom,
-    #00000018,
-    #00000008 45%,
-    #00000085
+    to bottom,#00000018,#00000008 45%,#00000085
   );
   pointer-events:none;
 }
@@ -280,7 +274,7 @@ nav a:hover { color:var(--lime); }
   color:#d8dfd0;
 }
 
-/* FUTURE MOCKUPS */
+/* CAMPAIGN MOCKUPS */
 .mockup-heading {
   margin-top:75px;
   font-size:13px;
@@ -394,9 +388,8 @@ footer {
     </video>
   </section>
 
-  <!-- 2. B2B -->
+  <!-- 2. B2B - ALWAYS SILENT -->
   <section class="intro-scene b2b" id="sceneB2B">
-
     <div class="motion-triptych">
 
       <div class="motion-panel">
@@ -421,13 +414,11 @@ footer {
       </div>
 
     </div>
-
     <h2 class="scene-title">B2B.</h2>
   </section>
 
-  <!-- 3. B2C -->
+  <!-- 3. B2C - ALWAYS SILENT -->
   <section class="intro-scene b2c" id="sceneB2C">
-
     <div class="motion-triptych">
 
       <div class="motion-panel">
@@ -452,7 +443,6 @@ footer {
       </div>
 
     </div>
-
     <h2 class="scene-title">B2C.</h2>
   </section>
 
@@ -478,7 +468,7 @@ footer {
 
   </section>
 
-  <!-- SOUND BUTTON: NO SKIP BUTTON -->
+  <!-- SOUND BUTTON - COLA AND CHOCOLATE ONLY -->
   <button
     class="sound-control"
     id="soundButton"
@@ -502,7 +492,6 @@ footer {
 
 <!-- PHILOSOPHY -->
 <section class="philosophy" id="thinking">
-
   <div class="kicker">01 / THE PHILOSOPHY</div>
 
   <h1>
@@ -511,7 +500,6 @@ footer {
     One job: make them
     <em>feel.</em>
   </h1>
-
 </section>
 
 <!-- CAMPAIGN 1: GRANT THORNTON -->
@@ -579,7 +567,6 @@ footer {
     </div>
 
   </div>
-
 </section>
 
 <!-- CAMPAIGN 2: NUVAMA -->
@@ -645,7 +632,6 @@ footer {
     </div>
 
   </div>
-
 </section>
 
 <!-- CAMPAIGN 3: KURKURE MATCHA -->
@@ -711,7 +697,6 @@ footer {
     </div>
 
   </div>
-
 </section>
 
 <!-- CAMPAIGN 4: BUTTER CHICKEN LIP GLOSS -->
@@ -778,7 +763,6 @@ footer {
     </div>
 
   </div>
-
 </section>
 
 <!-- CREDENTIALS PLACEHOLDER -->
@@ -837,6 +821,23 @@ footer {
 
   const MOTION_DURATION = 6000;
 
+  // B2B and B2C must always remain silent.
+  function isSilentScene(index) {
+    return index === 1 || index === 2;
+  }
+
+  function configureAudio(video, index) {
+    const audible = soundEnabled && !isSilentScene(index);
+
+    video.muted = !audible;
+    video.defaultMuted = !audible;
+    video.volume = audible ? 0.8 : 0;
+
+    if (isSilentScene(index)) {
+      video.setAttribute("muted", "");
+    }
+  }
+
   function setSound(enabled) {
     soundEnabled = enabled;
 
@@ -844,8 +845,7 @@ footer {
 
     if (activeScene) {
       activeScene.querySelectorAll("video").forEach(video => {
-        video.muted = !enabled;
-        video.volume = enabled ? 0.8 : 0;
+        configureAudio(video, sceneIndex);
       });
     }
 
@@ -854,11 +854,10 @@ footer {
       : "🔇 Enable sound";
   }
 
-  function playVideo(video) {
+  function playVideo(video, index) {
     if (!video) return;
 
-    video.muted = !soundEnabled;
-    video.volume = soundEnabled ? 0.8 : 0;
+    configureAudio(video, index);
 
     const attempt = video.play();
 
@@ -924,11 +923,15 @@ footer {
     const scene = scenes[index];
     scene.classList.add("active");
 
+    // Hide sound control for B2B and B2C.
+    soundButton.style.display =
+      isSilentScene(index) ? "none" : "block";
+
     const videos = Array.from(scene.querySelectorAll("video"));
 
     videos.forEach(video => {
       video.currentTime = 0;
-      playVideo(video);
+      playVideo(video, index);
     });
 
     if (index === 0 || index === 3) {
@@ -942,7 +945,7 @@ footer {
         sceneTimer = setTimeout(nextScene, 1000);
       };
 
-      // Fallback only when a video cannot start.
+      // Fallback if a video fails to load.
       sceneTimer = setTimeout(() => {
         if (mainVideo.paused && mainVideo.readyState < 2) {
           nextScene();
@@ -955,16 +958,18 @@ footer {
   }
 
   soundButton.addEventListener("click", () => {
+    if (isSilentScene(sceneIndex)) return;
+
     setSound(!soundEnabled);
 
     if (soundEnabled) {
       scenes[sceneIndex]
         .querySelectorAll("video")
-        .forEach(playVideo);
+        .forEach(video => playVideo(video, sceneIndex));
     }
   });
 
-  // Begin with the existing cola opening.
+  // Begin with the original cola opening.
   showScene(0);
 
 })();
