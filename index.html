@@ -8,7 +8,7 @@
 <title>FresHume | Akshita Chugh</title>
 <meta name="description" content="Strategic communications and creative campaigns by Akshita Chugh.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -17,10 +17,9 @@
   --lime:#dfff58;
   --sage:#e9efdc;
   --green:#507b29;
-  --plaster:#f2e8da;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:75px}
+html{scroll-behavior:smooth}
 body{
   margin:0;
   background:var(--dark);
@@ -39,118 +38,76 @@ button:focus-visible,a:focus-visible{
 
 /* OPENING SEQUENCE */
 #intro-overlay{
-  position:fixed;
-  inset:0;
-  z-index:1000;
-  background:#050705;
-  overflow:hidden;
+  position:fixed;inset:0;z-index:1000;
+  background:#050705;overflow:hidden;
 }
 #intro-overlay.finished{
-  opacity:0;
-  pointer-events:none;
+  opacity:0;pointer-events:none;
   transition:opacity .8s;
 }
 .intro-scene{
-  position:absolute;
-  inset:0;
-  opacity:0;
+  position:absolute;inset:0;opacity:0;
   visibility:hidden;
   transition:opacity .6s,visibility .6s;
 }
 .intro-scene.active{opacity:1;visibility:visible}
 .full-video{width:100%;height:100%;object-fit:cover}
 .motion-triptych{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  height:100%;
-  gap:5px;
-  background:#151515;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  height:100%;gap:5px;background:#151515;
 }
 .motion-panel{position:relative;overflow:hidden;min-width:0}
 .motion-panel video{width:100%;height:100%;object-fit:cover}
 .b2b .motion-panel video{filter:grayscale(1) contrast(1.08)}
 .motion-panel:after{
-  content:"";
-  position:absolute;
-  inset:0;
+  content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.7));
   pointer-events:none;
 }
 .motion-label{
-  position:absolute;
-  bottom:5%;
-  left:6%;
-  z-index:2;
-  color:white;
-  font-size:clamp(10px,1.2vw,18px);
-  font-weight:900;
-  letter-spacing:.13em;
+  position:absolute;bottom:5%;left:6%;z-index:2;
+  color:white;font-size:clamp(10px,1.2vw,18px);
+  font-weight:900;letter-spacing:.13em;
 }
 .scene-title{
-  position:absolute;
-  z-index:4;
-  top:50%;
-  left:6%;
-  transform:translateY(-50%);
-  margin:0;
+  position:absolute;z-index:4;top:50%;left:6%;
+  transform:translateY(-50%);margin:0;
   font-size:clamp(130px,25vw,440px);
-  line-height:.8;
-  font-weight:900;
-  letter-spacing:-.095em;
-  pointer-events:none;
+  line-height:.8;font-weight:900;
+  letter-spacing:-.095em;pointer-events:none;
 }
 .b2b .scene-title{color:#f5f0e6}
 .b2c .scene-title{color:#fff0d8}
 .chocolate:after{
-  content:"";
-  position:absolute;
-  inset:0;
+  content:"";position:absolute;inset:0;
   background:linear-gradient(0deg,rgba(0,0,0,.75),transparent 70%);
   pointer-events:none;
 }
 .chocolate-copy{
-  position:absolute;
-  z-index:3;
-  bottom:12%;
-  left:6%;
-  right:6%;
+  position:absolute;z-index:3;bottom:12%;left:6%;right:6%;
   font-size:clamp(35px,6.5vw,105px);
-  font-weight:900;
-  line-height:1.05;
-  letter-spacing:-.065em;
-  opacity:0;
+  font-weight:900;line-height:1.05;
+  letter-spacing:-.065em;opacity:0;
   transform:translateY(20px);
   transition:opacity .7s,transform .7s;
 }
 .chocolate-copy.visible{opacity:1;transform:translateY(0)}
 .chocolate-copy em{
-  font-style:normal;
-  color:var(--lime);
-  text-decoration:underline;
-  text-underline-offset:.12em;
+  font-style:normal;color:var(--lime);
+  text-decoration:underline;text-underline-offset:.12em;
 }
 .sound-control{
-  position:absolute;
-  bottom:25px;
-  right:25px;
-  z-index:20;
-  border:1px solid #ffffff55;
-  background:#101d14e8;
-  color:white;
-  border-radius:100px;
-  padding:13px 22px;
+  position:absolute;bottom:25px;right:25px;z-index:20;
+  border:1px solid #ffffff55;background:#101d14e8;
+  color:white;border-radius:100px;padding:13px 22px;
   font-size:14px;
 }
 
-/* NAVIGATION */
+/* NAVIGATION — CAMPAIGNS AND ABOUT ONLY */
 .site-header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;
+  justify-content:space-between;gap:20px;
   padding:17px 5%;
   background:rgba(16,29,20,.96);
   border-bottom:1px solid #ffffff1b;
@@ -158,417 +115,382 @@ button:focus-visible,a:focus-visible{
 }
 .logo{
   font-size:clamp(19px,2vw,29px);
-  font-weight:900;
-  letter-spacing:-.07em;
+  font-weight:900;letter-spacing:-.07em;
   white-space:nowrap;
 }
 .logo .small-letter{
-  font-size:.65em;
-  font-weight:600;
+  font-size:.65em;font-weight:600;
   text-transform:lowercase;
 }
 .logo .main-letter{
-  font-weight:900;
-  text-transform:uppercase;
+  font-weight:900;text-transform:uppercase;
 }
 .site-nav{display:flex;gap:30px}
 .site-nav a{font-size:14px}
 .site-nav a:hover{color:var(--lime)}
+#grant-video{scroll-margin-top:90px}
+#about{scroll-margin-top:70px}
 
 /* PHILOSOPHY */
 .philosophy{
-  background:var(--sage);
-  color:var(--dark);
-  min-height:90vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:110px 7%;
+  background:var(--sage);color:var(--dark);
+  min-height:90vh;display:flex;flex-direction:column;
+  justify-content:center;padding:110px 7%;
 }
 .kicker{
-  color:var(--green);
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.3em;
-  text-transform:uppercase;
+  color:var(--green);font-size:12px;font-weight:900;
+  letter-spacing:.3em;text-transform:uppercase;
 }
 .philosophy h1{
   margin:40px 0 0;
   font-size:clamp(45px,7.5vw,130px);
-  line-height:1.04;
-  letter-spacing:-.075em;
+  line-height:1.04;letter-spacing:-.075em;
   font-weight:900;
 }
 .philosophy em{
-  color:var(--green);
-  font-style:italic;
-  text-decoration:underline;
-  text-underline-offset:.06em;
+  color:var(--green);font-style:italic;
+  text-decoration:underline;text-underline-offset:.06em;
 }
 
-/* SHARED CAMPAIGN STYLES */
+/* CAMPAIGNS */
 .campaign{
   padding:100px 7% 110px;
-  overflow:hidden;
-  color:var(--dark);
+  overflow:hidden;color:var(--dark);
 }
 .campaign-head{max-width:1100px}
 .campaign h2{
   margin:30px 0;
   font-size:clamp(53px,8vw,130px);
-  line-height:.99;
-  font-weight:900;
+  line-height:.99;font-weight:900;
   letter-spacing:-.075em;
 }
 .campaign-lead{
-  max-width:1000px;
-  margin:0 0 55px;
+  max-width:1000px;margin:0 0 55px;
   font-size:clamp(20px,2.5vw,34px);
-  line-height:1.4;
-  letter-spacing:-.025em;
+  line-height:1.4;letter-spacing:-.025em;
 }
 .campaign-lead strong{color:var(--green)}
 .film-wrap{
-  overflow:hidden;
-  border-radius:4px;
+  overflow:hidden;border-radius:4px;
   background:#111;
 }
 .campaign-film{
-  width:100%;
-  max-height:82vh;
-  aspect-ratio:16/9;
-  object-fit:contain;
+  width:100%;max-height:82vh;
+  aspect-ratio:16/9;object-fit:contain;
   background:#080808;
 }
 .film-caption{
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:12px;
-  background:var(--dark);
-  color:var(--cream);
-  padding:18px 22px;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:.15em;
+  display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;
+  background:var(--dark);color:var(--cream);
+  padding:18px 22px;font-size:11px;
+  font-weight:800;letter-spacing:.15em;
 }
 .concept-note{
-  margin:20px 0;
-  font-size:12px;
-  line-height:1.6;
-  opacity:.65;
+  margin:20px 0;font-size:12px;
+  line-height:1.6;opacity:.65;
 }
 .mockup-heading{
   font-size:clamp(34px,5vw,75px);
-  font-weight:900;
-  letter-spacing:-.065em;
-  margin:75px 0 30px;
-  line-height:1.05;
+  font-weight:900;letter-spacing:-.065em;
+  margin:75px 0 30px;line-height:1.05;
 }
 .approved-board{
-  position:relative;
-  margin-top:35px;
-  overflow:hidden;
+  position:relative;margin-top:35px;overflow:hidden;
 }
 .approved-board img{
-  width:100%;
-  height:auto;
-  display:block;
+  width:100%;height:auto;display:block;
 }
 .board-placeholder{
   padding:50px 25px;
   border:1px dashed currentColor;
-  text-align:center;
-  opacity:.65;
+  text-align:center;opacity:.65;
 }
 .board-placeholder strong{
-  display:block;
-  font-size:20px;
-  margin-bottom:8px;
+  display:block;font-size:20px;margin-bottom:8px;
 }
 .board-placeholder span{font-size:13px}
 .approved-board:has(img:not([hidden])) .board-placeholder{
   display:none;
 }
 
-/* SHARED STRATEGY FOUNDATION */
-.strategy-strip{
-  margin-top:35px;
-  padding:45px;
-  background:var(--dark);
-  color:var(--cream);
-}
-.strategy-strip span{
-  color:var(--lime);
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.2em;
-}
-.strategy-strip p{
-  margin:0;
-  font-size:18px;
-  line-height:1.5;
-}
-
-/* CHANGE 4: GRANT THORNTON EDITORIAL SPLIT */
+/* CAMPAIGN COLOURS */
 .gt{background:#e9efdc}
-.gt .campaign-head{
-  max-width:none;
-  margin-bottom:60px;
-}
-.gt .gt-editorial{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:7%;
-  align-items:center;
-  margin-top:35px;
-}
-.gt .gt-title{
-  margin:0;
-  font-size:clamp(64px,8.5vw,145px);
-  line-height:.94;
-}
-.gt .gt-title span{display:block}
-.gt .gt-title .human{
-  color:#507b29;
-}
-.gt .gt-copy{
-  border-left:3px solid #507b29;
-  padding-left:30px;
-}
-.gt .gt-copy p{
-  margin:0;
-  font-size:clamp(20px,2.1vw,31px);
-  line-height:1.45;
-  letter-spacing:-.025em;
-}
-.gt .gt-copy strong{color:#507b29}
-
-/* CHANGE 5: GRANT THORNTON STRATEGY */
-.gt .strategy-strip{
-  display:grid;
-  grid-template-columns:.7fr 2fr;
-  gap:45px;
-  align-items:center;
-  background:#101d14;
-  padding:55px;
-  border-left:9px solid #dfff58;
-}
-.gt .strategy-strip p{
-  font-size:clamp(23px,2.4vw,37px);
-  line-height:1.28;
-  font-weight:800;
-  letter-spacing:-.045em;
-}
-.gt .strategy-strip .strategy-emphasis{
-  color:#dfff58;
-}
-
-/* CHANGE 6: NUVAMA INTRODUCTION */
 .nuvama{background:#f6e6d4}
 .nuvama .kicker,
 .nuvama .campaign-lead strong{color:#8134a2}
-.nuvama .campaign-head{
-  max-width:none;
-  margin-bottom:60px;
+.kurkure{background:#d9ff64}
+.kurkure .kicker,
+.kurkure .campaign-lead strong{color:#a53818}
+.nandos{background:#350c10;color:#fff3e5}
+.nandos .kicker{color:#ff9c7b}
+
+/* GRANT THORNTON EDITORIAL INTRO */
+.gt .campaign-head{
+  max-width:none;margin-bottom:60px;
 }
-.nuvama .nuvama-editorial{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:7%;
-  align-items:center;
-  margin-top:40px;
+.gt-editorial{
+  display:grid;grid-template-columns:1.1fr .9fr;
+  gap:7%;align-items:center;margin-top:35px;
+}
+.gt .gt-title{
+  margin:0;font-size:clamp(64px,8.5vw,145px);
+  line-height:.94;
+}
+.gt-title span{display:block}
+.gt-title .human{color:#507b29}
+.gt-copy{
+  border-left:3px solid #507b29;
+  padding-left:30px;
+}
+.gt-copy p{
+  margin:0;font-size:clamp(20px,2.1vw,31px);
+  line-height:1.45;letter-spacing:-.025em;
+}
+.gt-copy strong{color:#507b29}
+
+/* NUVAMA EDITORIAL INTRO */
+.nuvama .campaign-head{
+  max-width:none;margin-bottom:60px;
+}
+.nuvama-editorial{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:7%;align-items:center;margin-top:40px;
 }
 .nuvama .nuvama-title{
-  margin:0;
-  font-size:clamp(50px,6vw,100px);
-  line-height:1.15;
-  letter-spacing:-.06em;
+  margin:0;font-size:clamp(50px,6vw,100px);
+  line-height:1.15;letter-spacing:-.06em;
   overflow-wrap:anywhere;
 }
-.nuvama .nuvama-title span{display:block}
-.nuvama .nuvama-copy{
+.nuvama-title span{display:block}
+.nuvama-copy{
   border-left:3px solid #8134a2;
   padding-left:30px;
 }
-.nuvama .nuvama-copy p{
-  margin:0;
-  font-size:clamp(19px,2vw,29px);
+.nuvama-copy p{
+  margin:0;font-size:clamp(19px,2vw,29px);
   line-height:1.45;
 }
-.nuvama .nuvama-tagline{
-  display:block;
-  margin-top:30px;
-  color:#8134a2;
-  font-size:clamp(22px,2.5vw,37px);
-  font-weight:900;
-  line-height:1.35;
+.nuvama-copy strong{color:#8134a2}
+.nuvama-tagline{
+  display:block;margin-top:30px;
+  color:#8134a2;font-size:clamp(22px,2.5vw,37px);
+  font-weight:900;line-height:1.35;
 }
 
-/* CHANGE 7: NUVAMA STRATEGY */
-.nuvama .strategy-strip{
-  background:#38204d;
-  padding:55px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  gap:22px;
-  border-top:6px solid #b87bd7;
-}
-.nuvama .strategy-strip p{
-  max-width:950px;
-  font-size:clamp(23px,2.7vw,40px);
-  font-weight:800;
-  line-height:1.3;
-  letter-spacing:-.04em;
-}
-.nuvama .strategy-strip .strategy-emphasis{
-  color:#d8a9f0;
-}
-
-/* CHANGE 8: KURKURE INTRODUCTION */
-.kurkure{background:#d9ff64}
-.kurkure .kicker{color:#a53818}
+/* KURKURE INTRO — RAGEBAIT */
 .kurkure .campaign-head{
-  max-width:none;
-  min-height:62vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  margin-bottom:50px;
+  max-width:none;min-height:62vh;
+  display:flex;flex-direction:column;
+  justify-content:center;margin-bottom:50px;
 }
 .kurkure .rage-title{
-  margin:50px 0 0;
-  max-width:1350px;
+  margin:50px 0 0;max-width:1350px;
   font-size:clamp(64px,10vw,165px);
-  line-height:.96;
-  letter-spacing:-.085em;
+  line-height:.96;letter-spacing:-.085em;
 }
-.kurkure .rage-title .rage-brand{
-  display:block;
-  font-size:.55em;
-  letter-spacing:-.055em;
-  margin-bottom:25px;
+.rage-brand{
+  display:block;font-size:.55em;
+  letter-spacing:-.055em;margin-bottom:25px;
 }
-.kurkure .rage-title .rage-highlight{
-  color:#a53818;
-  display:block;
-}
-.kurkure .rage-title .rage-last{
-  display:block;
-}
+.rage-highlight{color:#a53818;display:block}
+.rage-last{display:block}
 
-/* CHANGE 10: KURKURE STRATEGY */
-.kurkure .strategy-strip{
-  background:#301a1d;
-  padding:55px;
-  display:grid;
-  grid-template-columns:.75fr 2fr;
-  gap:40px;
-  align-items:center;
-  border-top:8px solid #a53818;
-}
-.kurkure .strategy-strip p{
-  font-size:clamp(23px,2.6vw,39px);
-  line-height:1.3;
-  font-weight:900;
-  letter-spacing:-.045em;
-}
-.kurkure .strategy-strip .strategy-emphasis{
-  color:#d9ff64;
-}
-
-/* CHANGE 9: NANDO'S INTRODUCTION */
-.nandos{
-  background:#350c10;
-  color:#fff3e5;
-}
-.nandos .kicker{color:#ff9c7b}
+/* NANDO'S INTRO */
 .nandos .campaign-head{
-  max-width:none;
-  min-height:70vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  margin-bottom:40px;
+  max-width:none;min-height:70vh;
+  display:flex;flex-direction:column;
+  justify-content:center;margin-bottom:40px;
 }
 .nandos .nandos-title{
   margin:45px 0 0;
   font-size:clamp(65px,10vw,165px);
-  line-height:.96;
-  letter-spacing:-.085em;
+  line-height:.96;letter-spacing:-.085em;
 }
-.nandos .nandos-title span{display:block}
-.nandos .nandos-punchline{
-  display:inline-block;
-  width:fit-content;
-  max-width:100%;
-  margin-top:45px;
-  padding:17px 25px;
-  background:#ff9c7b;
+.nandos-title span{display:block}
+.nandos-punchline{
+  display:inline-block;width:fit-content;
+  max-width:100%;margin-top:45px;
+  padding:17px 25px;background:#ff9c7b;
   color:#350c10;
   font-size:clamp(22px,3.2vw,48px);
-  font-weight:900;
-  letter-spacing:-.045em;
+  font-weight:900;letter-spacing:-.045em;
   transform:rotate(-1deg);
 }
 
-/* CHANGE 11: NANDO'S STRATEGY */
-.nandos .strategy-strip{
-  background:#18070a;
-  border:1px solid #ffffff25;
-  border-left:9px solid #ff9c7b;
-  padding:55px;
+/* STRATEGY SECTIONS — SHARED FOUNDATIONS */
+.strategy-strip{
+  display:block;margin-top:35px;
+  color:inherit;
+}
+.strategy-eyebrow{
+  display:block;font-size:12px;font-weight:900;
+  letter-spacing:.23em;text-transform:uppercase;
+}
+.strategy-detail{
+  font-size:clamp(16px,1.4vw,21px);
+  font-weight:400;line-height:1.55;
+  letter-spacing:normal;max-width:900px;
+}
+
+/* CHANGE 5 — GRANT THORNTON */
+/* INSTITUTIONAL CREDIBILITY → EMOTIONAL REASSURANCE */
+.gt .strategy-strip{
+  background:#101d14;color:#f7f3e8;
+  padding:clamp(35px,5vw,80px);
+  border-left:9px solid #dfff58;
+}
+.gt .strategy-eyebrow{
+  color:#dfff58;margin-bottom:35px;
+}
+.gt-strategy-grid{
   display:grid;
-  grid-template-columns:.65fr 2fr;
-  gap:40px;
-  align-items:center;
+  grid-template-columns:1fr auto 1fr;
+  gap:24px;align-items:center;
 }
-.nandos .strategy-strip span{color:#ff9c7b}
-.nandos .strategy-strip p{
-  font-size:clamp(23px,2.5vw,38px);
-  font-weight:800;
-  line-height:1.3;
-  letter-spacing:-.045em;
+.gt-strategy-grid .strategy-big{
+  font-size:clamp(35px,5.2vw,88px);
+  font-weight:900;line-height:1;
+  letter-spacing:-.07em;margin:0;
 }
-.nandos .strategy-strip .strategy-emphasis{
-  color:#ff9c7b;
+.gt-strategy-grid .gt-result{color:#dfff58}
+.gt-bridge{
+  display:flex;flex-direction:column;
+  gap:12px;align-items:center;
+  color:#dfff58;font-size:11px;
+  font-weight:900;letter-spacing:.18em;
+  text-align:center;
+}
+.gt-bridge b{
+  font-size:clamp(35px,5vw,70px);
+  line-height:1;
+}
+.gt .strategy-detail{
+  margin:35px 0 0;
+  border-top:1px solid #ffffff35;
+  padding-top:25px;
+}
+
+/* CHANGE 7 — NUVAMA */
+/* FROM GLOBAL INVESTING → TO LOCAL CONFIDENCE */
+.nuvama .strategy-strip{
+  background:#38204d;color:#fff5eb;
+  padding:clamp(35px,5vw,80px);
+  text-align:center;
+}
+.nuvama .strategy-eyebrow{
+  color:#dfff58;margin-bottom:45px;
+}
+.nuvama-strategy-flow{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;gap:25px;
+  text-align:left;
+}
+.flow-label{
+  display:block;color:#dfff58;
+  font-size:12px;font-weight:900;
+  letter-spacing:.24em;margin-bottom:18px;
+}
+.flow-big{
+  font-size:clamp(37px,5.3vw,88px);
+  line-height:1.05;letter-spacing:-.065em;
+  font-weight:900;margin:0;
+}
+.flow-arrow{
+  font-size:clamp(45px,5vw,80px);
+  color:#dfff58;
+}
+.nuvama .strategy-detail{
+  margin:45px auto 0;
+  padding-top:28px;
+  border-top:1px solid #ffffff40;
+  text-align:center;
+}
+
+/* CHANGE 10 — KURKURE × MATCHA */
+/* VISUAL EQUATION */
+.kurkure .strategy-strip{
+  background:#301a1d;color:#fff7ec;
+  padding:clamp(35px,5vw,80px);
+}
+.kurkure .strategy-eyebrow{
+  color:#d9ff64;margin-bottom:45px;
+}
+.kurkure-strategy-equation{
+  display:grid;
+  grid-template-columns:1fr auto 1fr auto 1.2fr;
+  gap:18px;align-items:center;
+}
+.equation-word{
+  font-size:clamp(24px,3.2vw,55px);
+  font-weight:900;line-height:1.1;
+  letter-spacing:-.06em;margin:0;
+}
+.equation-sign{
+  font-size:clamp(30px,4vw,65px);
+  font-weight:900;color:#ff7444;
+}
+.equation-result{color:#d9ff64}
+.kurkure .strategy-detail{
+  margin:40px 0 0;padding-top:25px;
+  border-top:1px solid #ffffff40;
+}
+
+/* CHANGE 11 — NANDO'S */
+/* MAKE ABSURDITY LOOK EXPENSIVE */
+.nandos .strategy-strip{
+  background:#18070a;color:#fff3e5;
+  padding:clamp(40px,6vw,90px);
+  border:1px solid #ffffff20;
+}
+.nandos .strategy-eyebrow{
+  color:#ff9c7b;margin-bottom:35px;
+}
+.nandos-strategy-hero{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:40px;align-items:end;
+}
+.beauty-stack{
+  font-size:clamp(55px,7vw,118px);
+  font-weight:900;line-height:.9;
+  letter-spacing:-.08em;margin:0;
+}
+.beauty-stack span{display:block}
+.beauty-stack span:last-child{color:#ff9c7b}
+.beauty-statement{
+  font-size:clamp(32px,4vw,68px);
+  font-weight:900;line-height:1.05;
+  letter-spacing:-.065em;margin:0;
+}
+.nandos .strategy-detail{
+  margin:42px 0 0;padding-top:25px;
+  border-top:1px solid #ff9c7b65;
 }
 
 /* FINAL APPROVED QUILTBOARD */
 .final-signature{
-  min-height:100vh;
-  background:#f2e8da;
-  color:#101d14;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  padding:75px 5%;
+  min-height:100vh;background:#f2e8da;
+  color:#101d14;display:flex;
+  flex-direction:column;justify-content:center;
+  align-items:center;padding:75px 5%;
 }
 .final-inner{
-  width:100%;
-  max-width:1600px;
-  margin:auto;
+  width:100%;max-width:1600px;margin:auto;
 }
 .final-signature h2{
   margin:0 0 35px;
   font-size:clamp(34px,6vw,90px);
-  font-weight:900;
-  letter-spacing:-.075em;
+  font-weight:900;letter-spacing:-.075em;
   line-height:1.05;
 }
 .final-artwork{
-  width:100%;
-  height:auto;
-  display:block;
-  object-fit:contain;
-  border-radius:3px;
+  width:100%;height:auto;display:block;
+  object-fit:contain;border-radius:3px;
 }
 .final-artwork-error{
-  padding:50px 20px;
-  text-align:center;
+  padding:50px 20px;text-align:center;
   border:2px dashed #101d1440;
   font-size:18px;
 }
@@ -584,27 +506,33 @@ button:focus-visible,a:focus-visible{
   .scene-title{font-size:25vw;left:4%}
   .chocolate-copy{left:6%;right:6%;bottom:18%}
   .final-signature{padding:65px 4%}
-  .gt .gt-editorial,
-  .nuvama .nuvama-editorial{
-    grid-template-columns:1fr;
-    gap:40px;
+  .gt-editorial,
+  .nuvama-editorial{
+    grid-template-columns:1fr;gap:40px;
   }
-  .gt .gt-copy,
-  .nuvama .nuvama-copy{
-    border-left:3px solid currentColor;
+  .gt-copy,.nuvama-copy{
     padding-left:20px;
   }
-  .gt .strategy-strip,
-  .kurkure .strategy-strip,
-  .nandos .strategy-strip{
-    grid-template-columns:1fr;
-    gap:20px;
-    padding:32px;
+  .gt-strategy-grid,
+  .nuvama-strategy-flow{
+    grid-template-columns:1fr;gap:16px;
   }
-  .nuvama .strategy-strip{padding:32px}
+  .gt-bridge{
+    flex-direction:row;
+    justify-content:flex-start;
+  }
+  .gt-bridge b{font-size:40px}
+  .flow-arrow{font-size:45px}
+  .kurkure-strategy-equation{
+    grid-template-columns:1fr;gap:12px;
+  }
+  .equation-sign{font-size:30px}
+  .nandos-strategy-hero{
+    grid-template-columns:1fr;gap:28px;
+  }
   .kurkure .campaign-head,
   .nandos .campaign-head{min-height:55vh}
-  .nandos .nandos-punchline{transform:none}
+  .nandos-punchline{transform:none}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -618,89 +546,89 @@ button:focus-visible,a:focus-visible{
 <!-- OPENING SEQUENCE -->
 <div id="intro-overlay">
 
-  <section class="intro-scene active" id="sceneCola">
-    <video class="full-video" id="colaVideo" muted playsinline preload="auto">
-      <source src="FresHume_Branded_Opening.mp4" type="video/mp4">
-    </video>
-  </section>
+<section class="intro-scene active" id="sceneCola">
+  <video class="full-video" id="colaVideo" muted playsinline preload="auto">
+    <source src="FresHume_Branded_Opening.mp4" type="video/mp4">
+  </video>
+</section>
 
-  <section class="intro-scene b2b" id="sceneB2B">
-    <div class="motion-triptych">
-      <div class="motion-panel">
-        <video muted loop playsinline preload="auto">
-          <source src="b2b_keyboard.mp4" type="video/mp4">
-        </video>
-        <span class="motion-label">PRECISION.</span>
-      </div>
-      <div class="motion-panel">
-        <video muted loop playsinline preload="auto">
-          <source src="b2b_violin.mp4" type="video/mp4">
-        </video>
-        <span class="motion-label">STRATEGY.</span>
-      </div>
-      <div class="motion-panel">
-        <video muted loop playsinline preload="auto">
-          <source src="b2b_handshake.mp4" type="video/mp4">
-        </video>
-        <span class="motion-label">TRUST.</span>
-      </div>
+<section class="intro-scene b2b" id="sceneB2B">
+  <div class="motion-triptych">
+    <div class="motion-panel">
+      <video muted loop playsinline preload="auto">
+        <source src="b2b_keyboard.mp4" type="video/mp4">
+      </video>
+      <span class="motion-label">PRECISION.</span>
     </div>
-    <h2 class="scene-title">B2B.</h2>
-  </section>
-
-  <section class="intro-scene b2c" id="sceneB2C">
-    <div class="motion-triptych">
-      <div class="motion-panel">
-        <video muted loop playsinline preload="auto">
-          <source src="b2c_saxophone.mp4" type="video/mp4">
-        </video>
-        <span class="motion-label">CULTURE.</span>
-      </div>
-      <div class="motion-panel">
-        <video muted loop playsinline preload="auto">
-          <source src="b2c_pizza.mp4" type="video/mp4">
-        </video>
-        <span class="motion-label">CRAVINGS.</span>
-      </div>
-      <div class="motion-panel">
-        <video muted loop playsinline preload="auto">
-          <source src="b2b_shopping.mp4" type="video/mp4">
-        </video>
-        <span class="motion-label">CHAOS.</span>
-      </div>
+    <div class="motion-panel">
+      <video muted loop playsinline preload="auto">
+        <source src="b2b_violin.mp4" type="video/mp4">
+      </video>
+      <span class="motion-label">STRATEGY.</span>
     </div>
-    <h2 class="scene-title">B2C.</h2>
-  </section>
-
-  <section class="intro-scene chocolate" id="sceneChocolate">
-    <video class="full-video" id="chocolateVideo" muted playsinline preload="auto">
-      <source src="chocolate_opening.mp4.mp4" type="video/mp4">
-    </video>
-    <div class="chocolate-copy" id="chocolateCopy">
-      B2B or B2C.<br>What matters is the <em>feeling.</em>
+    <div class="motion-panel">
+      <video muted loop playsinline preload="auto">
+        <source src="b2b_handshake.mp4" type="video/mp4">
+      </video>
+      <span class="motion-label">TRUST.</span>
     </div>
-  </section>
+  </div>
+  <h2 class="scene-title">B2B.</h2>
+</section>
 
-  <button class="sound-control" id="soundButton" type="button">
-    🔇 Enable sound
-  </button>
+<section class="intro-scene b2c" id="sceneB2C">
+  <div class="motion-triptych">
+    <div class="motion-panel">
+      <video muted loop playsinline preload="auto">
+        <source src="b2c_saxophone.mp4" type="video/mp4">
+      </video>
+      <span class="motion-label">CULTURE.</span>
+    </div>
+    <div class="motion-panel">
+      <video muted loop playsinline preload="auto">
+        <source src="b2c_pizza.mp4" type="video/mp4">
+      </video>
+      <span class="motion-label">CRAVINGS.</span>
+    </div>
+    <div class="motion-panel">
+      <video muted loop playsinline preload="auto">
+        <source src="b2b_shopping.mp4" type="video/mp4">
+      </video>
+      <span class="motion-label">CHAOS.</span>
+    </div>
+  </div>
+  <h2 class="scene-title">B2C.</h2>
+</section>
+
+<section class="intro-scene chocolate" id="sceneChocolate">
+  <video class="full-video" id="chocolateVideo" muted playsinline preload="auto">
+    <source src="chocolate_opening.mp4.mp4" type="video/mp4">
+  </video>
+  <div class="chocolate-copy" id="chocolateCopy">
+    B2B or B2C.<br>
+    What matters is the <em>feeling.</em>
+  </div>
+</section>
+
+<button class="sound-control" id="soundButton" type="button">
+  🔇 Enable sound
+</button>
 </div>
 
-<!-- NAVIGATION -->
+<!-- NAVIGATION: ONLY TWO LINKS -->
 <header class="site-header">
   <a href="#thinking" class="logo">
     <span class="small-letter">(f)</span><span class="main-letter">RES</span><span class="small-letter">(h)</span><span class="main-letter">UME.</span>
   </a>
   <nav class="site-nav">
-    <a href="#campaigns">The thinking</a>
-    <a href="#campaigns">Campaigns</a>
+    <a href="#grant-video">Campaigns</a>
     <a href="#about">About</a>
   </nav>
 </header>
 
 <main>
 
-<!-- CHANGE 1: PHILOSOPHY -->
+<!-- PHILOSOPHY -->
 <section class="philosophy" id="thinking">
   <div class="kicker">01 / THE PHILOSOPHY</div>
   <h1>
@@ -713,6 +641,7 @@ button:focus-visible,a:focus-visible{
 
 <!-- GRANT THORNTON -->
 <section class="campaign gt" id="campaigns">
+
   <div class="campaign-head">
     <div class="kicker">02 / B2B / TRUST</div>
 
@@ -737,7 +666,7 @@ button:focus-visible,a:focus-visible{
     </div>
   </div>
 
-  <div class="film-wrap">
+  <div class="film-wrap" id="grant-video">
     <video class="campaign-film" controls playsinline preload="metadata">
       <source src="grant_thornton.mp4" type="video/mp4">
     </video>
@@ -761,18 +690,35 @@ button:focus-visible,a:focus-visible{
     </div>
   </div>
 
+  <!-- APPROVED STRATEGY: TRANSFORMATION -->
   <div class="strategy-strip">
-    <span>THE STRATEGY</span>
-    <p>
-      Transform institutional credibility into
-      <span class="strategy-emphasis">emotional reassurance</span>
-      through inclusive storytelling, expert voices and empathy.
+    <span class="strategy-eyebrow">THE STRATEGY</span>
+
+    <div class="gt-strategy-grid">
+      <p class="strategy-big">
+        Institutional<br>credibility.
+      </p>
+
+      <div class="gt-bridge">
+        <span>TRANSFORMED INTO</span>
+        <b>→</b>
+      </div>
+
+      <p class="strategy-big gt-result">
+        Emotional<br>reassurance.
+      </p>
+    </div>
+
+    <p class="strategy-detail">
+      Through inclusive storytelling, expert voices and empathy.
     </p>
   </div>
+
 </section>
 
 <!-- NUVAMA -->
 <section class="campaign nuvama">
+
   <div class="campaign-head">
     <div class="kicker">03 / B2C / FINANCIAL EMPOWERMENT</div>
 
@@ -822,20 +768,37 @@ button:focus-visible,a:focus-visible{
     </div>
   </div>
 
+  <!-- APPROVED STRATEGY: FROM / TO -->
   <div class="strategy-strip">
-    <span>THE STRATEGY</span>
-    <p>
-      Make global investing feel
-      <span class="strategy-emphasis">local, approachable and empowering</span>
+    <span class="strategy-eyebrow">THE STRATEGY</span>
+
+    <div class="nuvama-strategy-flow">
+      <div>
+        <span class="flow-label">FROM</span>
+        <p class="flow-big">Global<br>investing.</p>
+      </div>
+
+      <span class="flow-arrow" aria-hidden="true">→</span>
+
+      <div>
+        <span class="flow-label">TO</span>
+        <p class="flow-big">Local<br>confidence.</p>
+      </div>
+    </div>
+
+    <p class="strategy-detail">
+      Make global investing feel local, approachable and empowering
       through cultural relevance and financial education.
     </p>
   </div>
+
 </section>
 
 <!-- KURKURE × MATCHA -->
 <section class="campaign kurkure">
+
   <div class="campaign-head">
-    <div class="kicker">04 / B2C / CULTURE & CHAOS</div>
+    <div class="kicker">04 / B2C / CULTURE &amp; CHAOS</div>
 
     <h2 class="rage-title">
       <span class="rage-brand">Matcha × Kurkure.</span>
@@ -868,20 +831,42 @@ button:focus-visible,a:focus-visible{
     </div>
   </div>
 
+  <!-- APPROVED STRATEGY: VISUAL EQUATION -->
   <div class="strategy-strip">
-    <span>THE STRATEGY</span>
-    <p>
-      Turn an unexpected flavour collision into a
-      <span class="strategy-emphasis">shareable cultural moment</span>
-      through sensory storytelling, curiosity and playful provocation.
+    <span class="strategy-eyebrow">THE STRATEGY</span>
+
+    <div class="kurkure-strategy-equation">
+      <p class="equation-word">
+        Unexpected<br>flavour.
+      </p>
+
+      <span class="equation-sign" aria-hidden="true">+</span>
+
+      <p class="equation-word">
+        Strong<br>reactions.
+      </p>
+
+      <span class="equation-sign" aria-hidden="true">=</span>
+
+      <p class="equation-word equation-result">
+        Cultural<br>conversation.
+      </p>
+    </div>
+
+    <p class="strategy-detail">
+      Turn an unexpected flavour collision into a shareable
+      cultural moment through sensory storytelling,
+      curiosity and playful provocation.
     </p>
   </div>
+
 </section>
 
 <!-- NANDO'S -->
 <section class="campaign nandos">
+
   <div class="campaign-head">
-    <div class="kicker">05 / B2C / BEAUTY & ABSURDITY</div>
+    <div class="kicker">05 / B2C / BEAUTY &amp; ABSURDITY</div>
 
     <h2 class="nandos-title">
       <span>Is it makeup?</span>
@@ -918,21 +903,36 @@ button:focus-visible,a:focus-visible{
     </div>
   </div>
 
+  <!-- APPROVED STRATEGY: LUXURY EDITORIAL -->
   <div class="strategy-strip">
-    <span>THE STRATEGY</span>
-    <p>
-      Borrow the codes of
-      <span class="strategy-emphasis">luxury beauty advertising</span>,
+    <span class="strategy-eyebrow">THE STRATEGY</span>
+
+    <div class="nandos-strategy-hero">
+      <h3 class="beauty-stack">
+        <span>NANDO'S</span>
+        <span>BEAUTY.</span>
+      </h3>
+
+      <p class="beauty-statement">
+        Make absurdity<br>
+        look expensive.
+      </p>
+    </div>
+
+    <p class="strategy-detail">
+      Borrow the codes of luxury beauty advertising,
       then subvert them with deliciously absurd
       food-inspired products to spark conversation
       and social sharing.
     </p>
   </div>
+
 </section>
 
 <!-- FINAL STRATEGIC COMMUNICATIONS SLIDE -->
 <section class="final-signature" id="about">
   <div class="final-inner">
+
     <h2>Hi, I'm Akshita.</h2>
 
     <img
@@ -948,6 +948,7 @@ button:focus-visible,a:focus-visible{
       Strategic Communications artwork could not be loaded.
       Please check the filename in GitHub.
     </div>
+
   </div>
 </section>
 
@@ -989,6 +990,7 @@ button:focus-visible,a:focus-visible{
 
   function activate(scene){
     if(finished)return;
+
     clearSceneTimers();
 
     scenes.forEach(item=>{
@@ -997,6 +999,7 @@ button:focus-visible,a:focus-visible{
 
     if(scene===b2b||scene===b2c){
       stopOtherVideos(null);
+
       scene.querySelectorAll("video").forEach(video=>{
         video.muted=true;
         video.volume=0;
@@ -1048,6 +1051,7 @@ button:focus-visible,a:focus-visible{
     startFallback();
 
     video.play().catch(()=>{
+      clearTimeout(sceneTimer);
       sceneTimer=setTimeout(advance,2500);
     });
   }
@@ -1065,6 +1069,7 @@ button:focus-visible,a:focus-visible{
   function showChocolate(){
     activate(chocolate);
     chocolateCopy.classList.remove("visible");
+
     playFilm(chocolateVideo,finish,12000);
 
     messageTimer=setTimeout(()=>{
@@ -1078,6 +1083,7 @@ button:focus-visible,a:focus-visible{
 
     clearSceneTimers();
     stopOtherVideos(null);
+
     overlay.classList.add("finished");
     document.body.classList.remove("intro-active");
 
@@ -1107,18 +1113,7 @@ button:focus-visible,a:focus-visible{
     });
   });
 
-  // Preserve anchor navigation after the intro.
-  const initialHash=window.location.hash;
-
-  if(initialHash){
-    window.addEventListener("load",()=>{
-      window.scrollTo({top:0,behavior:"instant"});
-    });
-  }
-
-  start();
-
-  // Load all four approved campaign boards.
+  // Load the approved campaign boards.
   document.querySelectorAll(".approved-board img").forEach(img=>{
     img.onload=()=>{img.hidden=false};
     img.onerror=()=>{img.hidden=true};
@@ -1128,7 +1123,7 @@ button:focus-visible,a:focus-visible{
     img.setAttribute("src",source);
   });
 
-  // Display final approved artwork.
+  // Display the final quiltboard artwork.
   const artwork=document.getElementById("strategicArtwork");
   const artworkError=document.getElementById("artworkError");
 
@@ -1151,6 +1146,9 @@ button:focus-visible,a:focus-visible{
       artworkError.hidden=false;
     }
   }
+
+  // Start the opening sequence.
+  start();
 })();
 </script>
 
