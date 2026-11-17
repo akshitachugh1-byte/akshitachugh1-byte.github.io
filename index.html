@@ -10,7 +10,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
-
 <style>
 :root {
   --dark:#101d14;
@@ -118,8 +117,8 @@ button:focus-visible,a:focus-visible {
   letter-spacing:-.095em;
   pointer-events:none;
 }
-.b2b .scene-title {color:var(--cream)}
-.b2c .scene-title {color:var(--lime)}
+.b2b .scene-title {color:#f5f0e6}
+.b2c .scene-title {color:#fff0d8}
 .chocolate:after {
   content:"";
   position:absolute;
@@ -279,73 +278,6 @@ button:focus-visible,a:focus-visible {
   margin:75px 0 30px;
   line-height:1.05;
 }
-.mockup-grid {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:20px;
-}
-.mockup {
-  min-width:0;
-  background:#fff;
-  border:1px solid #00000015;
-  overflow:hidden;
-}
-.mockup-top {
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  padding:16px;
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:.1em;
-}
-.mockup-visual {
-  position:relative;
-  min-height:310px;
-  aspect-ratio:4/4;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:25px;
-  background:#21342a;
-  color:white;
-  text-align:center;
-}
-.mockup-visual img {
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.mockup-visual:after {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    0deg,rgba(0,0,0,.7),rgba(0,0,0,.05)
-  );
-}
-.mockup-visual strong {
-  position:relative;
-  z-index:2;
-  font-size:clamp(22px,2.6vw,42px);
-  line-height:1.1;
-  letter-spacing:-.05em;
-}
-.mockup-bottom {padding:22px}
-.mockup-bottom h3 {
-  font-size:21px;
-  margin:0 0 8px;
-  letter-spacing:-.04em;
-}
-.mockup-bottom p {
-  font-size:14px;
-  line-height:1.55;
-  margin:0;
-  opacity:.75;
-}
 .strategy-strip {
   margin-top:25px;
   padding:35px;
@@ -394,55 +326,18 @@ button:focus-visible,a:focus-visible {
 
 /* GRANT THORNTON */
 .gt {background:#e9efdc}
-.gt .mockup-visual {
-  background:#d9c7e9;
-  color:#fff;
-}
-.gt .mockup:nth-child(1) .mockup-visual {
-  background:linear-gradient(135deg,#c9b5df,#f7e7a4);
-}
-.gt .mockup:nth-child(2) .mockup-visual {
-  background:linear-gradient(135deg,#9eaf8a,#d5b9e5);
-}
-.gt .mockup:nth-child(3) .mockup-visual {
-  background:linear-gradient(135deg,#dfb8d6,#e9d7a3);
-}
 
 /* NUVAMA */
-.nuvama {
-  background:#f6e6d4;
-}
+.nuvama {background:#f6e6d4}
 .nuvama .kicker,.nuvama .campaign-lead strong {
   color:#8134a2;
-}
-.nuvama .mockup-visual {
-  background:linear-gradient(135deg,#722b8c,#ef9146);
-}
-.nuvama .mockup:nth-child(2) .mockup-visual {
-  background:linear-gradient(135deg,#df672d,#e4a65a);
-}
-.nuvama .mockup:nth-child(3) .mockup-visual {
-  background:linear-gradient(135deg,#622b85,#a15db7);
 }
 .nuvama .strategy-strip {background:#38204d}
 
 /* KURKURE */
-.kurkure {
-  background:#d9ff64;
-}
+.kurkure {background:#d9ff64}
 .kurkure .kicker,.kurkure .campaign-lead strong {
   color:#a53818;
-}
-.kurkure .mockup-visual {
-  background:radial-gradient(
-    circle at 65% 30%,#f4ff66,#e54a16 70%
-  );
-}
-.kurkure .mockup:nth-child(2) .mockup-visual {
-  background:linear-gradient(135deg,#e94319,#5c111c);
-}
-.kurkure .mockup:nth-child(3) .mockup-visual {
-  background:linear-gradient(135deg,#3b1c30,#b9ef4e);
 }
 .kurkure .strategy-strip {background:#301a1d}
 
@@ -453,18 +348,6 @@ button:focus-visible,a:focus-visible {
 }
 .nandos .kicker {color:#ff9c7b}
 .nandos .campaign-lead strong {color:#ff9c7b}
-.nandos .mockup {color:#22120f}
-.nandos .mockup-visual {
-  background:radial-gradient(
-    circle,#e55a20,#5b1017 80%
-  );
-}
-.nandos .mockup:nth-child(2) .mockup-visual {
-  background:linear-gradient(135deg,#f3c6a8,#b42831);
-}
-.nandos .mockup:nth-child(3) .mockup-visual {
-  background:linear-gradient(135deg,#4c0d16,#df6b38);
-}
 .nandos .strategy-strip {
   background:#18070a;
   border:1px solid #ffffff25;
@@ -519,8 +402,6 @@ footer {
   .site-nav {gap:12px}
   .site-nav a {font-size:11px}
   .campaign {padding:75px 6%}
-  .mockup-grid {grid-template-columns:1fr}
-  .mockup-visual {min-height:280px}
   .strategy-strip {grid-template-columns:1fr}
   .motion-triptych {gap:2px}
   .motion-label {
@@ -703,65 +584,6 @@ footer {
     One idea. Every touchpoint.
   </h3>
 
-  <div class="mockup-grid">
-
-    <article class="mockup">
-      <div class="mockup-top">
-        <span>INSTAGRAM</span><span>01</span>
-      </div>
-      <div class="mockup-visual">
-        <strong>
-          Every child deserves to be understood.
-        </strong>
-      </div>
-      <div class="mockup-bottom">
-        <h3>Human-first storytelling</h3>
-        <p>
-          Confidence, belonging and progress,
-          told through gentle, watercolor-inspired art.
-        </p>
-      </div>
-    </article>
-
-    <article class="mockup">
-      <div class="mockup-top">
-        <span>YOUTUBE</span><span>02</span>
-      </div>
-      <div class="mockup-visual">
-        <strong>
-          What does support really look like?
-        </strong>
-      </div>
-      <div class="mockup-bottom">
-        <h3>Stories worth watching</h3>
-        <p>
-          Compassionate conversations with
-          educators and families.
-        </p>
-      </div>
-    </article>
-
-    <article class="mockup">
-      <div class="mockup-top">
-        <span>WEBSITE / THOUGHT LEADERSHIP</span>
-        <span>03</span>
-      </div>
-      <div class="mockup-visual">
-        <strong>
-          A future where every learner belongs.
-        </strong>
-      </div>
-      <div class="mockup-bottom">
-        <h3>Expertise with empathy</h3>
-        <p>
-          Thoughtful research and human-centered
-          guidance, presented with warmth.
-        </p>
-      </div>
-    </article>
-
-  </div>
-
   <div class="approved-board">
     <img src="grant_thornton_board.png"
       alt="Grant Thornton pastel oil-painting campaign board"
@@ -826,65 +648,6 @@ footer {
     Investing, in your language.
   </h3>
 
-  <div class="mockup-grid">
-
-    <article class="mockup">
-      <div class="mockup-top">
-        <span>WEBSITE</span><span>01</span>
-      </div>
-      <div class="mockup-visual">
-        <strong>
-          अब घर बैठे, दुनिया में Invest करें।
-        </strong>
-      </div>
-      <div class="mockup-bottom">
-        <h3>Investing made relatable</h3>
-        <p>
-          Familiar language, accessible education
-          and an inviting digital experience.
-        </p>
-      </div>
-    </article>
-
-    <article class="mockup">
-      <div class="mockup-top">
-        <span>INSTAGRAM</span><span>02</span>
-      </div>
-      <div class="mockup-visual">
-        <strong>
-          आज भिंडी का भाव,<br>
-          कल Shares का हिसाब!
-        </strong>
-      </div>
-      <div class="mockup-bottom">
-        <h3>Everyday conversations</h3>
-        <p>
-          From market stalls to stock markets,
-          investing becomes part of daily life.
-        </p>
-      </div>
-    </article>
-
-    <article class="mockup">
-      <div class="mockup-top">
-        <span>YOUTUBE / LINKEDIN</span><span>03</span>
-      </div>
-      <div class="mockup-visual">
-        <strong>
-          बाज़ार सिर्फ़ सब्ज़ियों का थोड़ी है!
-        </strong>
-      </div>
-      <div class="mockup-bottom">
-        <h3>Financial freedom for everyone</h3>
-        <p>
-          Witty educational content and
-          women-led financial conversations.
-        </p>
-      </div>
-    </article>
-
-  </div>
-
   <div class="approved-board">
     <img src="nuvama_board.png"
       alt="Nuvama Wealth Hinglish campaign board"
@@ -946,66 +709,6 @@ footer {
   <h3 class="mockup-heading">
     The crunch that broke the calm.
   </h3>
-
-  <div class="mockup-grid">
-
-    <article class="mockup">
-      <div class="mockup-top">
-        <span>WEBSITE</span><span>01</span>
-      </div>
-      <div class="mockup-visual">
-        <strong>
-          THE CRUNCH COLLISION.
-        </strong>
-      </div>
-      <div class="mockup-bottom">
-        <h3>Giant-food disruption</h3>
-        <p>
-          Oversized orange crunch, acid-green
-          skies and an apocalyptic flavour collision.
-        </p>
-      </div>
-    </article>
-
-    <article class="mockup">
-      <div class="mockup-top">
-        <span>YOUTUBE</span><span>02</span>
-      </div>
-      <div class="mockup-visual">
-        <strong>
-          CRRRUNCH!
-        </strong>
-      </div>
-      <div class="mockup-bottom">
-        <h3>Sound you can almost see</h3>
-        <p>
-          Extreme macro textures, explosive
-          crumbs and a first bite worth replaying.
-        </p>
-      </div>
-    </article>
-
-    <article class="mockup">
-      <div class="mockup-top">
-        <span>SOCIAL / OUTDOOR</span><span>03</span>
-      </div>
-      <div class="mockup-visual">
-        <strong>
-          MATCHA.<br>
-          SPICE.<br>
-          CRUNCH.
-        </strong>
-      </div>
-      <div class="mockup-bottom">
-        <h3>Designed to provoke</h3>
-        <p>
-          Neon cyberpunk, food surrealism
-          and a flavour nobody saw coming.
-        </p>
-      </div>
-    </article>
-
-  </div>
 
   <div class="approved-board">
     <img src="kurkure_board.png"
@@ -1075,71 +778,6 @@ footer {
   <h3 class="mockup-heading">
     The Nando's Beauty Menu.
   </h3>
-
-  <div class="mockup-grid">
-
-    <article class="mockup">
-      <div class="mockup-top">
-        <span>WEBSITE</span><span>01</span>
-      </div>
-      <div class="mockup-visual">
-        <strong>
-          Serving looks.<br>
-          Extra saucy.
-        </strong>
-      </div>
-      <div class="mockup-bottom">
-        <h3>Food meets luxury beauty</h3>
-        <p>
-          Butter chicken beside lip gloss,
-          creamy lassi beside foundation,
-          kheer beside blush and boondi
-          raita beside concealer.
-        </p>
-      </div>
-    </article>
-
-    <article class="mockup">
-      <div class="mockup-top">
-        <span>INSTAGRAM</span><span>02</span>
-      </div>
-      <div class="mockup-visual">
-        <strong>
-          BUTTERFLY CHICKEN<br>
-          LIP GLOSS.
-        </strong>
-      </div>
-      <div class="mockup-bottom">
-        <h3>Beauty, but make it saucy</h3>
-        <p>
-          Liquid chrome, glossy sauce,
-          macro product textures and
-          satin-ribbon reveals.
-        </p>
-      </div>
-    </article>
-
-    <article class="mockup">
-      <div class="mockup-top">
-        <span>YOUTUBE / OUTDOOR</span><span>03</span>
-      </div>
-      <div class="mockup-visual">
-        <strong>
-          IS IT MAKEUP?<br>
-          IS IT DINNER?
-        </strong>
-      </div>
-      <div class="mockup-bottom">
-        <h3>Ridiculous. Delicious. Shareable.</h3>
-        <p>
-          Hyper-realistic food imagery,
-          beauty creator reactions and
-          larger-than-life product launches.
-        </p>
-      </div>
-    </article>
-
-  </div>
 
   <div class="approved-board">
     <img src="nandos_board.png"
